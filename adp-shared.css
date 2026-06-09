@@ -263,42 +263,19 @@ h1, h2, h3, h4, h5 {
 .adp-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
 }
 
-.adp-logo-mark {
-    display: none; /* remplacé par le logo typographique */
+.adp-logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
 }
 
-.adp-logo-wordmark {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-}
-
-.adp-logo-wordmark__adp {
-    font-family: var(--adp-font-heading);
-    font-weight: 900;
-    font-size: 1.85rem;
-    color: var(--adp-blue);
-    letter-spacing: -0.02em;
-    line-height: 1;
-}
-
-.adp-logo-wordmark__sub {
-    font-family: var(--adp-font-body);
-    font-size: 0.62rem;
-    font-weight: 600;
-    color: var(--adp-gray-muted);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-top: 1px;
-}
-
-/* Legacy .adp-logo-text — conservé pour compatibilité */
+/* Legacy — cachés */
+.adp-logo-mark { display: none; }
+.adp-logo-wordmark { display: none; }
 .adp-logo-text { display: none; }
-.adp-logo-text span { color: var(--adp-blue); }
 
 /* Liens nav */
 .adp-nav-links {
