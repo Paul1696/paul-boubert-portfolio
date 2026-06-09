@@ -263,28 +263,41 @@ h1, h2, h3, h4, h5 {
 .adp-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: var(--adp-font-heading);
-    font-weight: 900;
-    font-size: 1.3rem;
-    letter-spacing: 0.08em;
-    color: var(--adp-black);
+    gap: 8px;
+    text-decoration: none;
 }
 
 .adp-logo-mark {
-    width: 34px;
-    height: 34px;
-    background: var(--adp-blue);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 900;
-    letter-spacing: 0;
+    display: none; /* remplacé par le logo typographique */
 }
 
+.adp-logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.adp-logo-wordmark__adp {
+    font-family: var(--adp-font-heading);
+    font-weight: 900;
+    font-size: 1.85rem;
+    color: var(--adp-blue);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.adp-logo-wordmark__sub {
+    font-family: var(--adp-font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--adp-gray-muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 1px;
+}
+
+/* Legacy .adp-logo-text — conservé pour compatibilité */
+.adp-logo-text { display: none; }
 .adp-logo-text span { color: var(--adp-blue); }
 
 /* Liens nav */

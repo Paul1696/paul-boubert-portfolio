@@ -110,14 +110,116 @@
 
 /* ── Section Pôles ────────────────────────────────────────── */
 .adp-poles {
-    background: var(--adp-surface);
-    padding: 7rem 0;
+    background: var(--adp-white);
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--adp-border);
 }
 
 .adp-poles .adp-label  { margin-bottom: 1rem; }
-.adp-poles .section-title { margin-bottom: 0.75rem; }
-.adp-poles .section-subtitle { margin-bottom: 4rem; }
+.adp-poles .section-title { margin-bottom: 3rem; }
 
+/* Rangée 5 pôles */
+.adp-poles-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+/* Carte pôle — version compacte horizontale */
+.adp-pole-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--adp-border);
+    border-radius: var(--adp-radius-lg);
+    background: var(--adp-white);
+    transition: var(--adp-transition-mid);
+    position: relative;
+    overflow: hidden;
+}
+
+.adp-pole-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--adp-blue), var(--adp-blue-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.adp-pole-item:hover {
+    border-color: rgba(30,115,216,0.25);
+    box-shadow: var(--adp-shadow-md);
+    transform: translateY(-4px);
+}
+
+.adp-pole-item:hover::before { transform: scaleX(1); }
+
+/* Icône */
+.adp-pole-item .adp-pole-card__icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(30,115,216,0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--adp-blue);
+    transition: var(--adp-transition-fast);
+}
+
+.adp-pole-item:hover .adp-pole-card__icon {
+    background: var(--adp-blue);
+    color: var(--adp-white);
+}
+
+/* Label ADP | NOM */
+.adp-pole-item .adp-pole-card__body { flex: 1; }
+
+.adp-pole-item .adp-pole-card__body h3 {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--adp-black);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.adp-pole-item .adp-pole-card__body h3 span {
+    color: var(--adp-blue);
+}
+
+.adp-pole-item .adp-pole-card__body p {
+    font-size: 0.82rem;
+    color: var(--adp-gray-text);
+    line-height: 1.6;
+}
+
+.adp-pole-item .adp-pole-card__link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--adp-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.adp-pole-item .adp-pole-card__link i { transition: transform 0.25s ease; }
+.adp-pole-item:hover .adp-pole-card__link i { transform: translateX(4px); }
+
+@media (max-width: 1100px) { .adp-poles-row { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 700px)  { .adp-poles-row { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 440px)  { .adp-poles-row { grid-template-columns: 1fr; } }
+
+/* ── Ancien .adp-poles-grid (legacy) ── */
 .adp-poles-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -403,3 +505,50 @@
     .adp-hero-blob--1 { width: 300px; height: 300px; }
     .adp-hero-blob--2 { width: 250px; height: 250px; }
 }
+
+/* -- Projets r�cents (J3) -- */
+.adp-recent{padding:6rem 0;background:var(--adp-white);}
+.adp-recent__header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;}
+.adp-recent__header .section-title{margin-bottom:0;}
+.adp-recent__all{font-size:.82rem;}
+.adp-carousel-wrap{position:relative;display:flex;align-items:center;gap:1rem;}
+.adp-carousel{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;flex:1;overflow:hidden;}
+.adp-carousel-btn{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--adp-border);background:var(--adp-white);color:var(--adp-blue);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:var(--adp-transition-fast);}
+.adp-carousel-btn:hover{background:var(--adp-blue);color:var(--adp-white);border-color:var(--adp-blue);}
+.adp-rc-card{display:block;border-radius:var(--adp-radius-lg);overflow:hidden;background:var(--adp-surface);text-decoration:none;transition:var(--adp-transition-mid);}
+.adp-rc-card:hover{transform:translateY(-4px);box-shadow:var(--adp-shadow-md);}
+.adp-rc-card__img{aspect-ratio:4/3;overflow:hidden;}
+.adp-rc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.adp-rc-card:hover .adp-rc-card__img img{transform:scale(1.06);}
+.adp-rc-card__info{padding:1rem;}
+.adp-rc-card__name{font-size:.9rem;font-weight:700;color:var(--adp-black);margin-bottom:.3rem;}
+.adp-rc-card__cat{font-size:.75rem;color:var(--adp-blue);font-weight:600;}
+@media(max-width:1024px){.adp-carousel{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.adp-carousel{grid-template-columns:1fr;}.adp-carousel-btn{display:none;}}
+
+/* -- Engagement (J4) -- */
+.adp-engagement{padding:5rem 0;background:var(--adp-surface);border-top:1px solid var(--adp-border);}
+.adp-engagement__inner{display:flex;align-items:flex-start;gap:2.5rem;padding:2.5rem;background:var(--adp-white);border:1px solid var(--adp-border);border-radius:var(--adp-radius-lg);border-left:4px solid var(--adp-blue);}
+.adp-engagement__icon{width:56px;height:56px;background:rgba(30,115,216,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--adp-blue);flex-shrink:0;}
+.adp-engagement__body .adp-label{margin-bottom:.75rem;}
+.adp-engagement__body h2{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;color:var(--adp-black);letter-spacing:-0.02em;line-height:1.3;margin-bottom:1rem;}
+.adp-engagement__body p{font-size:.9rem;color:var(--adp-gray-text);line-height:1.75;max-width:680px;margin-bottom:1.25rem;}
+.adp-engagement__link{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;color:var(--adp-blue);text-transform:uppercase;letter-spacing:.1em;}
+.adp-engagement__link:hover{gap:.75rem;}
+@media(max-width:600px){.adp-engagement__inner{flex-direction:column;gap:1.5rem;}}
+
+/* -- Newsletter (J5) -- */
+.adp-newsletter{background:var(--adp-blue);padding:2rem 0;}
+.adp-newsletter__inner{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.adp-newsletter__text{flex:0 0 auto;}
+.adp-newsletter__label{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;}
+.adp-newsletter__text p{font-size:.88rem;color:rgba(255,255,255,.85);}
+.adp-newsletter__form{display:flex;gap:.5rem;flex:1;min-width:260px;}
+.adp-newsletter__form input{flex:1;padding:.7rem 1rem;border:none;border-radius:4px;font-family:var(--adp-font-body);font-size:.88rem;color:var(--adp-black);}
+.adp-newsletter__form input:focus{outline:2px solid rgba(255,255,255,.5);}
+.adp-newsletter__form button{padding:.7rem 1.5rem;background:var(--adp-blue-dark);color:#fff;border:none;border-radius:4px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:var(--adp-transition-fast);}
+.adp-newsletter__form button:hover{background:#071e3d;}
+.adp-newsletter__socials{display:flex;gap:.75rem;margin-left:auto;}
+.adp-newsletter__socials a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:var(--adp-transition-fast);}
+.adp-newsletter__socials a:hover{background:rgba(255,255,255,.3);}
+@media(max-width:900px){.adp-newsletter__socials{margin-left:0;}}
