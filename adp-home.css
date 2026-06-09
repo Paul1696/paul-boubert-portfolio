@@ -63,6 +63,30 @@
     pointer-events: none;
 }
 
+/* Grille deux colonnes hero */
+.adp-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Visuel hero */
+.adp-hero-visual {
+    position: relative;
+}
+
+.adp-hero-img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+}
+
 /* Contenu hero */
 .adp-hero-content {
     position: relative;
@@ -487,6 +511,21 @@
 }
 
 /* ── Responsive hero ──────────────────────────────────────── */
+@media (max-width: 900px) {
+    .adp-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .adp-hero-visual {
+        order: -1;
+    }
+
+    .adp-hero-img {
+        height: 320px;
+    }
+}
+
 @media (max-width: 768px) {
     .adp-hero {
         min-height: 90vh;
@@ -506,7 +545,7 @@
     .adp-hero-blob--2 { width: 250px; height: 250px; }
 }
 
-/* -- Projets r�cents (J3) -- */
+/* -- Projets r�cents (J3) -- */
 .adp-recent{padding:6rem 0;background:var(--adp-white);}
 .adp-recent__header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;}
 .adp-recent__header .section-title{margin-bottom:0;}
