@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio ADP — Ateliers de Paul. Découvrez nos réalisations en architecture, conception d'intérieur et aménagement au Cameroun.">
+    <title>Portfolio | ADP — Ateliers de Paul</title>
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../adp-shared.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89V1WZL52D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-89V1WZL52D');</script>
+</head>
+<body>
+    <div class="adp-cursor"></div>
+    <div class="adp-cursor-follower"></div>
+
+    <!-- Navbar -->
+    <header class="adp-navbar">
+        <div class="adp-container">
+            <a href="/" class="adp-logo">
+                <div class="adp-logo-mark">A</div>
+                <span class="adp-logo-text">ATELIERS <span>DE PAUL</span></span>
+            </a>
+            <nav class="adp-nav-links">
+                <div class="adp-nav-dropdown">
+                    <span class="adp-nav-item">Pôles</span>
+                    <div class="adp-dropdown-menu">
+                        <a href="/adp/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-building"></i></span>ADP</a>
+                        <a href="/adp-tools/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-tools"></i></span>ADP Tools</a>
+                        <a href="/adp-studio/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-pencil-ruler"></i></span>ADP Studio</a>
+                        <a href="/adp-brief/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-file-alt"></i></span>ADP Brief</a>
+                        <a href="/adp-academy/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-graduation-cap"></i></span>ADP Academy</a>
+                        <a href="/adp-lab/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-flask"></i></span>ADP Lab</a>
+                    </div>
+                </div>
+                <a href="/portfolio/" class="adp-nav-item active">Portfolio</a>
+                <a href="/ressources/" class="adp-nav-item">Ressources</a>
+                <a href="/a-propos/" class="adp-nav-item">À propos</a>
+            </nav>
+            <a href="/contact/" class="btn-primary adp-nav-cta">Nous contacter</a>
+            <button class="adp-menu-toggle" aria-label="Menu" aria-expanded="false">
+                <div class="adp-hamburger"><span></span><span></span></div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero compact -->
+        <section class="pf-hero">
+            <div class="adp-container">
+                <nav class="pf-breadcrumb" aria-label="Fil d'Ariane">
+                    <a href="/">Accueil</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Portfolio</span>
+                </nav>
+                <div class="pf-hero-content">
+                    <p class="adp-label fade-in-up">Nos réalisations</p>
+                    <h1 class="pf-hero-title fade-in-up">Portfolio</h1>
+                    <p class="pf-hero-subtitle fade-in-up">
+                        37 projets d'architecture, d'aménagement intérieur et de conception digitale réalisés au Cameroun et en Afrique centrale.
+                    </p>
+                    <div class="pf-hero-stats fade-in-up">
+                        <div class="pf-stat">
+                            <span class="pf-stat__num">37</span>
+                            <span class="pf-stat__label">Projets</span>
+                        </div>
+                        <div class="pf-stat">
+                            <span class="pf-stat__num">3</span>
+                            <span class="pf-stat__label">Catégories</span>
+                        </div>
+                        <div class="pf-stat">
+                            <span class="pf-stat__num">8+</span>
+                            <span class="pf-stat__label">Années</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grille projets -->
+        <section class="pf-projects">
+            <div class="adp-container">
+
+                <!-- Architecture -->
+                <div class="pf-category-block">
+                    <div class="pf-category-header">
+                        <h2 class="pf-category-title fade-in-up">Architecture</h2>
+                    </div>
+                    <div class="pf-filter-bar fade-in-up">
+                        <button class="pf-filter-btn active" data-filter="all">Tout</button>
+                        <button class="pf-filter-btn" data-filter="residentiel">Résidentiel</button>
+                        <button class="pf-filter-btn" data-filter="commercial">Commercial &amp; Tertiaire</button>
+                        <button class="pf-filter-btn" data-filter="renovation">Rénovation &amp; Réhabilitation</button>
+                    </div>
+                    <div class="pf-projects-grid" id="arch-grid">
+                        <!-- 1 — Web Holding Tower -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/web_tower/web_holding_cover_v2.jpg" alt="Web Holding Tower" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Bureaux</span>
+                                    <h3 class="pf-card__name">Web Holding Tower</h3>
+                                    <p class="pf-card__desc">Une tour de verre R+15 emblématique conçue pour l'efficience tertiaire et la modularité.</p>
+                                    <a href="/portfolio/web_tower/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 2 — Immeuble Tonye -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/tonye/tonye_1.jpg" alt="Immeuble Tonye" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Location</span>
+                                    <h3 class="pf-card__name">Immeuble Tonye</h3>
+                                    <p class="pf-card__desc">Totem urbain R+5 proposant des appartements et un loft d'exception destinés à la location.</p>
+                                    <a href="/portfolio/tonye/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 3 — Workbox -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/workbox/workbox_1.jpg" alt="Workbox" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Bureaux</span>
+                                    <h3 class="pf-card__name">Workbox</h3>
+                                    <p class="pf-card__desc">Bureaux modulaires agiles. Une architecture innovante sous sur-toiture ventilée protectrice.</p>
+                                    <a href="/portfolio/workbox/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 4 — Résidence Hunter -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/hunter/hunter_1.jpg" alt="Résidence Hunter" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Meublés</span>
+                                    <h3 class="pf-card__name">Résidence Hunter</h3>
+                                    <p class="pf-card__desc">Appartements meublés pour la location. Upcycling de conteneurs mariant métal et bois chaleureux.</p>
+                                    <a href="/portfolio/hunter/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 5 — Hôtel de Bertoua -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/hotel_bertoua/main.jpg" alt="Hôtel de Bertoua" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Hôtellerie / Prestige</span>
+                                    <h3 class="pf-card__name">Hôtel de Bertoua</h3>
+                                    <p class="pf-card__desc">Conception d'un complexe hôtelier moderne à Bertoua, alliant luxe contemporain et confort thermique.</p>
+                                    <a href="/portfolio/hotel_bertoua/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 6 — Résidence Universitaire SOA -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/residence_soa/main.jpg" alt="Résidence SOA" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Logement Étudiant / R+2</span>
+                                    <h3 class="pf-card__name">Résidence Universitaire SOA</h3>
+                                    <p class="pf-card__desc">Habitat collectif optimisé pour la vie étudiante, alliant fonctionnalité et esthétique sobre.</p>
+                                    <a href="/portfolio/residence_soa/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 7 — Villa M. Owona -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/owona/main.jpg" alt="Villa M. Owona" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Résidentiel / Luxe</span>
+                                    <h3 class="pf-card__name">Villa M. Owona</h3>
+                                    <p class="pf-card__desc">Une résidence d'exception aux lignes épurées, privilégiant la lumière naturelle et la fluidité spatiale.</p>
+                                    <a href="/portfolio/owona/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 8 — Villa Mandeng -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/mandeng/main.jpg" alt="Villa Mandeng" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Résidentiel / Suivi</span>
+                                    <h3 class="pf-card__name">Villa Mandeng</h3>
+                                    <p class="pf-card__desc">Projet résidentiel alliant rigueur technique et confort, suivi de la conception à la réalisation.</p>
+                                    <a href="/portfolio/mandeng/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 9 — Bicec Bafoussam -->
+                        <article class="pf-card fade-in-up" data-type="renovation">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/bicec/bicec_7.jpg" alt="Bicec Bafoussam" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Réhabilitation Bancaire</span>
+                                    <h3 class="pf-card__name">Bicec Bafoussam</h3>
+                                    <p class="pf-card__desc">Modernisation du «Look & Feel» selon la charte BICEC. Restructuration des volumes et identité institutionnelle forte.</p>
+                                    <a href="/portfolio/bicec/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 10 — Résidence Oasis -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/oasis/oasis_1.jpg" alt="Résidence Oasis" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Meublés</span>
+                                    <h3 class="pf-card__name">Résidence Oasis</h3>
+                                    <p class="pf-card__desc">10 appartements meublés pour la location à Kribi, articulés autour d'un cœur d'îlot aquatique.</p>
+                                    <a href="/portfolio/oasis/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 11 — Le Bojolais -->
+                        <article class="pf-card fade-in-up" data-type="renovation">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/boj/boj_2.jpg" alt="Le Bojolais" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Restauration / Signal Urbain</span>
+                                    <h3 class="pf-card__name">Le Bojolais (BOJ)</h3>
+                                    <p class="pf-card__desc">Renaissance spectaculaire d'un lieu culte. Façade en pierre brute et terracotta créant un signal nocturne fort.</p>
+                                    <a href="/portfolio/boj/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 12 — Concession Enem -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/enem/enem_1.jpg" alt="Concession Enem" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Commercial / SITRAK</span>
+                                    <h3 class="pf-card__name">Concession Enem</h3>
+                                    <p class="pf-card__desc">Vitrine monumentale bleue unifiée par une résille métallique technique. Showroom de 580 m² sur l'axe N3.</p>
+                                    <a href="/portfolio/enem/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 13 — Boutique Biyem-Assi -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/boutique_biyem_assi/hero.jpg" alt="Boutique Biyem-Assi" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Commerce de Proximité</span>
+                                    <h3 class="pf-card__name">Boutique Biyem-Assi</h3>
+                                    <p class="pf-card__desc">Conception d'un espace commercial sur trois niveaux au cœur du quartier Biyem-Assi à Yaoundé.</p>
+                                    <a href="/portfolio/boutique_biyem_assi/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 14 — Bureaux Perenco -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/perenco_offices/img_7.jpg" alt="Bureaux Perenco" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Corporate / Bureaux</span>
+                                    <h3 class="pf-card__name">Bureaux Perenco</h3>
+                                    <p class="pf-card__desc">Aménagement de bureaux tertiaires haut de gamme alliant design corporate et coordination BIM.</p>
+                                    <a href="/portfolio/perenco_offices/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 15 — Base Industrielle Petrofor -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/petrofor_base/hero.png" alt="Base Industrielle Petrofor" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Industriel / Logistique</span>
+                                    <h3 class="pf-card__name">Base Industrielle Petrofor</h3>
+                                    <p class="pf-card__desc">Conception d'une base technique (TCP) incluant labos, bureaux et entrepôts modulaires.</p>
+                                    <a href="/portfolio/petrofor_base/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 16 — Résidence H -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/residence_h/residence_h_3.jpg" alt="Résidence H" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Réaménagement / Duplex</span>
+                                    <h3 class="pf-card__name">Résidence H</h3>
+                                    <p class="pf-card__desc">Réaménagement complet d'un duplex de standing à Yaoundé. Style néo-classique et luxe contemporain.</p>
+                                    <a href="/portfolio/residence_h/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 17 — Villa Harmony -->
+                        <article class="pf-card fade-in-up" data-type="renovation">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/harmony/harmony_12.jpg" alt="Villa Harmony" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Rénovation / Plain-pied</span>
+                                    <h3 class="pf-card__name">Villa Harmony</h3>
+                                    <p class="pf-card__desc">Rénovation profonde d'une villa de plain-pied, sublimée par des arches et une texture en briques.</p>
+                                    <a href="/portfolio/harmony/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 18 — Mbella Nfandena -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/mbella/mbella_7.jpg" alt="Mbella Nfandena" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Location</span>
+                                    <h3 class="pf-card__name">Mbella Nfandena</h3>
+                                    <p class="pf-card__desc">Nouvelle construction proposant des appartements de standing destinés à la location résidentielle.</p>
+                                    <a href="/portfolio/mbella/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 19 — Villa Emeraude -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/emeraude/IMG-20211010-WA0013.jpg" alt="Villa Emeraude" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Villa</span>
+                                    <h3 class="pf-card__name">Villa Emeraude</h3>
+                                    <p class="pf-card__desc">Une résidence d'exception mariant modernité tropicale et intégration paysagère.</p>
+                                    <a href="/portfolio/emeraude/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 20 — Duplex Séquoia -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/sequoia/Capture.PNG" alt="Duplex Séquoia" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Duplex</span>
+                                    <h3 class="pf-card__name">Duplex Séquoia</h3>
+                                    <p class="pf-card__desc">Exploration de la légèreté structurelle avec des volumes audacieux en porte-à-faux.</p>
+                                    <a href="/portfolio/sequoia/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 21 — Villa Horizon -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/horizon/1.jpg" alt="Villa Horizon" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Nouvelle Construction / Villa</span>
+                                    <h3 class="pf-card__name">Villa Horizon</h3>
+                                    <p class="pf-card__desc">Résidence de 200 m² optimisée pour le confort familial et la lumière naturelle.</p>
+                                    <a href="/portfolio/horizon/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 22 — Appartement Bonanjo -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/bahemeck_final/hero_v3.png" alt="Appartement Bonanjo" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Aménagement d'Intérieur / Standing</span>
+                                    <h3 class="pf-card__name">Appartement Bonanjo</h3>
+                                    <p class="pf-card__desc">Rénovation complète d'un appartement de 150 m² au 15ème étage d'un immeuble moderne à Douala.</p>
+                                    <a href="/portfolio/bahemeck/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 23 — Studio Graphite -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/018_studio/hero.jpg" alt="Studio Graphite" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Collectif / Studio</span>
+                                    <h3 class="pf-card__name">Studio Graphite</h3>
+                                    <p class="pf-card__desc">Conception d'unités de vie compactes et intelligentes alliant design et performance BIM.</p>
+                                    <a href="/portfolio/018_studio/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 24 — La Croissanterie -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/croissanterie/main.jpg" alt="La Croissanterie" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Commerce / Intérieur</span>
+                                    <h3 class="pf-card__name">La Croissanterie</h3>
+                                    <p class="pf-card__desc">Aménagement d'une boulangerie-café alliant artisanat traditionnel et design industriel chic.</p>
+                                    <a href="/portfolio/croissanterie/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 25 — Bureaux DSI -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/bureau_dsi/main.png" alt="Bureaux DSI" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Tertiaire / IT</span>
+                                    <h3 class="pf-card__name">Bureaux DSI</h3>
+                                    <p class="pf-card__desc">Optimisation d'espaces de travail pour équipes SI, privilégiant agilité et confort technique.</p>
+                                    <a href="/portfolio/bureau_dsi/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 26 — SUKA Café Terrasse -->
+                        <article class="pf-card fade-in-up" data-type="renovation">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/suka_cafe/hero_main.jpg" alt="SUKA Café Terrasse" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Intérieur / Commercial</span>
+                                    <h3 class="pf-card__name">SUKA Café Terrasse</h3>
+                                    <p class="pf-card__desc">Réhabilitation d'une ancienne banque en un "écrin tribal" premium de 130 m² sous une canopée monumentale.</p>
+                                    <a href="/portfolio/suka_cafe/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 27 — Cabinet Dentaire Elena -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/cabinet_elena/img_7.jpg" alt="Cabinet Dentaire Elena" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Médical / Intérieur</span>
+                                    <h3 class="pf-card__name">Cabinet Dentaire Elena</h3>
+                                    <p class="pf-card__desc">Un espace de soin apaisant alliant ergonomie médicale et design chaleureux.</p>
+                                    <a href="/portfolio/cabinet_elena/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 28 — Meeting Room Corporate -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/meeting_room/img_7.jpg" alt="Meeting Room Corporate" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Bureaux / Smart Office</span>
+                                    <h3 class="pf-card__name">Meeting Room Corporate</h3>
+                                    <p class="pf-card__desc">Espace de collaboration high-tech privilégiant l'acoustique et la connectivité.</p>
+                                    <a href="/portfolio/meeting_room/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 29 — Showroom Kotto -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/showroom_kotto/hero.jpg" alt="Showroom Kotto" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Retail / Scénographie</span>
+                                    <h3 class="pf-card__name">Showroom Kotto</h3>
+                                    <p class="pf-card__desc">Mise en scène monumentale d'un espace de vente stratégique à Douala.</p>
+                                    <a href="/portfolio/showroom_kotto/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 30 — Grill Way -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/grill_way/hero.png" alt="Grill Way" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Restauration / Fast Food</span>
+                                    <h3 class="pf-card__name">Grill Way</h3>
+                                    <p class="pf-card__desc">Design dynamique et flux optimisés pour une enseigne de restauration moderne.</p>
+                                    <a href="/portfolio/grill_way/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 31 — Résidence Lipem -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/lipem/hero.jpg" alt="Résidence Lipem" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Habitat Collectif / BIM</span>
+                                    <h3 class="pf-card__name">Résidence Lipem</h3>
+                                    <p class="pf-card__desc">Immeuble de logements moderne privilégiant la clarté des volumes et la fonctionnalité.</p>
+                                    <a href="/portfolio/lipem/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 32 — Pharmacie & Studio -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/pharmacie_studio/hero.jpg" alt="Pharmacie & Studio" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Mixité / Commerce & Studio</span>
+                                    <h3 class="pf-card__name">Pharmacie &amp; Studio</h3>
+                                    <p class="pf-card__desc">Un projet mixte alliant visibilité commerciale et habitat compact optimisé.</p>
+                                    <a href="/portfolio/pharmacie_studio/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 33 — BICEC USCA -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/bicec_usca/img_2.jpg" alt="BICEC USCA" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Banque / Tertiaire</span>
+                                    <h3 class="pf-card__name">BICEC USCA</h3>
+                                    <p class="pf-card__desc">Conception technique et aménagement d'une agence bancaire spécialisée à haute sécurité.</p>
+                                    <a href="/portfolio/bicec_usca/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 34 — Entrepôt Logistique -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/entrepot/hero.png" alt="Entrepôt Logistique" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Industriel / Stockage</span>
+                                    <h3 class="pf-card__name">Entrepôt Logistique</h3>
+                                    <p class="pf-card__desc">Infrastructure de stockage de grande capacité avec structure métallique optimisée.</p>
+                                    <a href="/portfolio/entrepot/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 35 — Salle de Fêtes -->
+                        <article class="pf-card fade-in-up" data-type="commercial">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/salle_de_fete/image23.jpg" alt="Salle de Fêtes" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Équipement / Événementiel</span>
+                                    <h3 class="pf-card__name">Salle de Fêtes</h3>
+                                    <p class="pf-card__desc">Espace polyvalent de grande portée conçu pour les événements sociaux et culturels.</p>
+                                    <a href="/portfolio/salle_de_fete/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 36 — Duplex Domegne -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/duplex_domegne/img_4.jpeg" alt="Duplex Domegne" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Résidence / Duplex</span>
+                                    <h3 class="pf-card__name">Duplex Domegne</h3>
+                                    <p class="pf-card__desc">Exploration de l'équilibre des volumes et de l'intimité familiale dans un duplex moderne.</p>
+                                    <a href="/portfolio/duplex_domegne/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 37 — Résidence Mme Edzigui -->
+                        <article class="pf-card fade-in-up" data-type="residentiel">
+                            <div class="pf-card__image">
+                                <img src="../assets/projects/mme_edzigui/img_0_0.png" alt="Résidence Mme Edzigui" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Villa Privée / Standing</span>
+                                    <h3 class="pf-card__name">Résidence Mme Edzigui</h3>
+                                    <p class="pf-card__desc">Une villa élégante privilégiant la clarté des volumes et une distribution fluide.</p>
+                                    <a href="/portfolio/mme_edzigui/" class="pf-card__link">Découvrir <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Écriture -->
+                <div class="pf-category-block">
+                    <div class="pf-category-header">
+                        <h2 class="pf-category-title fade-in-up">Écriture</h2>
+                    </div>
+                    <div class="pf-filter-bar fade-in-up">
+                        <button class="pf-filter-btn active" data-filter="all" data-grid="writing-grid">Tout</button>
+                        <button class="pf-filter-btn" data-filter="livre" data-grid="writing-grid">Livres</button>
+                        <button class="pf-filter-btn" data-filter="article" data-grid="writing-grid">Articles</button>
+                    </div>
+                    <div class="pf-projects-grid" id="writing-grid">
+                        <article class="pf-card fade-in-up" data-type="livre">
+                            <div class="pf-card__image">
+                                <img src="../assets/writing/book_cameroun.png" alt="L'Architecture au Cameroun" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">Livre / Essai</span>
+                                    <h3 class="pf-card__name">L'Architecture au Cameroun</h3>
+                                    <p class="pf-card__desc">Une exploration profonde de l'identité architecturale camerounaise entre tradition et modernité.</p>
+                                    <a href="#" class="pf-card__link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Développement -->
+                <div class="pf-category-block">
+                    <div class="pf-category-header">
+                        <h2 class="pf-category-title fade-in-up">Développement</h2>
+                    </div>
+                    <div class="pf-filter-bar fade-in-up">
+                        <button class="pf-filter-btn active" data-filter="all" data-grid="dev-grid">Tout</button>
+                        <button class="pf-filter-btn" data-filter="web" data-grid="dev-grid">Applications Web</button>
+                        <button class="pf-filter-btn" data-filter="tool" data-grid="dev-grid">Outils BIM</button>
+                    </div>
+                    <div class="pf-projects-grid" id="dev-grid">
+                        <article class="pf-card fade-in-up" data-type="web">
+                            <div class="pf-card__image">
+                                <img src="../assets/dev/archiviz_app.png" alt="Archiviz Management" loading="lazy">
+                                <div class="pf-card__overlay">
+                                    <span class="pf-card__cat">App / Web</span>
+                                    <h3 class="pf-card__name">Archiviz Management</h3>
+                                    <p class="pf-card__desc">Plateforme de gestion de projets architecturaux et visualisation 3D en temps réel.</p>
+                                    <a href="#" class="pf-card__link">Voir démo <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="adp-footer">
+        <div class="adp-container">
+            <div class="adp-footer-grid">
+                <div class="adp-footer-brand">
+                    <div class="adp-footer-logo">
+                        <div class="adp-logo-mark">A</div>
+                        <span>ATELIERS DE PAUL</span>
+                    </div>
+                    <p class="adp-footer-tagline">Conseil, conception et formation au service des projets de construction et d'aménagement au Cameroun.</p>
+                    <div class="adp-footer-socials">
+                        <a href="https://www.linkedin.com/in/paul-boubert" target="_blank" rel="noopener" class="adp-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://architecture-creative.ateliersdepaul.com/" target="_blank" rel="noopener" class="adp-social-link" aria-label="Blog"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Pôles</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/adp/">ADP</a></li>
+                        <li><a href="/adp-tools/">ADP Tools</a></li>
+                        <li><a href="/adp-studio/">ADP Studio</a></li>
+                        <li><a href="/adp-brief/">ADP Brief</a></li>
+                        <li><a href="/adp-academy/">ADP Academy</a></li>
+                        <li><a href="/adp-lab/">ADP Lab</a></li>
+                    </ul>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/portfolio/">Portfolio</a></li>
+                        <li><a href="/ressources/">Ressources</a></li>
+                        <li><a href="/a-propos/">À propos</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Légal</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/cadre-deontologique/">Cadre déontologique</a></li>
+                        <li><a href="/mentions-legales/">Mentions légales</a></li>
+                        <li><a href="/politique-confidentialite/">Confidentialité</a></li>
+                    </ul>
+                    <div class="adp-footer-badge" style="margin-top:1.5rem;">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Conforme ONAC Cameroun</span>
+                    </div>
+                </div>
+            </div>
+            <div class="adp-footer-bottom">
+                <p class="adp-footer-copy">&copy; 2026 Ateliers de Paul — Tous droits réservés.</p>
+                <div class="adp-footer-legal">
+                    <a href="/mentions-legales/">Mentions légales</a>
+                    <a href="/politique-confidentialite/">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../adp-shared.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>

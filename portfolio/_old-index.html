@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paul Boubert - Architecte, Auteur & Concepteur Digital. Explorez mes projets d'architecture, mes livres et mes concepts d'applications.">
+    <title>Paul Boubert | Architecture & Design</title>
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89V1WZL52D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-89V1WZL52D');
+    </script>
+</head>
+<body class="loading">
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-text">PAUL</span>
+                    <span class="logo-dot"></span>
+                    <span class="logo-text">BOUBERT</span>
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#home" class="nav-item">Accueil</a>
+                <a href="#projects" class="nav-item">Projets</a>
+                <a href="#about" class="nav-item">À Propos</a>
+                <a href="https://architecture-creative.ateliersdepaul.com/" target="_blank" class="nav-item">Blog</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-shapes">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-meta fade-in-up">
+                        <span class="meta-line"></span>
+                        <span class="meta-text">Portfolio Créatif</span>
+                    </div>
+                    <h1 class="hero-title fade-in-up" style="animation-delay: 0.2s">
+                        Bâtir des <span class="text-gradient">Espaces</span>,<br>
+                        Écrire des <span class="text-gradient">Mondes</span>.
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.4s">
+                        Assistant architecte & dessinateur projeteur. Je fusionne la technique du génie civil et la vision architecturale pour créer des projets concrets, de l'esquisse au chantier.
+                    </p>
+                    <div class="hero-actions fade-in-up" style="animation-delay: 0.6s">
+                        <a href="#projects" class="btn-main">
+                            <span class="btn-text">Explorer mes travaux</span>
+                            <span class="btn-icon"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        <div class="scroll-indicator">
+                            <div class="mouse"></div>
+                            <span>Défiler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Mes <span>Réalisations</span></h2>
+                <div class="category-block">
+                    <h3 class="category-heading">Architecture</h3>
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">Tout</button>
+                        <button class="filter-btn" data-filter="residentiel">Résidentiel</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial & Tertiaire</button>
+                        <button class="filter-btn" data-filter="renovation">Rénovation & Réhabilitation</button>
+                    </div>
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/web_tower/web_holding_cover_v2.jpg" alt="Web Holding Tower">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Bureaux</span>
+                                    <h3 class="project-name">Web Holding Tower</h3>
+                                    <p class="project-desc">Une tour de verre R+15 emblématique conçue pour l'efficience tertiaire et la modularité.</p>
+                                    <a href="projects/web_tower.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/tonye/tonye_1.jpg" alt="Immeuble Tonye">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Location</span>
+                                    <h3 class="project-name">Immeuble Tonye</h3>
+                                    <p class="project-desc">Totem urbain R+5 proposant des appartements et un loft d'exception destinés à la location.</p>
+                                    <a href="projects/tonye.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/workbox/workbox_1.jpg" alt="Workbox">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Bureaux</span>
+                                    <h3 class="project-name">Workbox</h3>
+                                    <p class="project-desc">Bureaux modulaires agiles. Une architecture innovante sous sur-toiture ventilée protectrice.</p>
+                                    <a href="projects/workbox.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/hunter/hunter_1.jpg" alt="Résidence Hunter">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Meublés</span>
+                                    <h3 class="project-name">Résidence Hunter</h3>
+                                    <p class="project-desc">Appartements meublés pour la location. Upcycling de conteneurs mariant métal et bois chaleureux.</p>
+                                    <a href="projects/hunter.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/hotel_bertoua/main.jpg" alt="Hôtel de Bertoua">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Hôtellerie / Prestige</span>
+                                    <h3 class="project-name">Hôtel de Bertoua</h3>
+                                    <p class="project-desc">Conception d'un complexe hôtelier moderne à Bertoua, alliant luxe contemporain et confort thermique.</p>
+                                    <a href="projects/hotel_bertoua.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/residence_soa/main.jpg" alt="Résidence SOA">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Logement Étudiant / R+2</span>
+                                    <h3 class="project-name">Résidence Universitaire SOA</h3>
+                                    <p class="project-desc">Habitat collectif optimisé pour la vie étudiante, alliant fonctionnalité et esthétique sobre.</p>
+                                    <a href="projects/residence_soa.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/owona/main.jpg" alt="Villa M. Owona">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Résidentiel / Luxe</span>
+                                    <h3 class="project-name">Villa M. Owona</h3>
+                                    <p class="project-desc">Une résidence d'exception aux lignes épurées, privilégiant la lumière naturelle et la fluidité spatiale.</p>
+                                    <a href="projects/owona.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/mandeng/main.jpg" alt="Villa Mandeng">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Résidentiel / Suivi</span>
+                                    <h3 class="project-name">Villa Mandeng</h3>
+                                    <p class="project-desc">Projet résidentiel alliant rigueur technique et confort, suivi de la conception à la réalisation.</p>
+                                    <a href="projects/mandeng.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        
+
+                        
+
+                        <article class="project-card" data-category="architecture" data-type="renovation">
+                            <div class="project-image">
+                                <img src="assets/projects/bicec/bicec_7.jpg" alt="Bicec Bafoussam">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Réhabilitation Bancaire</span>
+                                    <h3 class="project-name">Bicec Bafoussam</h3>
+                                    <p class="project-desc">Modernisation du «Look & Feel» selon la charte BICEC. Restructuration des volumes et identité institutionnelle forte.</p>
+                                    <a href="projects/bicec.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/oasis/oasis_1.jpg" alt="Résidence Oasis">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Meublés</span>
+                                    <h3 class="project-name">Résidence Oasis</h3>
+                                    <p class="project-desc">10 appartements meublés pour la location à Kribi, articulés autour d'un cœur d'îlot aquatique.</p>
+                                    <a href="projects/oasis.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="renovation">
+                            <div class="project-image">
+                                <img src="assets/projects/boj/boj_2.jpg" alt="Le Bojolais">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Restauration / Signal Urbain</span>
+                                    <h3 class="project-name">Le Bojolais (BOJ)</h3>
+                                    <p class="project-desc">Renaissance spectaculaire d'un lieu culte. Façade en pierre brute et terracotta créant un signal nocturne fort.</p>
+                                    <a href="projects/boj.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/enem/enem_1.jpg" alt="Concession Enem">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Commercial / SITRAK</span>
+                                    <h3 class="project-name">Concession Enem</h3>
+                                    <p class="project-desc">Vitrine monumentale bleue unifiée par une résille métallique technique. Showroom de 580 m² sur l'axe N3.</p>
+                                    <a href="projects/enem.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/boutique_biyem_assi/hero.jpg" alt="Boutique Biyem-Assi">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Commerce de Proximité</span>
+                                    <h3 class="project-name">Boutique Biyem-Assi</h3>
+                                    <p class="project-desc">Conception d'un espace commercial sur trois niveaux au cœur du quartier Biyem-Assi à Yaoundé.</p>
+                                    <a href="projects/boutique_biyem_assi.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/perenco_offices/img_7.jpg" alt="Bureaux Perenco">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Corporate / Bureaux</span>
+                                    <h3 class="project-name">Bureaux Perenco</h3>
+                                    <p class="project-desc">Aménagement de bureaux tertiaires haut de gamme alliant design corporate et coordination BIM.</p>
+                                    <a href="projects/perenco_offices.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/petrofor_base_tcp/hero.png" alt="Base Industrielle Petrofor">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Industriel / Logistique</span>
+                                    <h3 class="project-name">Base Industrielle Petrofor</h3>
+                                    <p class="project-desc">Conception d'une base technique (TCP) incluant labos, bureaux et entrepôts modulaires.</p>
+                                    <a href="projects/petrofor_base.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/residence_h/residence_h_3.jpg" alt="Résidence H">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Réaménagement / Duplex</span>
+                                    <h3 class="project-name">Résidence H</h3>
+                                    <p class="project-desc">Réaménagement complet d'un duplex de standing à Yaoundé. Style néo-classique et luxe contemporain.</p>
+                                    <a href="projects/residence_h.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="renovation">
+                            <div class="project-image">
+                                <img src="assets/projects/harmony/harmony_12.jpg" alt="Villa Harmony">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Rénovation / Plain-pied</span>
+                                    <h3 class="project-name">Villa Harmony</h3>
+                                    <p class="project-desc">Rénovation profonde d'une villa de plain-pied, sublimée par des arches et une texture en briques.</p>
+                                    <a href="projects/harmony.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/mbella/mbella_7.jpg" alt="Mbella Nfandena">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Location</span>
+                                    <h3 class="project-name">Mbella Nfandena</h3>
+                                    <p class="project-desc">Nouvelle construction proposant des appartements de standing destinés à la location résidentielle.</p>
+                                    <a href="projects/mbella.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/emeraude/IMG-20211010-WA0013.jpg" alt="Villa Emeraude">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Villa</span>
+                                    <h3 class="project-name">Villa Emeraude</h3>
+                                    <p class="project-desc">Une résidence d'exception mariant modernité tropicale et intégration paysagère.</p>
+                                    <a href="projects/emeraude.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/sequoia/Capture.PNG" alt="Duplex Séquoia">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Duplex</span>
+                                    <h3 class="project-name">Duplex Séquoia</h3>
+                                    <p class="project-desc">Exploration de la légèreté structurelle avec des volumes audacieux en porte-à-faux.</p>
+                                    <a href="projects/sequoia.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/horizon/1.jpg" alt="Villa Horizon">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Nouvelle Construction / Villa</span>
+                                    <h3 class="project-name">Villa Horizon</h3>
+                                    <p class="project-desc">Résidence de 200 m² optimisée pour le confort familial et la lumière naturelle.</p>
+                                    <a href="projects/horizon.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/bahemeck_final/hero_v3.png" alt="Appartement Bonanjo">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Aménagement d'Intérieur / Standing</span>
+                                    <h3 class="project-name">Appartement Bonanjo</h3>
+                                    <p class="project-desc">Rénovation complète d'un appartement de 150 m² au 15ème étage d'un immeuble moderne à Douala.</p>
+                                    <a href="projects/bahemeck.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/018_studio/hero.jpg" alt="Studio Graphite">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Collectif / Studio</span>
+                                    <h3 class="project-name">Studio Graphite</h3>
+                                    <p class="project-desc">Conception d'unités de vie compactes et intelligentes alliant design et performance BIM.</p>
+                                    <a href="projects/018_studio.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/croissanterie/main.jpg" alt="La Croissanterie">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Commerce / Intérieur</span>
+                                    <h3 class="project-name">La Croissanterie</h3>
+                                    <p class="project-desc">Aménagement d'une boulangerie-café alliant artisanat traditionnel et design industriel chic.</p>
+                                    <a href="projects/croissanterie.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/bureau_dsi/main.png" alt="Bureaux DSI">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Tertiaire / IT</span>
+                                    <h3 class="project-name">Bureaux DSI</h3>
+                                    <p class="project-desc">Optimisation d'espaces de travail pour équipes SI, privilégiant agilité et confort technique.</p>
+                                    <a href="projects/bureau_dsi.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="renovation">
+                            <div class="project-image">
+                                <img src="assets/projects/suka_cafe/hero_main.jpg" alt="SUKA Café Terrasse">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Intérieur / Commercial</span>
+                                    <h3 class="project-name">SUKA Café Terrasse</h3>
+                                    <p class="project-desc">Réhabilitation d'une ancienne banque en un "écrin tribal" premium de 130 m² sous une canopée monumentale.</p>
+                                    <a href="projects/suka_cafe.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/cabinet_elena/img_7.jpg" alt="Cabinet Dentaire Elena">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Médical / Intérieur</span>
+                                    <h3 class="project-name">Cabinet Dentaire Elena</h3>
+                                    <p class="project-desc">Un espace de soin apaisant alliant ergonomie médicale et design chaleureux.</p>
+                                    <a href="projects/cabinet_elena.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/meeting_room/img_7.jpg" alt="Meeting Room Corporate">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Bureaux / Smart Office</span>
+                                    <h3 class="project-name">Meeting Room Corporate</h3>
+                                    <p class="project-desc">Espace de collaboration high-tech privilégiant l'acoustique et la connectivité.</p>
+                                    <a href="projects/meeting_room.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/showroom_kotto/hero.jpg" alt="Showroom Kotto">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Retail / Scénographie</span>
+                                    <h3 class="project-name">Showroom Kotto</h3>
+                                    <p class="project-desc">Mise en scène monumentale d'un espace de vente stratégique à Douala.</p>
+                                    <a href="projects/showroom_kotto.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/grill_way/hero.png" alt="Grill Way">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Restauration / Fast Food</span>
+                                    <h3 class="project-name">Grill Way</h3>
+                                    <p class="project-desc">Design dynamique et flux optimisés pour une enseigne de restauration moderne.</p>
+                                    <a href="projects/grill_way.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/lipem/hero.jpg" alt="Résidence Lipem">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Habitat Collectif / BIM</span>
+                                    <h3 class="project-name">Résidence Lipem</h3>
+                                    <p class="project-desc">Immeuble de logements moderne privilégiant la clarté des volumes et la fonctionnalité.</p>
+                                    <a href="projects/lipem.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/pharmacie_studio/hero.jpg" alt="Pharmacie & Studio">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Mixité / Commerce & Studio</span>
+                                    <h3 class="project-name">Pharmacie & Studio</h3>
+                                    <p class="project-desc">Un projet mixte alliant visibilité commerciale et habitat compact optimisé.</p>
+                                    <a href="projects/pharmacie_studio.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/bicec_usca/img_2.jpg" alt="BICEC USCA">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Banque / Tertiaire</span>
+                                    <h3 class="project-name">BICEC USCA</h3>
+                                    <p class="project-desc">Conception technique et aménagement d'une agence bancaire spécialisée à haute sécurité.</p>
+                                    <a href="projects/bicec_usca.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/entrepot/hero.png" alt="Entrepôt Logistique">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Industriel / Stockage</span>
+                                    <h3 class="project-name">Entrepôt Logistique</h3>
+                                    <p class="project-desc">Infrastructure de stockage de grande capacité avec structure métallique optimisée.</p>
+                                    <a href="projects/entrepot.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="architecture" data-type="commercial">
+                            <div class="project-image">
+                                <img src="assets/projects/salle_de_fete/image23.jpg" alt="Salle de Fêtes">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Équipement / Événementiel</span>
+                                    <h3 class="project-name">Salle de Fêtes</h3>
+                                    <p class="project-desc">Espace polyvalent de grande portée conçu pour les événements sociaux et culturels.</p>
+                                    <a href="projects/salle_de_fete.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/duplex_domegne/img_4.jpeg" alt="Duplex Domegne">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Résidence / Duplex</span>
+                                    <h3 class="project-name">Duplex Domegne</h3>
+                                    <p class="project-desc">Exploration de l'équilibre des volumes et de l'intimité familiale dans un duplex moderne.</p>
+                                    <a href="projects/duplex_domegne.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+
+
+                        <article class="project-card" data-category="architecture" data-type="residentiel">
+                            <div class="project-image">
+                                <img src="assets/projects/mme_edzigui/img_0_0.png" alt="Résidence Mme Edzigui">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Villa Privée / Standing</span>
+                                    <h3 class="project-name">Résidence Mme Edzigui</h3>
+                                    <p class="project-desc">Une villa élégante privilégiant la clarté des volumes et une distribution fluide.</p>
+                                    <a href="projects/mme_edzigui.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="category-block">
+                    <h3 class="category-heading">Écriture</h3>
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">Tout</button>
+                        <button class="filter-btn" data-filter="livre">Livres</button>
+                        <button class="filter-btn" data-filter="article">Articles</button>
+                    </div>
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="ecriture" data-type="livre">
+                            <div class="project-image">
+                                <img src="assets/writing/book_cameroun.png" alt="L'Architecture au Cameroun">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Livre / Essai</span>
+                                    <h3 class="project-name">L'Architecture au Cameroun</h3>
+                                    <p class="project-desc">Une exploration profonde de l'identité architecturale camerounaise entre tradition et modernité.</p>
+                                    <a href="#" class="project-link">Lire plus <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="category-block">
+                    <h3 class="category-heading">Développement</h3>
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">Tout</button>
+                        <button class="filter-btn" data-filter="web">Applications Web</button>
+                        <button class="filter-btn" data-filter="tool">Outils BIM</button>
+                    </div>
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="dev" data-type="web">
+                            <div class="project-image">
+                                <img src="assets/dev/archiviz_app.png" alt="Archiviz Management">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">App / Web</span>
+                                    <h3 class="project-name">Archiviz Management</h3>
+                                    <p class="project-desc">Plateforme de gestion de projets architecturaux et visualisation 3D en temps réel.</p>
+                                    <a href="#" class="project-link">Voir démo <i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-container">
+                        <div class="about-image-wrapper">
+                            <img src="profile_paul.jpg" alt="Paul Boubert">
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">5+</span>
+                            <span class="text">Années d'Expérience</span>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title text-left">L'Architecte derrière <span>l'Écran</span></h2>
+                        <p class="lead">
+                            "Transformer la vision en réalité technique, de l'esquisse à la coordination de projet."
+                        </p>
+                        <p>
+                            Mon expertise s'appuie sur une Licence en Génie Civil et cinq années d'expérience concrète en cabinet d'architecture. Actuellement Assistant Architecte chez <strong>BARLABARLA Architectes</strong>, je me spécialise dans le dessin technique de précision (CAO), la gestion de projet et le contrôle rigoureux des travaux.
+                        </p>
+                        <p>
+                            Je suis particulièrement motivé par la transition numérique du bâtiment et l'optimisation des processus BIM. Je m'assure que chaque projet n'est pas seulement esthétique, mais aussi techniquement juste, respectant scrupuleusement les contraintes et les délais.
+                        </p>
+                        
+                        <a href="about.html" class="btn-main" style="margin-top: 2rem; display: inline-flex; align-items: center; gap: 10px;">
+                            <span>Voir mon parcours complet</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <i class="fas fa-drafting-compass"></i>
+                                <span>CAO & BIM (APS/APD/PRO)</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-cubes"></i>
+                                <span>Maquette Numérique 3D</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Confort Bioclimatique</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Suivi & Contrôle Travaux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h2 class="contact-title">Prêt à bâtir <span>ensemble</span> ?</h2>
+                        <p class="contact-text">Que ce soit pour un projet architectural, une collaboration éditoriale ou une idée d'application innovante, ma porte est toujours ouverte.</p>
+                        <a href="mailto:abz9940@gmail.com" class="btn-main large contact-trigger" target="_blank">
+                            <span>Démarrer une conversation</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="social-minimal">
+                        <a href="https://www.linkedin.com/in/paul-boubert-400b76181/" target="_blank" class="social-item">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://wa.me/237690715403" target="_blank" class="social-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://www.behance.net/boubert-portfolio" target="_blank" class="social-item">
+                            <i class="fab fa-behance"></i>
+                            <span>Behance</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paul Boubert. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>

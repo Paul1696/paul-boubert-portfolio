@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://portfolio.ateliersdepaul.com/sitemap.xml
+Sitemap: https://ateliersdepaul.com/sitemap.xml

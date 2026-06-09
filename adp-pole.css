@@ -1,0 +1,270 @@
+/* ============================================================
+   ADP — Pages Pôles | CSS partagé
+   ============================================================ */
+
+/* ── Hero pôle ────────────────────────────────────────────── */
+.pole-hero {
+    background: linear-gradient(135deg, var(--adp-blue-dark) 0%, #0d3d73 100%);
+    padding-top: calc(var(--adp-nav-height) + 5rem);
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pole-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.pole-hero__watermark {
+    position: absolute;
+    right: -2%;
+    bottom: -10%;
+    font-family: var(--adp-font-heading);
+    font-size: clamp(8rem, 18vw, 18rem);
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+}
+
+.pole-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+/* Breadcrumb */
+.pole-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2rem;
+}
+
+.pole-breadcrumb a {
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+}
+
+.pole-breadcrumb a:hover { color: var(--adp-white); }
+.pole-breadcrumb i { font-size: 0.6rem; }
+
+/* Label pôle */
+.pole-hero .adp-label {
+    color: var(--adp-blue-light);
+    margin-bottom: 1.25rem;
+}
+
+.pole-hero .adp-label::before { background: var(--adp-blue-light); }
+
+.pole-hero__title {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: var(--adp-white);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.pole-hero__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+}
+
+.pole-hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Bouton blanc sur fond sombre */
+.pole-hero .btn-primary {
+    background: var(--adp-white);
+    color: var(--adp-blue-dark);
+    border-color: var(--adp-white);
+}
+
+.pole-hero .btn-primary:hover {
+    background: var(--adp-gray-light);
+    border-color: var(--adp-gray-light);
+}
+
+.pole-hero .btn-outline {
+    border-color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.85);
+}
+
+.pole-hero .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--adp-white);
+}
+
+/* ── Responsive hero ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .pole-hero { padding-top: calc(var(--adp-nav-height) + 3rem); padding-bottom: 3.5rem; }
+    .pole-hero__actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Section Services ─────────────────────────────────────── */
+.pole-services {
+    padding: 7rem 0;
+    background: var(--adp-white);
+}
+
+.pole-services .adp-label  { margin-bottom: 1rem; }
+.pole-services .section-title { margin-bottom: 0.75rem; }
+.pole-services .section-subtitle { margin-bottom: 4rem; }
+
+.pole-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.pole-service-card {
+    padding: 2rem;
+    border: 1px solid var(--adp-border);
+    border-radius: var(--adp-radius-lg);
+    background: var(--adp-surface);
+    transition: var(--adp-transition-mid);
+}
+
+.pole-service-card:hover {
+    border-color: rgba(30,115,216,0.25);
+    box-shadow: var(--adp-shadow-md);
+    background: var(--adp-white);
+    transform: translateY(-3px);
+}
+
+.pole-service-card__icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(30,115,216,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--adp-blue);
+    margin-bottom: 1.25rem;
+    transition: var(--adp-transition-fast);
+}
+
+.pole-service-card:hover .pole-service-card__icon {
+    background: var(--adp-blue);
+    color: var(--adp-white);
+}
+
+.pole-service-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--adp-black);
+}
+
+.pole-service-card p {
+    font-size: 0.875rem;
+    color: var(--adp-gray-text);
+    line-height: 1.65;
+}
+
+@media (max-width: 900px)  { .pole-services-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px)  { .pole-services-grid { grid-template-columns: 1fr; } }
+
+/* ── Section Processus ────────────────────────────────────── */
+.pole-process {
+    padding: 7rem 0;
+    background: var(--adp-surface);
+}
+
+.pole-process .adp-label  { margin-bottom: 1rem; }
+.pole-process .section-title { margin-bottom: 3.5rem; }
+
+.pole-process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    counter-reset: step;
+}
+
+.pole-step {
+    position: relative;
+    padding: 2rem 1.5rem;
+    background: var(--adp-white);
+    border-radius: var(--adp-radius-lg);
+    border: 1px solid var(--adp-border);
+}
+
+.pole-step__num {
+    font-family: var(--adp-font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(30,115,216,0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.pole-step h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--adp-black);
+    margin-bottom: 0.5rem;
+}
+
+.pole-step p {
+    font-size: 0.85rem;
+    color: var(--adp-gray-text);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px)  { .pole-process-steps { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px)  { .pole-process-steps { grid-template-columns: 1fr; } }
+
+/* ── CTA bas de page pôle ─────────────────────────────────── */
+.pole-cta {
+    padding: 5rem 0;
+    background: var(--adp-blue);
+    text-align: center;
+}
+
+.pole-cta h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 900;
+    color: var(--adp-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.pole-cta p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pole-cta .btn-primary {
+    background: var(--adp-white);
+    color: var(--adp-blue);
+    border-color: var(--adp-white);
+}
+
+.pole-cta .btn-primary:hover {
+    background: var(--adp-gray-light);
+    border-color: var(--adp-gray-light);
+}

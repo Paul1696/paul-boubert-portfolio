@@ -1,0 +1,405 @@
+/* ============================================================
+   ADP — Page d'accueil | CSS spécifique
+   ============================================================ */
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.adp-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--adp-nav-height);
+    position: relative;
+    overflow: hidden;
+}
+
+.adp-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Blobs de couleur */
+.adp-hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.12;
+}
+
+.adp-hero-blob--1 {
+    width: 600px;
+    height: 600px;
+    background: var(--adp-blue);
+    top: -120px;
+    right: -100px;
+    animation: adp-float 22s infinite alternate ease-in-out;
+}
+
+.adp-hero-blob--2 {
+    width: 440px;
+    height: 440px;
+    background: var(--adp-blue-dark);
+    bottom: -60px;
+    left: -80px;
+    animation: adp-float 28s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes adp-float {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(40px, 60px); }
+}
+
+/* Grille de fond subtile */
+.adp-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(30,115,216,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,115,216,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Contenu hero */
+.adp-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    padding: 4rem 0;
+}
+
+.adp-hero-content .adp-label {
+    margin-bottom: 2rem;
+}
+
+.adp-hero-title {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    color: var(--adp-black);
+}
+
+.adp-hero-subtitle {
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: var(--adp-gray-text);
+    font-weight: 400;
+    line-height: 1.75;
+    max-width: 640px;
+    margin-bottom: 3rem;
+}
+
+.adp-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.adp-hero-actions .btn-primary i {
+    transition: transform 0.25s ease;
+}
+
+.adp-hero-actions .btn-primary:hover i {
+    transform: translateX(4px);
+}
+
+/* ── Section Pôles ────────────────────────────────────────── */
+.adp-poles {
+    background: var(--adp-surface);
+    padding: 7rem 0;
+}
+
+.adp-poles .adp-label  { margin-bottom: 1rem; }
+.adp-poles .section-title { margin-bottom: 0.75rem; }
+.adp-poles .section-subtitle { margin-bottom: 4rem; }
+
+.adp-poles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Carte pôle */
+.adp-pole-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background: var(--adp-white);
+    border: 1px solid var(--adp-border);
+    border-radius: var(--adp-radius-lg);
+    padding: 2rem;
+    transition: var(--adp-transition-mid);
+    position: relative;
+    overflow: hidden;
+}
+
+.adp-pole-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--adp-blue), var(--adp-blue-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.adp-pole-card:hover {
+    border-color: rgba(30,115,216,0.25);
+    box-shadow: var(--adp-shadow-lg);
+    transform: translateY(-4px);
+}
+
+.adp-pole-card:hover::before { transform: scaleX(1); }
+
+/* Icône */
+.adp-pole-card__icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(30,115,216,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--adp-blue);
+    transition: var(--adp-transition-fast);
+}
+
+.adp-pole-card:hover .adp-pole-card__icon {
+    background: var(--adp-blue);
+    color: var(--adp-white);
+}
+
+/* Corps */
+.adp-pole-card__body { flex: 1; }
+
+.adp-pole-card__body h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--adp-black);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+
+.adp-pole-card__body p {
+    font-size: 0.9rem;
+    color: var(--adp-gray-text);
+    line-height: 1.65;
+}
+
+/* Lien bas */
+.adp-pole-card__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--adp-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: auto;
+}
+
+.adp-pole-card__link i { transition: transform 0.25s ease; }
+.adp-pole-card:hover .adp-pole-card__link i { transform: translateX(5px); }
+
+/* Variante Lab */
+.adp-pole-card--lab {
+    background: linear-gradient(135deg, var(--adp-blue-dark) 0%, #0d3d73 100%);
+    border-color: transparent;
+    color: var(--adp-white);
+}
+
+.adp-pole-card--lab .adp-pole-card__icon {
+    background: rgba(255,255,255,0.15);
+    color: var(--adp-white);
+}
+
+.adp-pole-card--lab .adp-pole-card__body h3 { color: var(--adp-white); }
+.adp-pole-card--lab .adp-pole-card__body p  { color: rgba(255,255,255,0.7); }
+.adp-pole-card--lab .adp-pole-card__link    { color: rgba(255,255,255,0.85); }
+
+.adp-pole-card--lab::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+}
+
+.adp-pole-card--lab:hover {
+    box-shadow: 0 16px 48px rgba(11,47,91,0.4);
+}
+
+/* ── Responsive pôles ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .adp-poles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .adp-poles-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Section Pourquoi ADP ─────────────────────────────────── */
+.adp-why {
+    padding: 7rem 0;
+    background: var(--adp-white);
+}
+
+.adp-why-header {
+    max-width: 640px;
+    margin-bottom: 4rem;
+}
+
+.adp-why-header .adp-label   { margin-bottom: 1rem; }
+.adp-why-header .section-title { margin-bottom: 0.75rem; }
+
+.adp-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.adp-why-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--adp-border);
+    border-radius: var(--adp-radius-lg);
+    background: var(--adp-surface);
+    transition: var(--adp-transition-mid);
+}
+
+.adp-why-card:hover {
+    border-color: rgba(30,115,216,0.2);
+    box-shadow: var(--adp-shadow-md);
+    background: var(--adp-white);
+}
+
+.adp-why-card__num {
+    font-family: var(--adp-font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(30,115,216,0.12);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 3rem;
+    transition: color 0.3s ease;
+}
+
+.adp-why-card:hover .adp-why-card__num {
+    color: rgba(30,115,216,0.25);
+}
+
+.adp-why-card__content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--adp-black);
+    margin-bottom: 0.6rem;
+}
+
+.adp-why-card__content p {
+    font-size: 0.9rem;
+    color: var(--adp-gray-text);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .adp-why-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Bandeau CTA ──────────────────────────────────────────── */
+.adp-cta-band {
+    background: linear-gradient(135deg, var(--adp-blue-dark) 0%, #0d3d73 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.adp-cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.adp-cta-band__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.adp-cta-band__text h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 900;
+    color: var(--adp-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.adp-cta-band__text p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+}
+
+.adp-cta-band__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.adp-cta-band .btn-primary {
+    background: var(--adp-white);
+    color: var(--adp-blue-dark);
+    border-color: var(--adp-white);
+}
+
+.adp-cta-band .btn-primary:hover {
+    background: var(--adp-gray-light);
+    border-color: var(--adp-gray-light);
+}
+
+.adp-cta-band .btn-ghost {
+    color: rgba(255,255,255,0.75);
+}
+
+.adp-cta-band .btn-ghost:hover {
+    color: var(--adp-white);
+}
+
+@media (max-width: 768px) {
+    .adp-cta-band__inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Responsive hero ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .adp-hero {
+        min-height: 90vh;
+        padding-top: calc(var(--adp-nav-height) + 1rem);
+    }
+
+    .adp-hero-title {
+        font-size: clamp(2.4rem, 9vw, 3.5rem);
+    }
+
+    .adp-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .adp-hero-blob--1 { width: 300px; height: 300px; }
+    .adp-hero-blob--2 { width: 250px; height: 250px; }
+}

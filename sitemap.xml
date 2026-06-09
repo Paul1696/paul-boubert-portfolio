@@ -1,13 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://portfolio.ateliersdepaul.com/</loc>
-    <lastmod>2026-04-28</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://portfolio.ateliersdepaul.com/about.html</loc>
-    <lastmod>2026-04-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Pages principales -->
+  <url><loc>https://ateliersdepaul.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ateliersdepaul.com/a-propos/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ateliersdepaul.com/contact/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ateliersdepaul.com/ressources/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Pôles -->
+  <url><loc>https://ateliersdepaul.com/adp/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-tools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-studio/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-brief/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-academy/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-lab/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Portfolio -->
+  <url><loc>https://ateliersdepaul.com/portfolio/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/web_tower/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/villa-bastos/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/immeuble-bonanjo/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/ecole-privee-mvog-mbi/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/owona/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/mandeng/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/enem/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- Pages légales -->
+  <url><loc>https://ateliersdepaul.com/cadre-deontologique/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ateliersdepaul.com/mentions-legales/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ateliersdepaul.com/politique-confidentialite/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+
 </urlset>

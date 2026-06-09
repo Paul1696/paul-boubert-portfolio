@@ -1,0 +1,571 @@
+/* ============================================================
+   ADP — Ateliers de Paul | CSS Partagé
+   Variables, base, utilitaires, navbar, footer
+   ============================================================ */
+
+/* ── 1a · Variables ───────────────────────────────────────── */
+:root {
+    /* Couleurs ADP */
+    --adp-blue:        #1E73D8;
+    --adp-blue-dark:   #0B2F5B;
+    --adp-blue-light:  #3B8EE8;
+    --adp-blue-rgb:    30, 115, 216;
+
+    --adp-black:       #111827;
+    --adp-gray-text:   #4B5563;
+    --adp-gray-muted:  #6B7280;
+    --adp-gray-light:  #F3F6FA;
+    --adp-border:      rgba(0, 0, 0, 0.09);
+    --adp-white:       #FFFFFF;
+
+    /* Surface & fond */
+    --adp-bg:          var(--adp-white);
+    --adp-surface:     var(--adp-gray-light);
+
+    /* Typographie */
+    --adp-font-heading: 'Outfit', sans-serif;
+    --adp-font-body:    'Inter', sans-serif;
+
+    /* Transitions */
+    --adp-transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --adp-transition-mid:  all 0.4s  cubic-bezier(0.4, 0, 0.2, 1);
+    --adp-transition-slow: all 0.6s  cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Mise en page */
+    --adp-container:   1400px;
+    --adp-nav-height:  80px;
+    --adp-radius:      6px;
+    --adp-radius-lg:   12px;
+
+    /* Ombres */
+    --adp-shadow-sm:   0 1px 4px rgba(0,0,0,0.08);
+    --adp-shadow-md:   0 4px 20px rgba(0,0,0,0.10);
+    --adp-shadow-lg:   0 12px 40px rgba(0,0,0,0.12);
+}
+
+/* ── 1b · Reset & Base ────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--adp-bg);
+}
+
+body {
+    font-family: var(--adp-font-body);
+    color: var(--adp-black);
+    background-color: var(--adp-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--adp-transition-fast);
+}
+
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+section { padding: 7rem 0; }
+
+/* ── 1b · Typographie ─────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+    font-family: var(--adp-font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--adp-black);
+}
+
+.adp-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--adp-blue);
+}
+
+.adp-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--adp-blue);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--adp-gray-text);
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.7;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--adp-blue-dark) 0%, var(--adp-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── 1b · Conteneur ───────────────────────────────────────── */
+.adp-container {
+    max-width: var(--adp-container);
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+/* ── 1b · Boutons ─────────────────────────────────────────── */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--adp-blue);
+    color: var(--adp-white);
+    padding: 0.9rem 2rem;
+    border-radius: var(--adp-radius);
+    font-family: var(--adp-font-body);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--adp-blue);
+    transition: var(--adp-transition-mid);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--adp-blue-dark);
+    border-color: var(--adp-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--adp-shadow-md);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    color: var(--adp-blue);
+    padding: 0.9rem 2rem;
+    border-radius: var(--adp-radius);
+    font-family: var(--adp-font-body);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--adp-blue);
+    transition: var(--adp-transition-mid);
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: var(--adp-blue);
+    color: var(--adp-white);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--adp-blue);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    transition: var(--adp-transition-fast);
+    cursor: pointer;
+}
+
+.btn-ghost:hover { gap: 0.85rem; }
+
+/* ── 1b · Animations ──────────────────────────────────────── */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── 1b · Cursor personnalisé ─────────────────────────────── */
+* { cursor: none; }
+
+.adp-cursor {
+    width: 8px;
+    height: 8px;
+    background: var(--adp-blue);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+.adp-cursor-follower {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--adp-blue);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, opacity 0.3s, border-color 0.3s;
+}
+
+/* ── 1c · Navbar ──────────────────────────────────────────── */
+.adp-navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: var(--adp-nav-height);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: var(--adp-transition-mid);
+    border-bottom: 1px solid transparent;
+}
+
+.adp-navbar.scrolled {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--adp-border);
+    height: 64px;
+}
+
+.adp-navbar .adp-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo */
+.adp-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--adp-font-heading);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    color: var(--adp-black);
+}
+
+.adp-logo-mark {
+    width: 34px;
+    height: 34px;
+    background: var(--adp-blue);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0;
+}
+
+.adp-logo-text span { color: var(--adp-blue); }
+
+/* Liens nav */
+.adp-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.adp-nav-item {
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--adp-gray-text);
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--adp-radius);
+    transition: var(--adp-transition-fast);
+    position: relative;
+}
+
+.adp-nav-item:hover,
+.adp-nav-item.active {
+    color: var(--adp-blue);
+    background: rgba(30,115,216,0.07);
+}
+
+/* Dropdown pôles */
+.adp-nav-dropdown {
+    position: relative;
+}
+
+.adp-nav-dropdown > .adp-nav-item::after {
+    content: '▾';
+    margin-left: 4px;
+    font-size: 0.7rem;
+}
+
+.adp-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: var(--adp-white);
+    border: 1px solid var(--adp-border);
+    border-radius: var(--adp-radius-lg);
+    box-shadow: var(--adp-shadow-lg);
+    min-width: 220px;
+    padding: 0.5rem;
+    z-index: 200;
+}
+
+.adp-nav-dropdown:hover .adp-dropdown-menu { display: block; }
+
+.adp-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    border-radius: var(--adp-radius);
+    font-size: 0.85rem;
+    color: var(--adp-gray-text);
+    transition: var(--adp-transition-fast);
+}
+
+.adp-dropdown-item:hover {
+    background: var(--adp-surface);
+    color: var(--adp-blue);
+}
+
+.adp-dropdown-item .di-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(30,115,216,0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--adp-blue);
+    flex-shrink: 0;
+}
+
+/* CTA nav */
+.adp-nav-cta {
+    margin-left: 1rem;
+}
+
+/* Hamburger mobile */
+.adp-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.adp-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--adp-black);
+    margin: 5px 0;
+    transition: var(--adp-transition-fast);
+}
+
+/* ── Responsive navbar ────────────────────────────────────── */
+@media (max-width: 900px) {
+    .adp-nav-links { display: none; }
+    .adp-nav-cta   { display: none; }
+    .adp-menu-toggle { display: block; }
+
+    .adp-nav-links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: var(--adp-nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--adp-white);
+        padding: 1.5rem 2rem 2rem;
+        border-bottom: 1px solid var(--adp-border);
+        box-shadow: var(--adp-shadow-md);
+        gap: 0.25rem;
+        z-index: 999;
+    }
+
+    .adp-dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 1rem; }
+    .adp-nav-dropdown:hover .adp-dropdown-menu { display: none; }
+    .adp-nav-dropdown.open .adp-dropdown-menu  { display: block; }
+}
+
+/* ── 1d · Footer ──────────────────────────────────────────── */
+.adp-footer {
+    background: var(--adp-blue-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 5rem 0 2rem;
+}
+
+.adp-footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Colonne marque */
+.adp-footer-brand {}
+
+.adp-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--adp-font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--adp-white);
+    margin-bottom: 1.25rem;
+}
+
+.adp-footer-logo .adp-logo-mark {
+    background: var(--adp-blue);
+}
+
+.adp-footer-tagline {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    max-width: 280px;
+    margin-bottom: 1.75rem;
+}
+
+.adp-footer-socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.adp-social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    transition: var(--adp-transition-fast);
+}
+
+.adp-social-link:hover {
+    border-color: var(--adp-blue);
+    background: var(--adp-blue);
+    color: var(--adp-white);
+}
+
+/* Colonnes liens */
+.adp-footer-col h4 {
+    font-family: var(--adp-font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--adp-white);
+    margin-bottom: 1.25rem;
+}
+
+.adp-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.adp-footer-links a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+    transition: var(--adp-transition-fast);
+}
+
+.adp-footer-links a:hover {
+    color: var(--adp-white);
+    padding-left: 4px;
+}
+
+/* Bas de footer */
+.adp-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.adp-footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+}
+
+.adp-footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.adp-footer-legal a {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    transition: var(--adp-transition-fast);
+}
+
+.adp-footer-legal a:hover { color: rgba(255,255,255,0.8); }
+
+/* Badge ONAC */
+.adp-footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+}
+
+.adp-footer-badge i { color: var(--adp-blue-light); }
+
+/* ── Responsive footer ────────────────────────────────────── */
+@media (max-width: 900px) {
+    .adp-footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .adp-footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .adp-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
