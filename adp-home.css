@@ -4,99 +4,38 @@
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .adp-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
     min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Colonne gauche — texte */
+.adp-hero-left {
     display: flex;
-    align-items: center;
-    padding-top: var(--adp-nav-height);
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(var(--adp-nav-height) + 3rem) 5vw 4rem;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.adp-hero-left .adp-label {
+    margin-bottom: 1.5rem;
+}
+
+/* Colonne droite — image bord à bord */
+.adp-hero-right {
     position: relative;
     overflow: hidden;
 }
 
-.adp-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Blobs de couleur */
-.adp-hero-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(130px);
-    opacity: 0.12;
-}
-
-.adp-hero-blob--1 {
-    width: 600px;
-    height: 600px;
-    background: var(--adp-blue);
-    top: -120px;
-    right: -100px;
-    animation: adp-float 22s infinite alternate ease-in-out;
-}
-
-.adp-hero-blob--2 {
-    width: 440px;
-    height: 440px;
-    background: var(--adp-blue-dark);
-    bottom: -60px;
-    left: -80px;
-    animation: adp-float 28s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes adp-float {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(40px, 60px); }
-}
-
-/* Grille de fond subtile */
-.adp-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(30,115,216,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30,115,216,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Grille deux colonnes hero */
-.adp-hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-}
-
-/* Visuel hero */
-.adp-hero-visual {
-    position: relative;
-}
-
 .adp-hero-img {
     width: 100%;
-    height: 560px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.18);
-}
-
-/* Contenu hero */
-.adp-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 860px;
-    padding: 4rem 0;
-}
-
-.adp-hero-content .adp-label {
-    margin-bottom: 2rem;
+    display: block;
 }
 
 .adp-hero-title {
@@ -512,26 +451,21 @@
 
 /* ── Responsive hero ──────────────────────────────────────── */
 @media (max-width: 900px) {
-    .adp-hero-inner {
+    .adp-hero {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        grid-template-rows: auto 340px;
     }
 
-    .adp-hero-visual {
-        order: -1;
+    .adp-hero-left {
+        padding: calc(var(--adp-nav-height) + 2rem) 1.5rem 2rem;
     }
 
-    .adp-hero-img {
-        height: 320px;
+    .adp-hero-right {
+        height: 340px;
     }
 }
 
 @media (max-width: 768px) {
-    .adp-hero {
-        min-height: 90vh;
-        padding-top: calc(var(--adp-nav-height) + 1rem);
-    }
-
     .adp-hero-title {
         font-size: clamp(2.4rem, 9vw, 3.5rem);
     }
@@ -540,9 +474,6 @@
         flex-direction: column;
         align-items: flex-start;
     }
-
-    .adp-hero-blob--1 { width: 300px; height: 300px; }
-    .adp-hero-blob--2 { width: 250px; height: 250px; }
 }
 
 /* -- Projets r�cents (J3) -- */
