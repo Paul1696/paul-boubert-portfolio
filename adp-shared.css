@@ -270,7 +270,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .adp-logo-img {
-    height: 200px;
+    height: 56px;
     width: auto;
     display: block;
 }
@@ -299,10 +299,25 @@ h1, h2, h3, h4, h5 {
     position: relative;
 }
 
-.adp-nav-item:hover,
-.adp-nav-item.active {
+.adp-nav-item:hover {
     color: var(--adp-blue);
     background: rgba(30,115,216,0.07);
+}
+
+.adp-nav-item.active {
+    color: var(--adp-blue);
+    background: transparent;
+}
+
+.adp-nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0.85rem;
+    right: 0.85rem;
+    height: 2px;
+    background: var(--adp-blue);
+    border-radius: 2px;
 }
 
 /* Dropdown pôles */
