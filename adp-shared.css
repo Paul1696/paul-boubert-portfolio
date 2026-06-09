@@ -241,22 +241,24 @@ h1, h2, h3, h4, h5 {
     z-index: 1000;
     display: flex;
     align-items: center;
+    background: transparent;
     transition: var(--adp-transition-mid);
     border-bottom: 1px solid transparent;
 }
 
 .adp-navbar.scrolled {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--adp-border);
-    height: 64px;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    height: var(--adp-nav-height);
 }
 
 .adp-navbar .adp-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    gap: 40px;
 }
 
 /* Logo */
