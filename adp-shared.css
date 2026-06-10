@@ -274,9 +274,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .adp-logo-img {
-    height: 96px;
-    max-width: 240px;
-    width: auto;
+    height: 110px;
+    width: 280px;
+    object-fit: contain;
+    object-position: left center;
     display: block;
 }
 
