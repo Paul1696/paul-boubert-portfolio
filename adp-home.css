@@ -111,6 +111,51 @@
     transform: translateX(4px);
 }
 
+/* ── Scroll indicator ─────────────────────────────────────── */
+.adp-hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: clamp(2rem, 6vw, 6rem);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--adp-gray-muted);
+    text-decoration: none;
+    transition: var(--adp-transition-fast);
+}
+
+.adp-hero-scroll:hover { color: var(--adp-blue); }
+
+.adp-hero-scroll__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.adp-hero-scroll__icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    animation: adp-bounce 2s ease-in-out infinite;
+}
+
+@keyframes adp-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(6px); }
+}
+
+@media (max-width: 768px) { .adp-hero-scroll { display: none; } }
+
 /* ── Section Pôles ────────────────────────────────────────── */
 .adp-poles {
     background: var(--adp-white);

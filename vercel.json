@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "errorPage": "/404.html",
   "redirects": [
     { "source": "/about", "destination": "/a-propos", "permanent": true },
     { "source": "/projects/:slug", "destination": "/portfolio/:slug", "permanent": true },

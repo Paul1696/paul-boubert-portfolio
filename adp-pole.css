@@ -207,6 +207,38 @@
     background: var(--adp-white);
     border-radius: var(--adp-radius-lg);
     border: 1px solid var(--adp-border);
+    transition: var(--adp-transition-mid);
+}
+
+.pole-step:hover {
+    border-color: rgba(30,115,216,0.3);
+    box-shadow: var(--adp-shadow-md);
+}
+
+/* Flèche connecteur entre chaque étape (sauf la dernière) */
+.pole-step:not(:last-child)::after {
+    content: '\f054';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: -1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: rgba(30,115,216,0.35);
+    z-index: 1;
+    background: var(--adp-surface);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--adp-border);
+}
+
+@media (max-width: 900px) {
+    .pole-step:not(:last-child)::after { display: none; }
 }
 
 .pole-step__num {

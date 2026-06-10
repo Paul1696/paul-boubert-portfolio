@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Page introuvable | Ateliers de Paul</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/adp-shared.css">
+    <style>
+        .e404 {
+            min-height: calc(100vh - var(--adp-nav-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--adp-nav-height) + 4rem) 1.5rem 4rem;
+            background: var(--adp-surface);
+        }
+        .e404__inner {
+            max-width: 560px;
+            text-align: center;
+        }
+        .e404__code {
+            font-family: var(--adp-font-heading);
+            font-size: clamp(6rem, 18vw, 12rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--adp-blue-dark) 0%, var(--adp-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        .e404__title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--adp-black);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .e404__text {
+            font-size: 0.95rem;
+            color: var(--adp-gray-text);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+        .e404__actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="adp-cursor"></div>
+    <div class="adp-cursor-follower"></div>
+
+    <header class="adp-navbar">
+        <div class="adp-container">
+            <a href="/" class="adp-logo">
+                <img src="/assets/logo-adp.png" alt="ADP — Ateliers de Paul" class="adp-logo-img">
+            </a>
+            <nav class="adp-nav-links">
+                <a href="/" class="adp-nav-item">Accueil</a>
+                <div class="adp-nav-dropdown">
+                    <span class="adp-nav-item">ADP</span>
+                    <div class="adp-dropdown-menu">
+                        <a href="/adp-tools/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-tools"></i></span>ADP Tools</a>
+                        <a href="/adp-studio/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-pencil-ruler"></i></span>ADP Studio</a>
+                        <a href="/adp-brief/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-file-alt"></i></span>ADP Brief</a>
+                        <a href="/adp-academy/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-graduation-cap"></i></span>ADP Academy</a>
+                        <a href="/adp-lab/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-flask"></i></span>ADP Lab</a>
+                    </div>
+                </div>
+                <a href="/portfolio/" class="adp-nav-item">Portfolio</a>
+                <a href="/ressources/" class="adp-nav-item">Ressources</a>
+                <a href="/a-propos/" class="adp-nav-item">À propos</a>
+                <a href="/contact/" class="adp-nav-item">Contact</a>
+            </nav>
+            <a href="/contact/" class="btn-primary adp-nav-cta">Nous contacter &rarr;</a>
+            <button class="adp-menu-toggle" aria-label="Menu" aria-expanded="false">
+                <div class="adp-hamburger"><span></span><span></span></div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="e404">
+            <div class="e404__inner">
+                <div class="e404__code">404</div>
+                <h1 class="e404__title">Page introuvable</h1>
+                <p class="e404__text">Cette page n'existe pas ou a été déplacée. Revenez à l'accueil ou consultez le portfolio.</p>
+                <div class="e404__actions">
+                    <a href="/" class="btn-primary">Accueil <i class="fas fa-arrow-right"></i></a>
+                    <a href="/portfolio/" class="btn-outline">Portfolio</a>
+                    <a href="/contact/" class="btn-outline">Contact</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/adp-shared.js"></script>
+</body>
+</html>
