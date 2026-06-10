@@ -1,33 +1,66 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Pages principales -->
-  <url><loc>https://ateliersdepaul.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://ateliersdepaul.com/a-propos/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ateliersdepaul.com/contact/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ateliersdepaul.com/ressources/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- ── Pages principales ─────────────────────────────────── -->
+  <url><loc>https://ateliersdepaul.com/</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ateliersdepaul.com/a-propos/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ateliersdepaul.com/contact/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ateliersdepaul.com/ressources/</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Pôles -->
-  <url><loc>https://ateliersdepaul.com/adp/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/adp-tools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/adp-studio/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/adp-brief/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/adp-academy/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/adp-lab/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <!-- ── Pôles ─────────────────────────────────────────────── -->
+  <url><loc>https://ateliersdepaul.com/adp/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-tools/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-studio/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-brief/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-academy/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/adp-lab/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- Portfolio -->
-  <url><loc>https://ateliersdepaul.com/portfolio/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/web_tower/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/villa-bastos/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/immeuble-bonanjo/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/ecole-privee-mvog-mbi/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/owona/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/mandeng/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ateliersdepaul.com/portfolio/enem/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <!-- ── Pages légales ─────────────────────────────────────── -->
+  <url><loc>https://ateliersdepaul.com/cadre-deontologique/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ateliersdepaul.com/mentions-legales/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ateliersdepaul.com/politique-confidentialite/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 
-  <!-- Pages légales -->
-  <url><loc>https://ateliersdepaul.com/cadre-deontologique/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://ateliersdepaul.com/mentions-legales/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://ateliersdepaul.com/politique-confidentialite/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <!-- ── Portfolio (1/2) ───────────────────────────────────── -->
+  <url><loc>https://ateliersdepaul.com/portfolio/</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/018_studio/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/bahemeck/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/bicec/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/bicec_bafoussam/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/bicec_usca/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/boj/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/boutique_biyem_assi/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/bureau_dsi/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/cabinet_elena/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/croissanterie/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/duplex_domegne/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/emeraude/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/enem/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/entrepot/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/grill_way/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/harmony/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/horizon/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/hotel_bertoua/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/hunter/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- ── Portfolio (2/2) ───────────────────────────────────── -->
+  <url><loc>https://ateliersdepaul.com/portfolio/lipem/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/mandeng/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/mbella/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/meeting_room/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/mme_edzigui/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/oasis/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/owona/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/perenco_offices/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/petrofor_base/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/pharmacie_studio/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/residence_h/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/residence_soa/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/salle_de_fete/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/sequoia/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/showroom_kotto/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/suka_cafe/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/tonye/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/web_tower/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ateliersdepaul.com/portfolio/workbox/</loc><lastmod>2026-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
 
 </urlset>
