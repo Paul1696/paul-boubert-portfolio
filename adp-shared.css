@@ -304,31 +304,44 @@ h1, h2, h3, h4, h5 {
     color: var(--adp-gray-text);
     padding: 0.55rem 1rem;
     border-radius: var(--adp-radius);
-    transition: var(--adp-transition-fast);
+    transition: color 0.2s ease, background 0.2s ease;
     position: relative;
     white-space: nowrap;
 }
 
+/* Barre soulignée — commune hover + active */
+.adp-nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--adp-blue);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .adp-nav-item:hover {
     color: var(--adp-blue);
-    background: rgba(30,115,216,0.06);
+    background: transparent;
+}
+
+.adp-nav-item:hover::before {
+    transform: scaleX(1);
 }
 
 .adp-nav-item.active {
-    color: #1558B0;
+    color: var(--adp-blue);
     font-weight: 700;
     background: transparent;
 }
 
-.adp-nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: 1px;
-    left: 1rem;
-    right: 1rem;
-    height: 3px;
+.adp-nav-item.active::before {
+    transform: scaleX(1);
     background: var(--adp-blue);
-    border-radius: 2px;
 }
 
 /* Dropdown pôles */
@@ -336,10 +349,12 @@ h1, h2, h3, h4, h5 {
     position: relative;
 }
 
+/* Flèche dropdown via span dédié dans le HTML, pas ::after */
 .adp-nav-dropdown > .adp-nav-item::after {
     content: '▾';
     margin-left: 4px;
     font-size: 0.7rem;
+    /* N'interfère pas avec ::before */
 }
 
 .adp-dropdown-menu {
