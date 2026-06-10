@@ -534,24 +534,25 @@
 }
 
 /* -- Projets r�cents (J3) -- */
-.adp-recent{padding:6rem 0;background:var(--adp-white);}
-.adp-recent__header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;}
-.adp-recent__header .section-title{margin-bottom:0;}
-.adp-recent__all{font-size:.82rem;}
-.adp-carousel-wrap{position:relative;display:flex;align-items:center;gap:1rem;}
-.adp-carousel{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;flex:1;overflow:hidden;}
-.adp-carousel-btn{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--adp-border);background:var(--adp-white);color:var(--adp-blue);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:var(--adp-transition-fast);}
-.adp-carousel-btn:hover{background:var(--adp-blue);color:var(--adp-white);border-color:var(--adp-blue);}
-.adp-rc-card{display:block;border-radius:var(--adp-radius-lg);overflow:hidden;background:var(--adp-surface);text-decoration:none;transition:var(--adp-transition-mid);}
-.adp-rc-card:hover{transform:translateY(-4px);box-shadow:var(--adp-shadow-md);}
-.adp-rc-card__img{aspect-ratio:4/3;overflow:hidden;}
-.adp-rc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
-.adp-rc-card:hover .adp-rc-card__img img{transform:scale(1.06);}
-.adp-rc-card__info{padding:1rem;}
-.adp-rc-card__name{font-size:.9rem;font-weight:700;color:var(--adp-black);margin-bottom:.3rem;}
-.adp-rc-card__cat{font-size:.75rem;color:var(--adp-blue);font-weight:600;}
-@media(max-width:1024px){.adp-carousel{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.adp-carousel{grid-template-columns:1fr;}.adp-carousel-btn{display:none;}}
+.adp-recent { padding: 5rem 0 0; background: #0D1B2A; }
+.adp-recent__header { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; margin-bottom:3rem; padding:0 clamp(1.5rem,4vw,4rem); }
+.adp-recent__header .adp-label { color: var(--adp-blue); }
+.adp-recent__header .section-title { margin-bottom:0; color:#fff; }
+.adp-recent__header .section-title span { color: var(--adp-blue); }
+.adp-recent__all { font-size:.82rem; color:#fff !important; border-color:rgba(255,255,255,0.35) !important; white-space:nowrap; }
+.adp-recent__all:hover { background:rgba(255,255,255,0.1) !important; border-color:#fff !important; }
+.adp-carousel-wrap { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+.adp-carousel { display:contents; }
+.adp-carousel-btn { display:none; }
+.adp-rc-card { display:block; overflow:hidden; text-decoration:none; transition:var(--adp-transition-mid); }
+.adp-rc-card:hover .adp-rc-card__img img { transform:scale(1.06); }
+.adp-rc-card__img { aspect-ratio:3/4; overflow:hidden; }
+.adp-rc-card__img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; display:block; }
+.adp-rc-card__info { padding:1.25rem 1.5rem 1.75rem; background:#0D1B2A; }
+.adp-rc-card__name { font-size:1rem; font-weight:700; color:#fff; margin-bottom:.3rem; }
+.adp-rc-card__cat { font-size:.78rem; color:var(--adp-blue); font-weight:600; }
+@media(max-width:900px){.adp-carousel-wrap{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.adp-carousel-wrap{grid-template-columns:1fr;}}
 
 /* -- Engagement (J4) -- */
 .adp-engagement{padding:5rem 0;background:var(--adp-surface);border-top:1px solid var(--adp-border);}
