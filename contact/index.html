@@ -118,7 +118,11 @@
                     </aside>
 
                     <!-- Formulaire -->
-                    <form class="ct-form fade-in-up" name="contact" method="POST" data-netlify="true" action="/contact/merci/">
+                    <form class="ct-form fade-in-up" id="ct-form" name="contact" method="POST" action="https://api.web3forms.com/submit">
+                        <!-- Web3Forms access key — remplacer par la clé du tableau de bord web3forms.com -->
+                        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+                        <input type="hidden" name="redirect" value="https://ateliersdepaul.com/contact/merci">
+                        <input type="hidden" name="subject" value="Nouveau message — Ateliers de Paul">
 
                         <div class="ct-form-row">
                             <div class="ct-form-group">
