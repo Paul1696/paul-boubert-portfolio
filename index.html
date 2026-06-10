@@ -67,7 +67,26 @@
             </div>
             <div class="adp-hero-right">
                 <div class="adp-hero-fade"></div>
-                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Projet Bahemeck — ADP Ateliers de Paul" class="adp-hero-img">
+                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" id="adp-hero-img">
+                <script>
+                (function(){
+                    var imgs = [
+                        '/assets/projects/bahemeck_final/hero_v3.png',
+                        '/assets/projects/cabinet_elena/hero.jpg',
+                        '/assets/projects/showroom_kotto/hero.jpg',
+                        '/assets/projects/018_studio/hero.jpg',
+                        '/assets/projects/suka_cafe/hero_main.jpg',
+                        '/assets/projects/lipem/hero.jpg',
+                        '/assets/projects/meeting_room/hero.jpg',
+                        '/assets/projects/pharmacie_studio/hero.jpg',
+                        '/assets/projects/boutique_biyem_assi/hero.jpg',
+                        '/assets/projects/grill_way/hero.png',
+                        '/assets/projects/petrofor_base_tcp/hero.png'
+                    ];
+                    var pick = imgs[Math.floor(Math.random() * imgs.length)];
+                    document.getElementById('adp-hero-img').src = pick;
+                })();
+                </script>
             </div>
         </section>
 
