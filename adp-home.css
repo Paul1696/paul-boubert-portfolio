@@ -4,22 +4,57 @@
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .adp-hero {
-    display: grid;
-    grid-template-columns: 42% 58%;
+    position: relative;
     min-height: 100vh;
     overflow: hidden;
-    background: #fff;
+    display: flex;
+    align-items: center;
 }
 
-/* Colonne gauche — texte */
+/* Image pleine largeur en fond */
+.adp-hero-right {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.adp-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 8s ease;
+}
+
+.adp-hero:hover .adp-hero-img {
+    transform: scale(1.04);
+}
+
+/* Dégradé sur la gauche pour lisibilité du texte */
+.adp-hero-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.97) 0%,
+        rgba(255,255,255,0.90) 30%,
+        rgba(255,255,255,0.55) 55%,
+        rgba(255,255,255,0.0) 80%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Texte par-dessus l'image */
 .adp-hero-left {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: calc(var(--adp-nav-height) + 4rem) clamp(2rem, 5vw, 5rem) 4rem clamp(2rem, 5vw, 5rem);
-    background: #fff;
-    position: relative;
-    z-index: 1;
+    padding: calc(var(--adp-nav-height) + 4rem) clamp(2rem, 6vw, 6rem) 4rem clamp(2rem, 6vw, 6rem);
+    max-width: 620px;
 }
 
 .adp-hero-left .adp-label {
@@ -41,36 +76,6 @@
     height: 2px;
     background: var(--adp-blue);
     flex-shrink: 0;
-}
-
-/* Colonne droite — image bord à bord */
-.adp-hero-right {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Dégradé blanc → transparent sur le bord gauche de l'image */
-.adp-hero-fade {
-    position: absolute;
-    top: 0; left: 0;
-    width: 180px;
-    height: 100%;
-    background: linear-gradient(to right, #fff 0%, transparent 100%);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.adp-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 8s ease;
-}
-
-.adp-hero-right:hover .adp-hero-img {
-    transform: scale(1.04);
 }
 
 .adp-hero-title {
@@ -486,17 +491,18 @@
 
 /* ── Responsive hero ──────────────────────────────────────── */
 @media (max-width: 900px) {
-    .adp-hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 340px;
-    }
-
     .adp-hero-left {
-        padding: calc(var(--adp-nav-height) + 2rem) 1.5rem 2rem;
+        padding: calc(var(--adp-nav-height) + 2rem) 1.5rem 3rem;
+        max-width: 100%;
     }
 
-    .adp-hero-right {
-        height: 340px;
+    .adp-hero-fade {
+        background: linear-gradient(
+            to right,
+            rgba(255,255,255,0.97) 0%,
+            rgba(255,255,255,0.90) 50%,
+            rgba(255,255,255,0.3) 100%
+        );
     }
 }
 
