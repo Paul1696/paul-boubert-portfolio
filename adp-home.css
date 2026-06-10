@@ -121,11 +121,13 @@
 .adp-poles .adp-label  { margin-bottom: 1rem; }
 .adp-poles .section-title { margin-bottom: 3rem; }
 
-/* Rangée 5 pôles */
+/* Rangée 5 pôles — pleine largeur */
 .adp-poles-row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    gap: 0;
+    margin: 0 calc(-1 * clamp(1.5rem, 4vw, 4rem));
+    border-top: 1px solid var(--adp-border);
 }
 
 /* Carte pôle — version compacte horizontale */
@@ -134,13 +136,18 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid var(--adp-border);
-    border-radius: var(--adp-radius-lg);
+    padding: 2.25rem clamp(1.25rem, 2.5vw, 2rem);
+    border: none;
+    border-right: 1px solid var(--adp-border);
+    border-radius: 0;
     background: var(--adp-white);
     transition: var(--adp-transition-mid);
     position: relative;
     overflow: hidden;
+}
+
+.adp-pole-item:last-child {
+    border-right: none;
 }
 
 .adp-pole-item::before {
@@ -156,9 +163,8 @@
 }
 
 .adp-pole-item:hover {
-    border-color: rgba(30,115,216,0.25);
-    box-shadow: var(--adp-shadow-md);
-    transform: translateY(-4px);
+    background: var(--adp-surface);
+    box-shadow: inset 0 -4px 0 var(--adp-blue);
 }
 
 .adp-pole-item:hover::before { transform: scaleX(1); }
@@ -218,9 +224,20 @@
 .adp-pole-item .adp-pole-card__link i { transition: transform 0.25s ease; }
 .adp-pole-item:hover .adp-pole-card__link i { transform: translateX(4px); }
 
-@media (max-width: 1100px) { .adp-poles-row { grid-template-columns: repeat(3,1fr); } }
-@media (max-width: 700px)  { .adp-poles-row { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 440px)  { .adp-poles-row { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) {
+    .adp-poles-row { grid-template-columns: repeat(3,1fr); }
+    .adp-pole-item:nth-child(3) { border-right: none; }
+    .adp-pole-item:nth-child(4), .adp-pole-item:nth-child(5) { border-top: 1px solid var(--adp-border); }
+}
+@media (max-width: 700px) {
+    .adp-poles-row { grid-template-columns: repeat(2,1fr); }
+    .adp-pole-item { border-right: 1px solid var(--adp-border) !important; border-top: 1px solid var(--adp-border); }
+    .adp-pole-item:nth-child(even) { border-right: none !important; }
+}
+@media (max-width: 440px) {
+    .adp-poles-row { grid-template-columns: 1fr; }
+    .adp-pole-item { border-right: none !important; }
+}
 
 /* ── Ancien .adp-poles-grid (legacy) ── */
 .adp-poles-grid {
