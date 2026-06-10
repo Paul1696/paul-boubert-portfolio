@@ -5,9 +5,10 @@
 /* ── Hero ─────────────────────────────────────────────────── */
 .adp-hero {
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 42% 58%;
     min-height: 100vh;
     overflow: hidden;
+    background: #fff;
 }
 
 /* Colonne gauche — texte */
@@ -48,24 +49,35 @@
     overflow: hidden;
 }
 
+/* Dégradé blanc → transparent sur le bord gauche de l'image */
+.adp-hero-fade {
+    position: absolute;
+    top: 0; left: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(to right, #fff 0%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .adp-hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 6s ease;
+    transition: transform 8s ease;
 }
 
-.adp-hero-img:hover {
-    transform: scale(1.03);
+.adp-hero-right:hover .adp-hero-img {
+    transform: scale(1.04);
 }
 
 .adp-hero-title {
-    font-size: clamp(2.6rem, 4.5vw, 5rem);
+    font-size: clamp(3rem, 5.5vw, 6rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    line-height: 1.08;
+    line-height: 1.05;
     margin-bottom: 1.75rem;
     color: var(--adp-black);
 }
