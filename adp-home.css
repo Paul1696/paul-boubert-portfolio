@@ -284,6 +284,53 @@
     .adp-pole-item { border-right: none !important; }
 }
 
+/* Variante Lab — fond sombre dans la rangée */
+.adp-pole-item.adp-pole-card--lab {
+    background: linear-gradient(160deg, var(--adp-blue-dark) 0%, #0d3d73 100%);
+    border-color: transparent;
+}
+
+.adp-pole-item.adp-pole-card--lab .adp-pole-card__icon {
+    background: rgba(255,255,255,0.12);
+    color: var(--adp-white);
+}
+
+.adp-pole-item.adp-pole-card--lab .adp-pole-card__body h3 {
+    color: var(--adp-white);
+}
+
+.adp-pole-item.adp-pole-card--lab .adp-pole-card__body h3 span {
+    color: rgba(255,255,255,0.6);
+}
+
+.adp-pole-item.adp-pole-card--lab .adp-pole-card__body p {
+    color: rgba(255,255,255,0.65);
+}
+
+.adp-pole-item.adp-pole-card--lab .adp-pole-card__link {
+    color: rgba(255,255,255,0.85);
+}
+
+.adp-pole-item.adp-pole-card--lab::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+}
+
+.adp-pole-item.adp-pole-card--lab:hover {
+    background: linear-gradient(160deg, #0a2547 0%, #0b3060 100%);
+    box-shadow: 0 12px 40px rgba(11,47,91,0.4);
+}
+
+.adp-pole-item.adp-pole-card--lab:hover .adp-pole-card__icon {
+    background: rgba(255,255,255,0.25);
+    color: var(--adp-white);
+}
+
+/* Stagger d'entrée pour les cartes why */
+.adp-why-grid .adp-why-card:nth-child(1) { transition-delay: 0.05s; }
+.adp-why-grid .adp-why-card:nth-child(2) { transition-delay: 0.12s; }
+.adp-why-grid .adp-why-card:nth-child(3) { transition-delay: 0.19s; }
+.adp-why-grid .adp-why-card:nth-child(4) { transition-delay: 0.26s; }
+
 /* ── Ancien .adp-poles-grid (legacy) ── */
 .adp-poles-grid {
     display: grid;

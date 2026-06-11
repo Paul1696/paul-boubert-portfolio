@@ -42,6 +42,9 @@
     --adp-shadow-sm:   0 1px 4px rgba(0,0,0,0.08);
     --adp-shadow-md:   0 4px 20px rgba(0,0,0,0.10);
     --adp-shadow-lg:   0 12px 40px rgba(0,0,0,0.12);
+
+    /* Rayon intermédiaire (formulaires, badges) */
+    --adp-radius-md:   9px;
 }
 
 /* ── 1b · Reset & Base ────────────────────────────────────── */
@@ -205,32 +208,43 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ── 1b · Cursor personnalisé ─────────────────────────────── */
-* { cursor: none; }
-
-.adp-cursor {
-    width: 8px;
-    height: 8px;
-    background: var(--adp-blue);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, opacity 0.3s;
+@media (pointer: fine) {
+    * { cursor: none; }
 }
 
-.adp-cursor-follower {
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid var(--adp-blue);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, opacity 0.3s, border-color 0.3s;
+/* Focus visible — accessibilité clavier */
+:focus-visible {
+    outline: 2px solid var(--adp-blue);
+    outline-offset: 3px;
+    border-radius: var(--adp-radius);
+}
+
+@media (pointer: fine) {
+    .adp-cursor {
+        width: 8px;
+        height: 8px;
+        background: var(--adp-blue);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, opacity 0.3s;
+    }
+
+    .adp-cursor-follower {
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid var(--adp-blue);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, opacity 0.3s, border-color 0.3s;
+    }
 }
 
 /* ── 1c · Navbar ──────────────────────────────────────────── */
@@ -449,6 +463,12 @@ h1, h2, h3, h4, h5 {
         box-shadow: 0 8px 24px rgba(0,0,0,0.10);
         gap: 0.15rem;
         z-index: 999;
+        animation: menuSlideDown 0.22s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    @keyframes menuSlideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
     /* Lien contact visible dans le menu mobile ouvert */
@@ -508,7 +528,18 @@ h1, h2, h3, h4, h5 {
 }
 
 .adp-footer-logo .adp-logo-mark {
+    display: flex;
+    width: 32px;
+    height: 32px;
     background: var(--adp-blue);
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--adp-font-heading);
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--adp-white);
+    flex-shrink: 0;
 }
 
 .adp-footer-tagline {

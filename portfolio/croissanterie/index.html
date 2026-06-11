@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Croissanterie | Paul Boubert</title>
         <link rel="icon" type="image/png" href="../../assets/favicon.png">
-    <link rel="stylesheet" href="../../projects/project.css">
+    <link rel="stylesheet" href="/projects/project.css">
+    <link rel="stylesheet" href="/adp-shared.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="loaded">
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <nav class="back-nav">
-        <a href="/" class="btn-back">
-            <i class="fas fa-arrow-left"></i> Retour
-        </a>
-    </nav>
+    <div class="adp-cursor"></div>
+    <div class="adp-cursor-follower"></div>
+    <header class="adp-navbar">
+        <div class="adp-container">
+            <a href="/" class="adp-logo">
+                <img src="/assets/logo-adp.png" alt="ADP — Ateliers de Paul" class="adp-logo-img">
+            </a>
+            <nav class="adp-nav-links">
+                <a href="/" class="adp-nav-item">Accueil</a>
+                <div class="adp-nav-dropdown">
+                    <span class="adp-nav-item">ADP</span>
+                    <div class="adp-dropdown-menu">
+                        <a href="/adp-tools/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-tools"></i></span>ADP Tools</a>
+                        <a href="/adp-studio/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-pencil-ruler"></i></span>ADP Studio</a>
+                        <a href="/adp-brief/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-file-alt"></i></span>ADP Brief</a>
+                        <a href="/adp-academy/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-graduation-cap"></i></span>ADP Academy</a>
+                        <a href="/adp-lab/" class="adp-dropdown-item"><span class="di-icon"><i class="fas fa-flask"></i></span>ADP Lab</a>
+                    </div>
+                </div>
+                <a href="/portfolio/" class="adp-nav-item active">Portfolio</a>
+                <a href="/ressources/" class="adp-nav-item">Ressources</a>
+                <a href="/a-propos/" class="adp-nav-item">À propos</a>
+                <a href="/contact/" class="adp-nav-item">Contact</a>
+            </nav>
+            <a href="/contact/" class="btn-primary adp-nav-cta">Nous contacter &rarr;</a>
+            <button class="adp-menu-toggle" aria-label="Menu" aria-expanded="false">
+                <div class="adp-hamburger"><span></span><span></span></div>
+            </button>
+        </div>
+    </header>
 
     <header class="project-hero">
         <img src="../../assets/projects/croissanterie/main.jpg" alt="La Croissanterie" class="hero-img">
@@ -63,9 +86,62 @@
         </section>
     </main>
 
-    <footer class="project-footer">
-        <p>&copy; 2026 Paul Boubert - Tous droits réservés.</p>
+        <footer class="adp-footer">
+        <div class="adp-container">
+            <div class="adp-footer-grid">
+                <div class="adp-footer-brand">
+                    <div class="adp-footer-logo">
+                        <div class="adp-logo-mark">A</div>
+                        <span>ATELIERS DE PAUL</span>
+                    </div>
+                    <p class="adp-footer-tagline">Conseil, conception et formation au service des projets de construction et d'aménagement au Cameroun.</p>
+                    <div class="adp-footer-socials">
+                        <a href="https://www.linkedin.com/in/paul-boubert" target="_blank" rel="noopener" class="adp-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://architecture-creative.ateliersdepaul.com/" target="_blank" rel="noopener" class="adp-social-link" aria-label="Blog"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Pôles</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/adp/">ADP</a></li>
+                        <li><a href="/adp-tools/">ADP Tools</a></li>
+                        <li><a href="/adp-studio/">ADP Studio</a></li>
+                        <li><a href="/adp-brief/">ADP Brief</a></li>
+                        <li><a href="/adp-academy/">ADP Academy</a></li>
+                        <li><a href="/adp-lab/">ADP Lab</a></li>
+                    </ul>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/portfolio/">Portfolio</a></li>
+                        <li><a href="/ressources/">Ressources</a></li>
+                        <li><a href="/a-propos/">À propos</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="adp-footer-col">
+                    <h4>Légal</h4>
+                    <ul class="adp-footer-links">
+                        <li><a href="/cadre-deontologique/">Cadre déontologique</a></li>
+                        <li><a href="/mentions-legales/">Mentions légales</a></li>
+                        <li><a href="/politique-confidentialite/">Confidentialité</a></li>
+                    </ul>
+                    <div class="adp-footer-badge" style="margin-top:1.5rem;">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Conforme ONAC Cameroun</span>
+                    </div>
+                </div>
+            </div>
+            <div class="adp-footer-bottom">
+                <p class="adp-footer-copy">&copy; 2026 Ateliers de Paul — Tous droits réservés.</p>
+                <div class="adp-footer-legal">
+                    <a href="/mentions-legales/">Mentions légales</a>
+                    <a href="/politique-confidentialite/">Confidentialité</a>
+                </div>
+            </div>
+        </div>
     </footer>
-    <script src="../../script.js"></script>
+    <script src="/adp-shared.js"></script>
 </body>
 </html>
