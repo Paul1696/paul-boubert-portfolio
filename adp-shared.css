@@ -602,6 +602,20 @@ h1, h2, h3, h4, h5 {
     padding-left: 4px;
 }
 
+/* Disclaimer ONAC */
+.adp-footer-onac {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem 0 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.adp-footer-onac p {
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.3);
+    max-width: 80ch;
+}
+
 /* Bas de footer */
 .adp-footer-bottom {
     display: flex;

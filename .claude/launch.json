@@ -1,0 +1,49 @@
+﻿{
+    "version":  "0.0.1",
+    "configurations":  [
+                           {
+                               "name":  "npx serve (port 3000)",
+                               "runtimeExecutable":  "npx",
+                               "runtimeArgs":  [
+                                                   "serve",
+                                                   ".",
+                                                   "--no-clipboard"
+                                               ],
+                               "port":  3000,
+                               "autoPort":  true
+                           },
+                           {
+                               "name":  "npx live-server (port 8080)",
+                               "runtimeExecutable":  "npx",
+                               "runtimeArgs":  [
+                                                   "live-server",
+                                                   ".",
+                                                   "--port=8080",
+                                                   "--no-browser"
+                                               ],
+                               "port":  8080
+                           },
+                           {
+                               "name":  "python http.server (port 8000)",
+                               "runtimeExecutable":  "python",
+                               "runtimeArgs":  [
+                                                   "-m",
+                                                   "http.server",
+                                                   "8000"
+                                               ],
+                               "port":  8000
+                           },
+                           {
+                               "name":  "adp-artifact-dist (port 5173)",
+                               "runtimeExecutable":  "npx",
+                               "runtimeArgs":  [
+                                                   "serve",
+                                                   "C:\\Users\\paul\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\e07ebad0-f7f1-451d-9b83-f2bec2deafc5\\b64cc671-0c85-4ff4-89f4-598ba16414d4\\skills\\web-artifacts-builder\\adp-home\\dist",
+                                                   "--listen",
+                                                   "5173",
+                                                   "--no-clipboard"
+                                               ],
+                               "port":  5173
+                           }
+                       ]
+}

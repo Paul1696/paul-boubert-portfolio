@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- A -->
+  <polygon points="56,400 130,112 186,112 260,400 210,400 194,340 122,340 106,400" fill="#1a6ee8"/>
+  <polygon points="134,300 182,300 158,196" fill="white"/>
+  <!-- gap in A crossbar -->
+  <rect x="145" y="232" width="26" height="20" fill="white"/>
+
+  <!-- D -->
+  <rect x="278" y="112" width="44" height="288" fill="#1a6ee8"/>
+  <path d="M322,112 Q430,112 430,256 Q430,400 322,400 L322,356 Q390,356 390,256 Q390,156 322,156 Z" fill="#1a6ee8"/>
+  <!-- D inner gap (square notch style) -->
+  <rect x="322" y="176" width="22" height="22" fill="white"/>
+  <rect x="322" y="314" width="22" height="22" fill="white"/>
+
+  <!-- P -->
+  <rect x="448" y="112" width="44" height="288" fill="#1a6ee8"/>
+  <path d="M492,112 Q570,112 570,212 Q570,312 492,312 L492,268 Q528,268 528,212 Q528,156 492,156 Z" fill="#1a6ee8"/>
+  <!-- P inner gap -->
+  <rect x="492" y="176" width="18" height="18" fill="white"/>
+</svg>
