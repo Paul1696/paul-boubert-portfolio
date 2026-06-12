@@ -65,7 +65,7 @@
                     </p>
                     <div class="rs-hero-stats fade-in-up">
                         <div class="rs-stat"><span class="rs-stat__num">12+</span><span class="rs-stat__label">Guides disponibles</span></div>
-                        <div class="rs-stat"><span class="rs-stat__num">5</span><span class="rs-stat__label">Catégories</span></div>
+                        <div class="rs-stat"><span class="rs-stat__num">6</span><span class="rs-stat__label">Catégories</span></div>
                         <div class="rs-stat"><span class="rs-stat__num">100%</span><span class="rs-stat__label">Gratuit</span></div>
                     </div>
                 </div>
@@ -84,6 +84,18 @@
                     <button class="rs-filter-btn" data-filter="outil">Outils</button>
                     <button class="rs-filter-btn" data-filter="article">Articles</button>
                 </div>
+                <script>
+                document.querySelectorAll('.rs-filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.rs-filter-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        const filter = this.dataset.filter;
+                        document.querySelectorAll('#rs-grid .rs-card').forEach(card => {
+                            card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter);
+                        });
+                    });
+                });
+                </script>
 
                 <!-- Grille -->
                 <div class="rs-grid" id="rs-grid">
@@ -135,6 +147,138 @@
                         <p>Stratégies passives d'orientation, de ventilation naturelle et de protection solaire pour le Cameroun.</p>
                         <a href="/contact/" class="rs-card__link">Télécharger <i class="fas fa-arrow-right"></i></a>
                     </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── Annuaire des professionnels ── -->
+        <section class="rs-annuaire" id="annuaire">
+            <div class="adp-container">
+                <div class="rs-annuaire__header fade-in-up">
+                    <div>
+                        <p class="adp-label">Réseau professionnel</p>
+                        <h2 class="section-title">Annuaire des <span class="text-gradient">professionnels</span></h2>
+                        <p class="rs-annuaire__subtitle">Cabinets, entreprises et artisans de confiance dans les différents corps de métier du bâtiment et de l'aménagement au Cameroun.</p>
+                    </div>
+                    <a href="/contact/" class="btn-outline rs-annuaire__suggest">Suggérer un contact <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Filtres annuaire -->
+                <div class="rs-filter-bar rs-annuaire__filters fade-in-up">
+                    <button class="rs-filter-btn active" data-annuaire="all">Tous</button>
+                    <button class="rs-filter-btn" data-annuaire="bureau">Bureaux d'études</button>
+                    <button class="rs-filter-btn" data-annuaire="construction">Construction</button>
+                    <button class="rs-filter-btn" data-annuaire="artisan">Artisans</button>
+                    <button class="rs-filter-btn" data-annuaire="fournisseur">Fournisseurs</button>
+                    <button class="rs-filter-btn" data-annuaire="equipement">Équipements</button>
+                </div>
+                <script>
+                document.querySelectorAll('[data-annuaire]').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('[data-annuaire]').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        const filter = this.dataset.annuaire;
+                        document.querySelectorAll('.rs-annuaire-card').forEach(card => {
+                            card.classList.toggle('hidden', filter !== 'all' && card.dataset.cat !== filter);
+                        });
+                    });
+                });
+                </script>
+
+                <!-- Grille contacts -->
+                <div class="rs-annuaire-grid" id="annuaire-grid">
+
+                    <!-- Bureaux d'études -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="bureau">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge bureau">Bureau d'études</span>
+                            <span class="rs-ac__domain">Structure & Génie Civil</span>
+                        </div>
+                        <h3 class="rs-ac__name">Cabinet Exemple BET</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Construction -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="construction">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge construction">Construction</span>
+                            <span class="rs-ac__domain">Gros œuvre & Maçonnerie</span>
+                        </div>
+                        <h3 class="rs-ac__name">Entreprise Exemple BTP</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Artisan -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="artisan">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge artisan">Artisan</span>
+                            <span class="rs-ac__domain">Menuiserie & Ébénisterie</span>
+                        </div>
+                        <h3 class="rs-ac__name">Atelier Exemple Bois</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Artisan -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="artisan">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge artisan">Artisan</span>
+                            <span class="rs-ac__domain">Électricité & Courant fort</span>
+                        </div>
+                        <h3 class="rs-ac__name">Électro Exemple SARL</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Fournisseur -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="fournisseur">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge fournisseur">Fournisseur</span>
+                            <span class="rs-ac__domain">Matériaux de construction</span>
+                        </div>
+                        <h3 class="rs-ac__name">Négoce Exemple Matériaux</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Équipement -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="equipement">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge equipement">Équipements</span>
+                            <span class="rs-ac__domain">Climatisation & VMC</span>
+                        </div>
+                        <h3 class="rs-ac__name">Clim Exemple Pro</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                        </ul>
+                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
 
                 </div>
 
