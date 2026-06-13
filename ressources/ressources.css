@@ -52,6 +52,7 @@
 
 .rs-ac__top{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
 .rs-ac__badge{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;}
+.rs-ac__badge.architecte{background:rgba(15,23,42,.08);color:#0f172a;}
 .rs-ac__badge.bureau{background:rgba(30,115,216,.1);color:var(--adp-blue);}
 .rs-ac__badge.construction{background:rgba(234,88,12,.1);color:#c2410c;}
 .rs-ac__badge.artisan{background:rgba(16,185,129,.1);color:#059669;}

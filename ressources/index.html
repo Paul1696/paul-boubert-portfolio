@@ -168,6 +168,7 @@
                 <!-- Filtres annuaire -->
                 <div class="rs-filter-bar rs-annuaire__filters fade-in-up">
                     <button class="rs-filter-btn active" data-annuaire="all">Tous</button>
+                    <button class="rs-filter-btn" data-annuaire="architecte">Architectes</button>
                     <button class="rs-filter-btn" data-annuaire="bureau">Bureaux d'études</button>
                     <button class="rs-filter-btn" data-annuaire="construction">Construction</button>
                     <button class="rs-filter-btn" data-annuaire="artisan">Artisans</button>
@@ -190,34 +191,89 @@
                 <!-- Grille contacts -->
                 <div class="rs-annuaire-grid" id="annuaire-grid">
 
+                    <!-- Architectes -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="architecte">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge architecte">Architecte</span>
+                            <span class="rs-ac__domain">Agréé ONAC · Architecture & Urbanisme</span>
+                        </div>
+                        <h3 class="rs-ac__name">Cabinet d'Architecture Diwouta</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> 271 Rue D. Savio, Bonapriso, Douala</li>
+                            <li><i class="fas fa-phone"></i> +237 699 79 97 00</li>
+                        </ul>
+                        <a href="https://www.onac-noca.org/members" target="_blank" rel="noopener" class="rs-ac__link">Voir sur ONAC <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="rs-annuaire-card fade-in-up" data-cat="architecte">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge architecte">Architecte</span>
+                            <span class="rs-ac__domain">Agréé ONAC · Architecture Résidentielle</span>
+                        </div>
+                        <h3 class="rs-ac__name">Cabinet N.B. Architecture</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> 885 Av. Paul Soppo Priso, Bonapriso, Douala</li>
+                            <li><i class="fas fa-phone"></i> +237 699 84 02 75</li>
+                        </ul>
+                        <a href="https://www.onac-noca.org/members" target="_blank" rel="noopener" class="rs-ac__link">Voir sur ONAC <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
                     <!-- Bureaux d'études -->
+                    <div class="rs-annuaire-card fade-in-up" data-cat="bureau">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge bureau">Bureau d'études</span>
+                            <span class="rs-ac__domain">Génie Civil & Ingénierie</span>
+                        </div>
+                        <h3 class="rs-ac__name">Industrial Solution Cameroun (ISC)</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> BP 9181, Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 651 911 414 / +237 656 480 569</li>
+                            <li><i class="fas fa-envelope"></i> infos@isc-cm.com</li>
+                        </ul>
+                        <a href="http://isc-cm.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
                     <div class="rs-annuaire-card fade-in-up" data-cat="bureau">
                         <div class="rs-ac__top">
                             <span class="rs-ac__badge bureau">Bureau d'études</span>
                             <span class="rs-ac__domain">Structure & Génie Civil</span>
                         </div>
-                        <h3 class="rs-ac__name">Cabinet Exemple BET</h3>
+                        <h3 class="rs-ac__name">BIGC-BTP — Bureau d'Ingénieurs de Génie Civil</h3>
                         <ul class="rs-ac__infos">
-                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Makepe Belavie, Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 696 79 47 53 / +237 678 07 09 45</li>
+                            <li><i class="fas fa-envelope"></i> bigcbtpsarl@yahoo.com</li>
                         </ul>
-                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://bigcbtp.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Construction -->
                     <div class="rs-annuaire-card fade-in-up" data-cat="construction">
                         <div class="rs-ac__top">
                             <span class="rs-ac__badge construction">Construction</span>
-                            <span class="rs-ac__domain">Gros œuvre & Maçonnerie</span>
+                            <span class="rs-ac__domain">Gros œuvre & Génie Civil</span>
                         </div>
-                        <h3 class="rs-ac__name">Entreprise Exemple BTP</h3>
+                        <h3 class="rs-ac__name">YAP BTP</h3>
                         <ul class="rs-ac__infos">
-                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Rue Mermoz, Akwa, Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 688 646 689 / +237 675 125 072</li>
+                            <li><i class="fas fa-envelope"></i> info.yapbtp@gmail.com</li>
                         </ul>
-                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://www.yap-btp.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="rs-annuaire-card fade-in-up" data-cat="construction">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge construction">Construction</span>
+                            <span class="rs-ac__domain">Construction & Rénovation</span>
+                        </div>
+                        <h3 class="rs-ac__name">ECO Construction SARL</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> New Deido, Douala, Cameroun</li>
+                            <li><i class="fas fa-phone"></i> +237 694 081 678 / +237 676 744 098</li>
+                            <li><i class="fas fa-envelope"></i> infos@ecoconstructionbtp.com</li>
+                        </ul>
+                        <a href="https://ecoconstructionbtp.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Artisan -->
@@ -226,11 +282,10 @@
                             <span class="rs-ac__badge artisan">Artisan</span>
                             <span class="rs-ac__domain">Menuiserie & Ébénisterie</span>
                         </div>
-                        <h3 class="rs-ac__name">Atelier Exemple Bois</h3>
+                        <h3 class="rs-ac__name">Tonda Menuiserie</h3>
                         <ul class="rs-ac__infos">
-                            <li><i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Rue de l'Union française, Bali, Douala</li>
+                            <li><i class="fas fa-phone"></i> +237 657 241 720 / +237 697 166 524</li>
                         </ul>
                         <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -239,45 +294,68 @@
                     <div class="rs-annuaire-card fade-in-up" data-cat="artisan">
                         <div class="rs-ac__top">
                             <span class="rs-ac__badge artisan">Artisan</span>
-                            <span class="rs-ac__domain">Électricité & Courant fort</span>
+                            <span class="rs-ac__domain">Plomberie & Sanitaire</span>
                         </div>
-                        <h3 class="rs-ac__name">Électro Exemple SARL</h3>
+                        <h3 class="rs-ac__name">Maison du Plombier SARL</h3>
                         <ul class="rs-ac__infos">
-                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Route Deido–Bassa, Douala</li>
+                            <li><i class="fas fa-phone"></i> +237 233 478 189 / +237 233 404 344</li>
                         </ul>
-                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://plombierdouala.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Fournisseur -->
                     <div class="rs-annuaire-card fade-in-up" data-cat="fournisseur">
                         <div class="rs-ac__top">
                             <span class="rs-ac__badge fournisseur">Fournisseur</span>
-                            <span class="rs-ac__domain">Matériaux de construction</span>
+                            <span class="rs-ac__domain">Ciment & Matériaux de base</span>
                         </div>
-                        <h3 class="rs-ac__name">Négoce Exemple Matériaux</h3>
+                        <h3 class="rs-ac__name">Cimenteries du Cameroun (CIMENCAM)</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Bonabéri, Douala, Cameroun</li>
+                            <li><i class="fas fa-globe"></i> cimencam.com</li>
+                        </ul>
+                        <a href="https://www.cimencam.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="rs-annuaire-card fade-in-up" data-cat="fournisseur">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge fournisseur">Fournisseur</span>
+                            <span class="rs-ac__domain">Quincaillerie & Matériaux</span>
+                        </div>
+                        <h3 class="rs-ac__name">BATIVEL</h3>
                         <ul class="rs-ac__infos">
                             <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-globe"></i> bativel.com</li>
                         </ul>
-                        <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://bativel.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Équipement -->
                     <div class="rs-annuaire-card fade-in-up" data-cat="equipement">
                         <div class="rs-ac__top">
                             <span class="rs-ac__badge equipement">Équipements</span>
-                            <span class="rs-ac__domain">Climatisation & VMC</span>
+                            <span class="rs-ac__domain">Climatisation & Froid</span>
                         </div>
-                        <h3 class="rs-ac__name">Clim Exemple Pro</h3>
+                        <h3 class="rs-ac__name">SOCACLIM</h3>
                         <ul class="rs-ac__infos">
-                            <li><i class="fas fa-map-marker-alt"></i> Douala, Cameroun</li>
-                            <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
-                            <li><i class="fas fa-envelope"></i> contact@exemple.cm</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Rue Joffre, Akwa, Douala — BP 15397</li>
+                            <li><i class="fas fa-phone"></i> +237 233 423 072 / +237 233 429 950</li>
                         </ul>
                         <a href="/contact/" class="rs-ac__link">Contacter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="rs-annuaire-card fade-in-up" data-cat="equipement">
+                        <div class="rs-ac__top">
+                            <span class="rs-ac__badge equipement">Équipements</span>
+                            <span class="rs-ac__domain">VMC & Thermique industrielle</span>
+                        </div>
+                        <h3 class="rs-ac__name">LFC Services Cameroun</h3>
+                        <ul class="rs-ac__infos">
+                            <li><i class="fas fa-map-marker-alt"></i> Rue Entrée Bépanda, Douala</li>
+                            <li><i class="fas fa-phone"></i> +237 233 415 829 / +237 694 054 882</li>
+                        </ul>
+                        <a href="http://lfcservicescameroun.com" target="_blank" rel="noopener" class="rs-ac__link">Voir le site <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                 </div>
