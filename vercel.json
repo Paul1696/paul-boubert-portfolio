@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/about", "destination": "/a-propos", "permanent": true },
+    { "source": "/about.html", "destination": "/a-propos", "permanent": true },
     { "source": "/projects/:slug", "destination": "/portfolio/:slug", "permanent": true },
     { "source": "/projects", "destination": "/portfolio", "permanent": true }
   ],

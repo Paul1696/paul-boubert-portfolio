@@ -1,9 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ressources ADP — Guides, fiches pratiques et outils gratuits sur le design d'espace, l'aménagement intérieur et la gestion de projets de construction à Douala, Cameroun.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ateliersdepaul.com/ressources/">
+    <meta property="og:title" content="Ressources | Design, Aménagement & Construction à Douala — ADP">
+    <meta property="og:description" content="Ressources ADP — Guides, fiches pratiques et outils gratuits sur le design d'espace, l'aménagement intérieur et la gestion de projets de construction à Douala, Cameroun.">
+    <meta property="og:image" content="https://ateliersdepaul.com/assets/og/og-ressources.jpg">
+    <meta property="og:locale" content="fr_CM">
+    <meta property="og:site_name" content="ADP — Ateliers de Paul">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ressources | Design, Aménagement & Construction à Douala — ADP">
+    <meta name="twitter:description" content="Ressources ADP — Guides, fiches pratiques et outils gratuits sur le design d'espace, l'aménagement intérieur et la gestion de projets de construction à Douala, Cameroun.">
+    <meta name="twitter:image" content="https://ateliersdepaul.com/assets/og/og-ressources.jpg">
     <title>Ressources | Design, Aménagement & Construction à Douala — ADP</title>
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,15 +94,66 @@
                     <button class="rs-filter-btn" data-filter="fiche">Fiches pratiques</button>
                     <button class="rs-filter-btn" data-filter="outil">Outils</button>
                     <button class="rs-filter-btn" data-filter="article">Articles</button>
+                    <button class="rs-filter-btn" data-filter="sketchup">Modèles SketchUp</button>
                 </div>
                 <script>
+                let sketchupLoaded = false;
+                async function loadSketchupModels() {
+                    if (sketchupLoaded) return;
+                    const grid = document.getElementById('rs-grid');
+                    if (!grid) return;
+
+                    grid.innerHTML = '<p class="rs-loading"><i class="fas fa-spinner fa-spin"></i> Chargement des modèles…</p>';
+                    try {
+                        const response = await fetch('sketchup-models.json');
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        const models = await response.json();
+
+                        grid.querySelector('.rs-loading')?.remove();
+
+                        models.forEach(model => {
+                            const article = document.createElement('article');
+                            article.className = 'rs-card fade-in-up sketchup visible';
+                            article.dataset.type = 'sketchup';
+
+                            let cleanTitle = model.title.replace(/^\d+\.\s*/, '');
+                            cleanTitle = cleanTitle.replace(/–/g, '-');
+
+                            article.innerHTML = `
+                                <div class="rs-card__img-container">
+                                    <img class="rs-card__img" src="${model.img_url}" alt="${cleanTitle}" loading="lazy">
+                                </div>
+                                <div class="rs-card__content">
+                                    <div class="rs-card__badge sketchup">Modèle 3D</div>
+                                    <h3>${cleanTitle}</h3>
+                                    <p>Modèle 3D SketchUp (.skp) de haute qualité. Idéal pour enrichir vos conceptions et rendus 3D sous Enscape ou V-Ray.</p>
+                                    <a href="${model.download_link}" class="rs-card__link" target="_blank" rel="noopener">
+                                        Télécharger <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            `;
+                            grid.appendChild(article);
+                        });
+                        sketchupLoaded = true;
+                    } catch (error) {
+                        grid.querySelector('.rs-loading')?.remove();
+                        grid.insertAdjacentHTML('afterbegin', '<p class="rs-error"><i class="fas fa-exclamation-triangle"></i> Impossible de charger les modèles. Réessayez plus tard.</p>');
+                        console.error('SketchUp models fetch error:', error);
+                    }
+                }
+
                 document.querySelectorAll('.rs-filter-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', async function() {
                         document.querySelectorAll('.rs-filter-btn').forEach(b => b.classList.remove('active'));
                         this.classList.add('active');
                         const filter = this.dataset.filter;
+                        
+                        if (filter === 'sketchup') {
+                            await loadSketchupModels();
+                        }
+                        
                         document.querySelectorAll('#rs-grid .rs-card').forEach(card => {
-                            card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter);
+                            card.classList.toggle('hidden', (filter !== 'all' && card.dataset.type !== filter) || (card.dataset.type === 'sketchup' && filter !== 'sketchup'));
                         });
                     });
                 });
@@ -2213,5 +2275,25 @@
     </footer>
 
     <script src="../adp-shared.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://ateliersdepaul.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ressources",
+      "item": "https://ateliersdepaul.com/ressources/"
+    }
+  ]
+}
+</script>
 </body>
 </html>

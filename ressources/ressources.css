@@ -1,4 +1,4 @@
-﻿.rs-hero{padding-top:calc(var(--adp-nav-height) + 4rem);padding-bottom:4rem;background:var(--adp-surface);border-bottom:1px solid var(--adp-border);position:relative;overflow:hidden;}
+.rs-hero{padding-top:calc(var(--adp-nav-height) + 4rem);padding-bottom:4rem;background:var(--adp-surface);border-bottom:1px solid var(--adp-border);position:relative;overflow:hidden;}
 .rs-hero::before{content:"RESSOURCES";position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--adp-font-heading);font-size:clamp(4rem,10vw,10rem);font-weight:900;color:rgba(30,115,216,0.04);pointer-events:none;white-space:nowrap;line-height:1;letter-spacing:-0.04em;}
 .rs-hero__inner{position:relative;z-index:1;max-width:800px;}
 .rs-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--adp-gray-muted);margin-bottom:2rem;}
@@ -68,3 +68,41 @@
 
 .rs-ac__link{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:700;color:var(--adp-blue);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem;transition:gap .2s;}
 .rs-ac__link:hover{gap:.75rem;}
+
+/* ── Modèles SketchUp (Dynamiques) ── */
+.rs-card.sketchup {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.rs-card__img-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio */
+    overflow: hidden;
+    background: var(--adp-border);
+}
+.rs-card__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.rs-card.sketchup:hover .rs-card__img {
+    transform: scale(1.04);
+}
+.rs-card__content {
+    padding: 1.75rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+.rs-card__badge.sketchup {
+    background: rgba(30, 115, 216, 0.1);
+    color: var(--adp-blue);
+}

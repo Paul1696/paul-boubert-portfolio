@@ -87,13 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ── Dropdown mobile (accordion) ────────────────────── */
+    /* ── Dropdown : mobile accordion + accessibilité clavier ── */
     document.querySelectorAll('.adp-nav-dropdown > .adp-nav-item').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            // Seulement en mobile (nav-links.open)
-            if (!navLinks || !navLinks.classList.contains('open')) return;
+        trigger.setAttribute('tabindex', '0');
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('aria-haspopup', 'true');
+        trigger.setAttribute('aria-expanded', 'false');
+
+        const dropdown = trigger.closest('.adp-nav-dropdown');
+
+        const toggleDropdown = (e) => {
+            const isMobile = navLinks && navLinks.classList.contains('open');
+            if (!isMobile) return;
             e.preventDefault();
-            trigger.closest('.adp-nav-dropdown').classList.toggle('open');
+            const isOpen = dropdown.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', isOpen);
+        };
+
+        trigger.addEventListener('click', toggleDropdown);
+
+        trigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                toggleDropdown(e);
+            } else if (e.key === 'Escape') {
+                dropdown.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
         });
     });
 

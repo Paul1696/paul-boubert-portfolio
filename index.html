@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ADP — Ateliers de Paul. Accompagnement, design d'espace et coordination de projets de construction à Douala et au Cameroun. Outils, méthodes et formation pour mieux aménager et construire.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ateliersdepaul.com/">
+    <meta property="og:title" content="ADP — Ateliers de Paul | Design & Gestion de Projets à Douala">
+    <meta property="og:description" content="ADP — Ateliers de Paul. Accompagnement, design d'espace et coordination de projets de construction à Douala et au Cameroun. Outils, méthodes et formation pour mieux aménager et construire.">
+    <meta property="og:image" content="https://ateliersdepaul.com/assets/og/og-home.jpg">
+    <meta property="og:locale" content="fr_CM">
+    <meta property="og:site_name" content="ADP — Ateliers de Paul">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ADP — Ateliers de Paul | Design & Gestion de Projets à Douala">
+    <meta name="twitter:description" content="ADP — Ateliers de Paul. Accompagnement, design d'espace et coordination de projets de construction à Douala et au Cameroun. Outils, méthodes et formation pour mieux aménager et construire.">
+    <meta name="twitter:image" content="https://ateliersdepaul.com/assets/og/og-home.jpg">
     <title>ADP — Ateliers de Paul | Design & Gestion de Projets à Douala</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +84,6 @@
             </a>
             <div class="adp-hero-right">
                 <div class="adp-hero-fade"></div>
-                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" id="adp-hero-img">
                 <script>
                 (function(){
                     var imgs = [
@@ -90,9 +100,10 @@
                         '/assets/projects/petrofor_base_tcp/hero.png'
                     ];
                     var pick = imgs[Math.floor(Math.random() * imgs.length)];
-                    document.getElementById('adp-hero-img').src = pick;
+                    document.write('<img src="' + pick + '" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" fetchpriority="high">');
                 })();
                 </script>
+                <noscript><img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img"></noscript>
             </div>
         </section>
 
@@ -404,5 +415,27 @@
 
     <script src="adp-shared.js"></script>
     <script src="adp-home.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ADP — Ateliers de Paul",
+  "url": "https://ateliersdepaul.com",
+  "logo": "https://ateliersdepaul.com/assets/logo-adp.png",
+  "image": "https://ateliersdepaul.com/assets/og/og-home.jpg",
+  "description": "Accompagnement, design d'espace et coordination de projets de construction à Douala et au Cameroun.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Douala",
+    "addressCountry": "CM"
+  },
+  "areaServed": ["Douala", "Yaoundé", "Cameroun"],
+  "serviceType": ["Design d'intérieur", "Coordination de chantier", "Aménagement d'espace", "Formation en construction"],
+  "sameAs": [
+    "https://www.linkedin.com/in/paul-boubert"
+  ]
+}
+</script>
 </body>
 </html>
