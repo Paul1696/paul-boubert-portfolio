@@ -87,75 +87,174 @@
         <section class="rs-section">
             <div class="adp-container">
 
-                <!-- Filtres -->
-                <div class="rs-filter-bar fade-in-up">
+                <!-- Filtres principaux -->
+                <div class="rs-filter-bar fade-in-up" id="rs-main-filters">
                     <button class="rs-filter-btn active" data-filter="all">Tout</button>
                     <button class="rs-filter-btn" data-filter="guide">Guides</button>
                     <button class="rs-filter-btn" data-filter="fiche">Fiches pratiques</button>
                     <button class="rs-filter-btn" data-filter="outil">Outils</button>
                     <button class="rs-filter-btn" data-filter="article">Articles</button>
-                    <button class="rs-filter-btn" data-filter="sketchup">Modèles SketchUp</button>
+                    <button class="rs-filter-btn rs-filter-btn--sketchup" data-filter="sketchup">
+                        <i class="fas fa-cube"></i> Modèles SketchUp
+                    </button>
                 </div>
+
+                <!-- Sous-filtres SketchUp (apparaissent dynamiquement) -->
+                <div class="rs-subfilter-bar" id="rs-subfilters" style="display:none">
+                    <span class="rs-subfilter-label">Catégorie :</span>
+                    <button class="rs-subfilter-btn active" data-cat="all">Tous</button>
+                    <button class="rs-subfilter-btn" data-cat="sieges">🛋️ Sièges</button>
+                    <button class="rs-subfilter-btn" data-cat="chambres">🛏️ Chambres</button>
+                    <button class="rs-subfilter-btn" data-cat="eclairage">💡 Éclairage</button>
+                    <button class="rs-subfilter-btn" data-cat="portes">🚪 Portes</button>
+                    <button class="rs-subfilter-btn" data-cat="architecture">🏛️ Architecture</button>
+                    <button class="rs-subfilter-btn" data-cat="decoration">🪴 Décoration</button>
+                    <button class="rs-subfilter-btn" data-cat="cuisine">🍽️ Cuisine</button>
+                    <button class="rs-subfilter-btn" data-cat="interieurs">🏠 Intérieurs</button>
+                    <button class="rs-subfilter-btn" data-cat="mobilier">📦 Mobilier</button>
+                </div>
+                <div class="rs-sketchup-meta" id="rs-sketchup-meta" style="display:none">
+                    <span id="rs-model-count">0 modèles</span>
+                </div>
+
                 <script>
+                const CAT_LABELS = {
+                    sieges: 'Sièges & Canapés', chambres: 'Chambres & Lits',
+                    eclairage: 'Éclairage', portes: 'Portes & Fenêtres',
+                    architecture: 'Architecture', decoration: 'Décoration & Plantes',
+                    cuisine: 'Cuisine & Salle à manger', interieurs: 'Intérieurs complets',
+                    mobilier: 'Mobilier & Rangement'
+                };
+                const CAT_ICONS = {
+                    sieges:'🛋️', chambres:'🛏️', eclairage:'💡', portes:'🚪',
+                    architecture:'🏛️', decoration:'🪴', cuisine:'🍽️',
+                    interieurs:'🏠', mobilier:'📦'
+                };
+                const CAT_ORDER = ['sieges','chambres','eclairage','portes','architecture','decoration','cuisine','interieurs','mobilier'];
+
                 let sketchupLoaded = false;
+                let allSketchupModels = [];
+                let currentCat = 'all';
+
                 async function loadSketchupModels() {
                     if (sketchupLoaded) return;
                     const grid = document.getElementById('rs-grid');
                     if (!grid) return;
 
-                    grid.innerHTML = '<p class="rs-loading"><i class="fas fa-spinner fa-spin"></i> Chargement des modèles…</p>';
+                    // Vider la grille et montrer le loading
+                    const staticCards = grid.querySelectorAll('.rs-card:not(.sketchup)');
+                    staticCards.forEach(c => c.classList.add('hidden'));
+                    const loadingEl = document.createElement('p');
+                    loadingEl.className = 'rs-loading';
+                    loadingEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement des modèles…';
+                    grid.appendChild(loadingEl);
+
                     try {
                         const response = await fetch('sketchup-models.json');
-                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                        const models = await response.json();
-
-                        grid.querySelector('.rs-loading')?.remove();
-
-                        models.forEach(model => {
-                            const article = document.createElement('article');
-                            article.className = 'rs-card fade-in-up sketchup visible';
-                            article.dataset.type = 'sketchup';
-
-                            let cleanTitle = model.title.replace(/^\d+\.\s*/, '');
-                            cleanTitle = cleanTitle.replace(/–/g, '-');
-
-                            article.innerHTML = `
-                                <div class="rs-card__img-container">
-                                    <img class="rs-card__img" src="${model.img_url}" alt="${cleanTitle}" loading="lazy">
-                                </div>
-                                <div class="rs-card__content">
-                                    <div class="rs-card__badge sketchup">Modèle 3D</div>
-                                    <h3>${cleanTitle}</h3>
-                                    <p>Modèle 3D SketchUp (.skp) de haute qualité. Idéal pour enrichir vos conceptions et rendus 3D sous Enscape ou V-Ray.</p>
-                                    <a href="${model.download_link}" class="rs-card__link" target="_blank" rel="noopener">
-                                        Télécharger <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            `;
-                            grid.appendChild(article);
-                        });
+                        if (!response.ok) throw new Error('HTTP ' + response.status);
+                        allSketchupModels = await response.json();
+                        loadingEl.remove();
+                        renderSketchupCards('all');
                         sketchupLoaded = true;
                     } catch (error) {
-                        grid.querySelector('.rs-loading')?.remove();
-                        grid.insertAdjacentHTML('afterbegin', '<p class="rs-error"><i class="fas fa-exclamation-triangle"></i> Impossible de charger les modèles. Réessayez plus tard.</p>');
-                        console.error('SketchUp models fetch error:', error);
+                        loadingEl.remove();
+                        grid.insertAdjacentHTML('beforeend', '<p class="rs-error"><i class="fas fa-exclamation-triangle"></i> Impossible de charger les modèles.</p>');
+                        console.error('SketchUp fetch error:', error);
                     }
                 }
 
-                document.querySelectorAll('.rs-filter-btn').forEach(btn => {
-                    btn.addEventListener('click', async function() {
-                        document.querySelectorAll('.rs-filter-btn').forEach(b => b.classList.remove('active'));
-                        this.classList.add('active');
-                        const filter = this.dataset.filter;
-                        
-                        if (filter === 'sketchup') {
-                            await loadSketchupModels();
+                function renderSketchupCards(cat) {
+                    const grid = document.getElementById('rs-grid');
+                    // Supprimer les anciennes cartes sketchup et séparateurs
+                    grid.querySelectorAll('.rs-card.sketchup, .rs-cat-header').forEach(el => el.remove());
+
+                    const filtered = cat === 'all' ? allSketchupModels : allSketchupModels.filter(m => m.category === cat);
+
+                    // Grouper par catégorie
+                    const groups = {};
+                    filtered.forEach(m => {
+                        const c = m.category || 'mobilier';
+                        if (!groups[c]) groups[c] = [];
+                        groups[c].push(m);
+                    });
+
+                    const orderedCats = cat === 'all' ? CAT_ORDER.filter(c => groups[c]) : [cat];
+
+                    orderedCats.forEach(groupCat => {
+                        if (!groups[groupCat]) return;
+
+                        // Titre de groupe (seulement quand "Tous" sélectionné)
+                        if (cat === 'all') {
+                            const header = document.createElement('div');
+                            header.className = 'rs-cat-header';
+                            header.innerHTML = `<span class="rs-cat-header__icon">${CAT_ICONS[groupCat]||'📦'}</span><span>${CAT_LABELS[groupCat]||groupCat}</span><span class="rs-cat-header__count">${groups[groupCat].length}</span>`;
+                            grid.appendChild(header);
                         }
-                        
-                        document.querySelectorAll('#rs-grid .rs-card').forEach(card => {
-                            card.classList.toggle('hidden', (filter !== 'all' && card.dataset.type !== filter) || (card.dataset.type === 'sketchup' && filter !== 'sketchup'));
+
+                        groups[groupCat].forEach(model => {
+                            const article = document.createElement('article');
+                            article.className = 'rs-card fade-in-up sketchup visible';
+                            article.dataset.type = 'sketchup';
+                            article.dataset.cat = model.category || 'mobilier';
+
+                            const displayName = model.name_fr || model.title.replace(/^\d+[\. ]+/, '').replace(/–/g, '-');
+                            const dlLink = model.download_link || model.post_url || '#';
+                            const dlText = model.download_link ? 'Télécharger' : 'Voir le modèle';
+
+                            article.innerHTML = `
+                                <div class="rs-card__img-container">
+                                    <img class="rs-card__img" src="${model.img_url}" alt="${displayName}" loading="lazy">
+                                </div>
+                                <div class="rs-card__content">
+                                    <div class="rs-card__badge ${model.category||'mobilier'}">${CAT_ICONS[model.category]||'📦'} ${CAT_LABELS[model.category]||'Modèle 3D'}</div>
+                                    <h3>${displayName}</h3>
+                                    <a href="${dlLink}" class="rs-card__link" target="_blank" rel="noopener">${dlText} <i class="fas fa-arrow-right"></i></a>
+                                </div>`;
+                            grid.appendChild(article);
                         });
                     });
+
+                    // Mettre à jour le compteur
+                    const countEl = document.getElementById('rs-model-count');
+                    if (countEl) countEl.textContent = filtered.length + ' modèle' + (filtered.length > 1 ? 's' : '');
+                }
+
+                // Filtres principaux
+                document.getElementById('rs-main-filters').addEventListener('click', async function(e) {
+                    const btn = e.target.closest('[data-filter]');
+                    if (!btn) return;
+                    document.querySelectorAll('#rs-main-filters .rs-filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    const subBar = document.getElementById('rs-subfilters');
+                    const meta = document.getElementById('rs-sketchup-meta');
+
+                    if (filter === 'sketchup') {
+                        await loadSketchupModels();
+                        subBar.style.display = 'flex';
+                        meta.style.display = 'block';
+                        // Masquer cartes non-sketchup
+                        document.querySelectorAll('#rs-grid .rs-card:not(.sketchup)').forEach(c => c.classList.add('hidden'));
+                    } else {
+                        subBar.style.display = 'none';
+                        meta.style.display = 'none';
+                        // Supprimer les cartes sketchup et réafficher les statiques
+                        document.querySelectorAll('#rs-grid .rs-card.sketchup, #rs-grid .rs-cat-header').forEach(el => el.remove());
+                        sketchupLoaded = false;
+                        document.querySelectorAll('#rs-grid .rs-card').forEach(card => {
+                            card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter);
+                        });
+                    }
+                });
+
+                // Sous-filtres SketchUp
+                document.getElementById('rs-subfilters').addEventListener('click', async function(e) {
+                    const btn = e.target.closest('[data-cat]');
+                    if (!btn) return;
+                    document.querySelectorAll('#rs-subfilters .rs-subfilter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCat = btn.dataset.cat;
+                    if (sketchupLoaded) renderSketchupCards(currentCat);
                 });
                 </script>
 

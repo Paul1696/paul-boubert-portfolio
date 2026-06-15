@@ -106,3 +106,36 @@
     background: rgba(30, 115, 216, 0.1);
     color: var(--adp-blue);
 }
+
+/* ── Bouton SketchUp spécial ── */
+.rs-filter-btn--sketchup { font-weight: 600; }
+.rs-filter-btn--sketchup.active { background: linear-gradient(135deg,#1e73d8,#5b21b6); border-color: transparent; }
+
+/* ── Sous-filtres SketchUp ── */
+.rs-subfilter-bar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;padding:.75rem 1rem;background:rgba(30,115,216,.05);border:1px solid rgba(30,115,216,.15);border-radius:var(--adp-radius-lg);animation:slideDown .25s ease;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.rs-subfilter-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--adp-gray-muted);margin-right:.25rem;white-space:nowrap;}
+.rs-subfilter-btn{background:none;border:1px solid var(--adp-border);color:var(--adp-gray-text);padding:.3rem .8rem;border-radius:20px;font-family:var(--adp-font-body);font-size:.76rem;font-weight:500;cursor:pointer;transition:var(--adp-transition-fast);white-space:nowrap;}
+.rs-subfilter-btn:hover{border-color:var(--adp-blue);color:var(--adp-blue);}
+.rs-subfilter-btn.active{background:var(--adp-blue);border-color:var(--adp-blue);color:#fff;}
+
+/* ── Compteur modèles ── */
+.rs-sketchup-meta{margin-bottom:1.5rem;font-size:.8rem;color:var(--adp-gray-muted);font-weight:500;}
+#rs-model-count{background:rgba(30,115,216,.1);color:var(--adp-blue);padding:.2rem .6rem;border-radius:20px;font-weight:700;}
+
+/* ── En-têtes de catégorie dans la grille ── */
+.rs-cat-header{grid-column:1/-1;display:flex;align-items:center;gap:.75rem;padding:.6rem 0 .4rem;border-bottom:2px solid var(--adp-border);margin-top:1rem;font-family:var(--adp-font-heading);font-weight:700;font-size:1rem;color:var(--adp-black);}
+.rs-cat-header:first-child{margin-top:0;}
+.rs-cat-header__icon{font-size:1.2rem;}
+.rs-cat-header__count{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--adp-blue);background:rgba(30,115,216,.1);padding:.2rem .55rem;border-radius:20px;}
+
+/* ── Badges colorés par catégorie ── */
+.rs-card__badge.sieges{background:rgba(239,68,68,.1);color:#dc2626;}
+.rs-card__badge.chambres{background:rgba(168,85,247,.1);color:#9333ea;}
+.rs-card__badge.eclairage{background:rgba(245,158,11,.1);color:#d97706;}
+.rs-card__badge.portes{background:rgba(20,184,166,.1);color:#0d9488;}
+.rs-card__badge.architecture{background:rgba(59,130,246,.1);color:#2563eb;}
+.rs-card__badge.decoration{background:rgba(34,197,94,.1);color:#16a34a;}
+.rs-card__badge.cuisine{background:rgba(249,115,22,.1);color:#ea580c;}
+.rs-card__badge.interieurs{background:rgba(99,102,241,.1);color:#4f46e5;}
+.rs-card__badge.mobilier{background:rgba(107,114,128,.1);color:#4b5563;}

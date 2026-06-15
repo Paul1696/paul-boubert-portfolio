@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>SketchUp Scraper — ADP</title>
+<style>
+  body { font-family: monospace; background: #0f172a; color: #94a3b8; padding: 2rem; }
+  h1 { color: #3b82f6; }
+  #log { background: #1e293b; padding: 1rem; border-radius: 8px; height: 300px; overflow-y: auto; font-size: .8rem; margin-bottom: 1rem; }
+  #result { background: #1e293b; padding: 1rem; border-radius: 8px; height: 200px; overflow-y: auto; font-size: .75rem; }
+  button { background: #3b82f6; color: white; border: none; padding: .75rem 2rem; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-right: 1rem; }
+  button:disabled { background: #475569; }
+  .ok { color: #22c55e; }
+  .err { color: #ef4444; }
+  progress { width: 100%; height: 20px; margin: 1rem 0; }
+</style>
+</head>
+<body>
+<h1>SketchUp Model Scraper — ADP</h1>
+<p>Scrape pages 2–9 de sketchup.cgtips.org via le proxy CORS</p>
+<button id="btnStart" onclick="startScraping()">Lancer le scraping</button>
+<button id="btnSave" onclick="saveJSON()" disabled>Sauvegarder JSON</button>
+<progress id="prog" value="0" max="8"></progress>
+<div id="log"></div>
+<p>Total collecté : <strong id="count">0</strong> modèles</p>
+<div id="result"></div>
+
+<script>
+const log = document.getElementById('log');
+const PROXY = 'https://api.allorigins.win/raw?url=';
+let allItems = [];
+
+function addLog(msg, cls='') {
+  const div = document.createElement('div');
+  div.className = cls;
+  div.textContent = new Date().toLocaleTimeString() + ' ' + msg;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+function extractItems(html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const items = [];
+  doc.querySelectorAll('article').forEach(art => {
+    const titleEl = art.querySelector('h2 a, h3 a, .entry-title a');
+    const imgs = art.querySelectorAll('img');
+    if (!titleEl) return;
+    let imgSrc = '';
+    imgs.forEach(img => {
+      const src = img.getAttribute('data-lazy-src') || img.getAttribute('data-src') || img.src || '';
+      if (src.includes('357x210') || src.includes('wp-content/uploads')) imgSrc = imgSrc || src;
+    });
+    if (titleEl.href && (imgSrc || true)) {
+      items.push({
+        title: titleEl.textContent.trim(),
+        post_url: titleEl.href,
+        img_url: imgSrc
+      });
+    }
+  });
+  return items;
+}
+
+async function fetchPage(pageNum) {
+  const url = pageNum === 1
+    ? 'https://sketchup.cgtips.org/'
+    : `https://sketchup.cgtips.org/page/${pageNum}/`;
+  
+  addLog(`Scraping page ${pageNum}...`);
+  
+  // Essai 1: allorigins
+  try {
+    const resp = await fetch(PROXY + encodeURIComponent(url), { signal: AbortSignal.timeout(15000) });
+    if (resp.ok) {
+      const html = await resp.text();
+      const items = extractItems(html);
+      addLog(`Page ${pageNum}: ${items.length} modeles trouves`, items.length > 0 ? 'ok' : 'err');
+      return items;
+    }
+  } catch(e) {
+    addLog(`Page ${pageNum} erreur allorigins: ${e.message}`, 'err');
+  }
+  
+  // Essai 2: corsproxy.io
+  try {
+    const resp2 = await fetch(`https://corsproxy.io/?${encodeURIComponent(url)}`, { signal: AbortSignal.timeout(15000) });
+    if (resp2.ok) {
+      const html = await resp2.text();
+      const items = extractItems(html);
+      addLog(`Page ${pageNum} (proxy2): ${items.length} modeles`, items.length > 0 ? 'ok' : 'err');
+      return items;
+    }
+  } catch(e2) {
+    addLog(`Page ${pageNum} erreur proxy2: ${e2.message}`, 'err');
+  }
+  
+  return [];
+}
+
+async function getDownloadLink(postUrl) {
+  try {
+    const resp = await fetch(PROXY + encodeURIComponent(postUrl), { signal: AbortSignal.timeout(10000) });
+    if (!resp.ok) return '';
+    const html = await resp.text();
+    const match = html.match(/href="(https:\/\/drive\.google\.com\/(?:file|open)[^"]+)"/);
+    return match ? match[1] : '';
+  } catch(e) {
+    return '';
+  }
+}
+
+async function startScraping() {
+  document.getElementById('btnStart').disabled = true;
+  allItems = [];
+  const prog = document.getElementById('prog');
+  const existingUrls = new Set();
+
+  // Charger les URLs existantes
+  try {
+    const resp = await fetch('/ressources/sketchup-models.json');
+    const existing = await resp.json();
+    existing.forEach(m => existingUrls.add(m.post_url));
+    addLog(`${existing.length} modeles existants charges.`, 'ok');
+  } catch(e) {
+    addLog('Impossible de charger le JSON existant: ' + e.message, 'err');
+  }
+
+  for (let page = 2; page <= 9; page++) {
+    prog.value = page - 1;
+    const items = await fetchPage(page);
+    let newCount = 0;
+    
+    for (const item of items) {
+      if (!existingUrls.has(item.post_url)) {
+        existingUrls.add(item.post_url);
+        // Recuperer le lien Drive
+        addLog(`  Drive link: ${item.title.substring(0,40)}...`);
+        const drive = await getDownloadLink(item.post_url);
+        item.download_link = drive;
+        allItems.push(item);
+        newCount++;
+        document.getElementById('count').textContent = allItems.length;
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+    addLog(`Page ${page}: +${newCount} nouveaux (total: ${allItems.length})`, 'ok');
+    await new Promise(r => setTimeout(r, 1000));
+  }
+
+  prog.value = 8;
+  addLog(`TERMINE! ${allItems.length} nouveaux modeles collectes.`, 'ok');
+  document.getElementById('result').textContent = JSON.stringify(allItems.slice(0, 3), null, 2);
+  document.getElementById('btnSave').disabled = false;
+  document.getElementById('btnStart').disabled = false;
+}
+
+function saveJSON() {
+  const blob = new Blob([JSON.stringify(allItems, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'new_sketchup_models.json';
+  a.click();
+  addLog(`Fichier sauvegarde: new_sketchup_models.json (${allItems.length} modeles)`, 'ok');
+}
+</script>
+</body>
+</html>
