@@ -86,26 +86,32 @@
             </a>
             <div class="adp-hero-right">
                 <div class="adp-hero-fade"></div>
-                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" fetchpriority="high" id="adp-hero-img">
+                <picture>
+                                    <source srcset="/assets/projects/bahemeck_final/hero_v3.webp" type="image/webp">
+                                    <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" fetchpriority="high" id="adp-hero-img">
+                                </picture>
                 <script>
                 (function(){
-                    var imgs = [
-                        '/assets/projects/bahemeck_final/hero_v3.png',
-                        '/assets/projects/cabinet_elena/hero.jpg',
-                        '/assets/projects/showroom_kotto/hero.jpg',
-                        '/assets/projects/018_studio/hero.jpg',
-                        '/assets/projects/suka_cafe/hero_main.jpg',
-                        '/assets/projects/lipem/hero.jpg',
-                        '/assets/projects/meeting_room/hero.jpg',
-                        '/assets/projects/pharmacie_studio/hero.jpg',
-                        '/assets/projects/boutique_biyem_assi/hero.jpg',
-                        '/assets/projects/grill_way/hero.png',
-                        '/assets/projects/petrofor_base_tcp/hero.png'
+                    var bases = [
+                        '/assets/projects/bahemeck_final/hero_v3',
+                        '/assets/projects/cabinet_elena/hero',
+                        '/assets/projects/showroom_kotto/hero',
+                        '/assets/projects/018_studio/hero',
+                        '/assets/projects/suka_cafe/hero_main',
+                        '/assets/projects/lipem/hero',
+                        '/assets/projects/meeting_room/hero',
+                        '/assets/projects/pharmacie_studio/hero',
+                        '/assets/projects/boutique_biyem_assi/hero',
+                        '/assets/projects/grill_way/hero',
+                        '/assets/projects/petrofor_base_tcp/hero'
                     ];
-                    var idx = Math.floor(Math.random() * imgs.length);
+                    var fallbacks = ['.png','.jpg','.jpg','.jpg','.jpg','.jpg','.jpg','.jpg','.jpg','.png','.png'];
+                    var idx = Math.floor(Math.random() * bases.length);
                     if (idx !== 0) {
                         var img = document.getElementById('adp-hero-img');
-                        if (img) img.src = imgs[idx];
+                        var src = img && img.closest('picture') && img.closest('picture').querySelector('source');
+                        if (src) src.srcset = bases[idx] + '.webp';
+                        if (img) img.src = bases[idx] + fallbacks[idx];
                     }
                 })();
                 </script>
@@ -202,7 +208,10 @@
 
                         <a href="/portfolio/bahemeck/" class="adp-rc-card">
                             <div class="adp-rc-card__img">
-                                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Bahemeck" loading="lazy">
+                                <picture>
+                                    <source srcset="/assets/projects/bahemeck_final/hero_v3.webp" type="image/webp">
+                                    <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Bahemeck" loading="lazy">
+                                </picture>
                             </div>
                             <div class="adp-rc-card__info">
                                 <p class="adp-rc-card__name">Bahemeck</p>
@@ -212,7 +221,10 @@
 
                         <a href="/portfolio/cabinet_elena/" class="adp-rc-card">
                             <div class="adp-rc-card__img">
-                                <img src="/assets/projects/cabinet_elena/hero.jpg" alt="Cabinet Elena" loading="lazy">
+                                <picture>
+                                    <source srcset="/assets/projects/cabinet_elena/hero.webp" type="image/webp">
+                                    <img src="/assets/projects/cabinet_elena/hero.jpg" alt="Cabinet Elena" loading="lazy">
+                                </picture>
                             </div>
                             <div class="adp-rc-card__info">
                                 <p class="adp-rc-card__name">Cabinet Elena</p>
@@ -222,7 +234,10 @@
 
                         <a href="/portfolio/showroom_kotto/" class="adp-rc-card">
                             <div class="adp-rc-card__img">
-                                <img src="/assets/projects/showroom_kotto/hero.jpg" alt="Showroom Kotto" loading="lazy">
+                                <picture>
+                                    <source srcset="/assets/projects/showroom_kotto/hero.webp" type="image/webp">
+                                    <img src="/assets/projects/showroom_kotto/hero.jpg" alt="Showroom Kotto" loading="lazy">
+                                </picture>
                             </div>
                             <div class="adp-rc-card__info">
                                 <p class="adp-rc-card__name">Showroom Kotto</p>
@@ -232,7 +247,10 @@
 
                         <a href="/portfolio/018_studio/" class="adp-rc-card">
                             <div class="adp-rc-card__img">
-                                <img src="/assets/projects/018_studio/hero.jpg" alt="018 Studio" loading="lazy">
+                                <picture>
+                                    <source srcset="/assets/projects/018_studio/hero.webp" type="image/webp">
+                                    <img src="/assets/projects/018_studio/hero.jpg" alt="018 Studio" loading="lazy">
+                                </picture>
                             </div>
                             <div class="adp-rc-card__info">
                                 <p class="adp-rc-card__name">018 Studio</p>
