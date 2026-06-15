@@ -152,7 +152,7 @@
                     grid.appendChild(loadingEl);
 
                     try {
-                        const response = await fetch('sketchup-models.json');
+                        const response = await fetch('/ressources/sketchup-models.json');
                         if (!response.ok) throw new Error('HTTP ' + response.status);
                         allSketchupModels = await response.json();
                         loadingEl.remove();
