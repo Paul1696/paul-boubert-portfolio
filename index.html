@@ -16,6 +16,7 @@
     <meta name="twitter:description" content="ADP — Ateliers de Paul. Accompagnement, design d'espace et coordination de projets de construction à Douala et au Cameroun. Outils, méthodes et formation pour mieux aménager et construire.">
     <meta name="twitter:image" content="https://ateliersdepaul.com/assets/og/og-home.jpg">
     <title>ADP — Ateliers de Paul | Design & Gestion de Projets à Douala</title>
+    <link rel="canonical" href="https://ateliersdepaul.com/">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,7 @@
 <body>
     <div class="adp-cursor"></div>
     <div class="adp-cursor-follower"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
 
     <header class="adp-navbar">
         <div class="adp-container">
@@ -59,7 +61,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- ── Hero ── -->
         <section class="adp-hero">
             <div class="adp-hero-left">
@@ -84,6 +86,7 @@
             </a>
             <div class="adp-hero-right">
                 <div class="adp-hero-fade"></div>
+                <img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" fetchpriority="high" id="adp-hero-img">
                 <script>
                 (function(){
                     var imgs = [
@@ -99,11 +102,13 @@
                         '/assets/projects/grill_way/hero.png',
                         '/assets/projects/petrofor_base_tcp/hero.png'
                     ];
-                    var pick = imgs[Math.floor(Math.random() * imgs.length)];
-                    document.write('<img src="' + pick + '" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img" fetchpriority="high">');
+                    var idx = Math.floor(Math.random() * imgs.length);
+                    if (idx !== 0) {
+                        var img = document.getElementById('adp-hero-img');
+                        if (img) img.src = imgs[idx];
+                    }
                 })();
                 </script>
-                <noscript><img src="/assets/projects/bahemeck_final/hero_v3.png" alt="Réalisation ADP — Ateliers de Paul" class="adp-hero-img"></noscript>
             </div>
         </section>
 

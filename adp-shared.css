@@ -47,7 +47,27 @@
     --adp-radius-md:   9px;
 }
 
-/* ── 1b · Reset & Base ────────────────────────────────────── */
+/* ── 1b · Skip link (accessibilité) ──────────────────────── */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.6rem 1.2rem;
+    background: var(--adp-blue);
+    color: var(--adp-white);
+    font-family: var(--adp-font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--adp-radius);
+    text-decoration: none;
+    transition: top 0.15s ease;
+}
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* ── 1c · Reset & Base ────────────────────────────────────── */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
