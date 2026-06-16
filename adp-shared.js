@@ -128,6 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in-up').forEach(el => revealObserver.observe(el));
 
+    /* ── Scroll-to-top ───────────────────────────────────── */
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'adp-scroll-top';
+    scrollBtn.setAttribute('aria-label', 'Retour en haut');
+    scrollBtn.innerHTML = '<i class="fas fa-chevron-down" style="transform:rotate(180deg)"></i>';
+    document.body.appendChild(scrollBtn);
+
+    window.addEventListener('scroll', () => {
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     /* ── BFCache : restaurer visibilité au retour ─────────── */
     window.addEventListener('pageshow', (e) => {
         if (e.persisted) {
