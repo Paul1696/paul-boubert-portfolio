@@ -348,10 +348,44 @@
                     <p class="adp-newsletter__label"><i class="fas fa-envelope"></i> Restez informé</p>
                     <p>Recevez nos actualités, conseils et ressources chaque mois.</p>
                 </div>
-                <form class="adp-newsletter__form" action="/contact/" method="GET">
+                <form class="adp-newsletter__form" id="newsletter-form">
+                    <input type="hidden" name="access_key" value="d4c50b39-bbfc-42c4-a02f-8cfe7f03b507">
+                    <input type="hidden" name="subject" value="Nouvelle inscription newsletter ADP">
+                    <input type="hidden" name="from_name" value="ADP Newsletter">
                     <input type="email" name="email" placeholder="Votre email" required>
-                    <button type="submit">S'inscrire</button>
+                    <button type="submit" id="newsletter-btn">S'inscrire</button>
                 </form>
+                <p id="newsletter-msg" style="display:none;font-size:0.85rem;margin-top:0.5rem;"></p>
+                <script>
+                document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    var btn = document.getElementById('newsletter-btn');
+                    var msg = document.getElementById('newsletter-msg');
+                    btn.disabled = true;
+                    btn.textContent = '…';
+                    try {
+                        var res = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(Object.fromEntries(new FormData(this)))
+                        });
+                        var data = await res.json();
+                        if (data.success) {
+                            msg.textContent = '✓ Inscription confirmée, merci !';
+                            msg.style.color = '#22c55e';
+                            this.reset();
+                        } else {
+                            throw new Error();
+                        }
+                    } catch {
+                        msg.textContent = 'Une erreur est survenue, réessayez.';
+                        msg.style.color = '#ef4444';
+                        btn.disabled = false;
+                        btn.textContent = "S'inscrire";
+                    }
+                    msg.style.display = 'block';
+                });
+                </script>
                 <div class="adp-newsletter__socials">
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
