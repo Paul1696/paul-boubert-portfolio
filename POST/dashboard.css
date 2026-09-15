@@ -1,0 +1,930 @@
+/* ════════════════════════════════════════
+   ADP — Dashboard Social Media
+   2a : Base, variables, typographie, fond
+   ════════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Variables ADP ── */
+:root {
+    --adp-black:       #0a0a0a;
+    --adp-white:       #ffffff;
+    --adp-grey-100:    #f4f4f4;
+    --adp-grey-200:    #e8e8e8;
+    --adp-grey-400:    #9a9a9a;
+    --adp-grey-600:    #555555;
+    --adp-accent:      #c8a96e;
+    --adp-accent-dark: #a88848;
+
+    /* Plateformes */
+    --linkedin:   #0077b5;
+    --instagram:  #e1306c;
+    --facebook:   #1877f2;
+    --x:          #000000;
+    --tiktok:     #010101;
+    --whatsapp:   #25d366;
+
+    /* UI */
+    --radius-sm:  6px;
+    --radius-md:  12px;
+    --radius-lg:  18px;
+    --shadow-sm:  0 1px 4px rgba(0,0,0,.08);
+    --shadow-md:  0 4px 16px rgba(0,0,0,.12);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,.16);
+
+    --transition: 180ms ease;
+    --font-body:  'Inter', sans-serif;
+    --font-title: 'Outfit', sans-serif;
+}
+
+/* ── Base ── */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--adp-grey-100);
+    color: var(--adp-black);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input {
+    font-family: var(--font-body);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ════════════════════════════════════════
+   2b : Header + filtres + onglets
+   ════════════════════════════════════════ */
+
+/* ── Header ── */
+.db-header {
+    background: var(--adp-black);
+    color: var(--adp-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+.db-header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.db-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.db-logo {
+    height: 36px;
+    width: auto;
+}
+
+.db-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+    line-height: 1.2;
+}
+
+.db-subtitle {
+    font-size: .75rem;
+    color: var(--adp-grey-400);
+    display: block;
+}
+
+.db-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.db-btn-settings {
+    background: rgba(255,255,255,.08);
+    color: var(--adp-white);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    font-size: .85rem;
+    transition: background var(--transition);
+}
+
+.db-btn-settings:hover {
+    background: rgba(255,255,255,.16);
+}
+
+.db-status-badge {
+    font-size: .75rem;
+    padding: 4px 10px;
+    border-radius: 99px;
+    background: rgba(255,255,255,.08);
+    color: var(--adp-grey-400);
+    border: 1px solid rgba(255,255,255,.1);
+    transition: all var(--transition);
+}
+
+.db-status-badge.connected {
+    background: rgba(37, 211, 102, .15);
+    color: #25d366;
+    border-color: rgba(37, 211, 102, .3);
+}
+
+/* ── Filtres semaine ── */
+.db-filters {
+    background: var(--adp-white);
+    border-bottom: 1px solid var(--adp-grey-200);
+}
+
+.db-filters-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.db-filters-inner::-webkit-scrollbar { display: none; }
+
+.db-filter-label {
+    font-size: .8rem;
+    color: var(--adp-grey-400);
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.db-week-btn {
+    padding: 5px 14px;
+    border-radius: 99px;
+    font-size: .82rem;
+    color: var(--adp-grey-600);
+    border: 1px solid var(--adp-grey-200);
+    background: var(--adp-grey-100);
+    white-space: nowrap;
+    transition: all var(--transition);
+}
+
+.db-week-btn:hover {
+    border-color: var(--adp-accent);
+    color: var(--adp-accent-dark);
+}
+
+.db-week-btn.active {
+    background: var(--adp-black);
+    color: var(--adp-white);
+    border-color: var(--adp-black);
+}
+
+/* ── Onglets plateformes ── */
+.db-platforms {
+    background: var(--adp-white);
+    border-bottom: 2px solid var(--adp-grey-200);
+}
+
+.db-platforms-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.db-platforms-inner::-webkit-scrollbar { display: none; }
+
+.db-platform-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 18px;
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--adp-grey-600);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all var(--transition);
+}
+
+.db-platform-tab:hover {
+    color: var(--adp-black);
+}
+
+.db-platform-tab.active {
+    color: var(--adp-black);
+    border-bottom-color: var(--adp-accent);
+    font-weight: 600;
+}
+
+/* couleurs actives par plateforme */
+.db-platform-tab[data-platform="linkedin"].active  { border-bottom-color: var(--linkedin); color: var(--linkedin); }
+.db-platform-tab[data-platform="instagram"].active { border-bottom-color: var(--instagram); color: var(--instagram); }
+.db-platform-tab[data-platform="facebook"].active  { border-bottom-color: var(--facebook); color: var(--facebook); }
+.db-platform-tab[data-platform="x"].active         { border-bottom-color: var(--adp-black); color: var(--adp-black); }
+.db-platform-tab[data-platform="tiktok"].active    { border-bottom-color: var(--tiktok); color: var(--tiktok); }
+.db-platform-tab[data-platform="whatsapp"].active  { border-bottom-color: var(--whatsapp); color: var(--whatsapp); }
+
+.db-tab-icon {
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.db-linkedin-icon  { color: var(--linkedin); }
+.db-instagram-icon { color: var(--instagram); }
+.db-facebook-icon  { color: var(--facebook); }
+.db-x-icon         { color: var(--adp-black); }
+.db-wa-icon        { color: var(--whatsapp); }
+
+/* ════════════════════════════════════════
+   2c-i : Grille et layout des cartes
+   ════════════════════════════════════════ */
+
+.db-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+}
+
+.db-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+/* ════════════════════════════════════════
+   2c-ii : Anatomie de la carte
+   ════════════════════════════════════════ */
+
+.db-card {
+    background: var(--adp-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--adp-grey-200);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition), transform var(--transition);
+    overflow: hidden;
+}
+
+.db-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* bordure colorée par plateforme */
+.db-card[data-platform="linkedin"]  { border-top-color: var(--linkedin); }
+.db-card[data-platform="instagram"] { border-top-color: var(--instagram); }
+.db-card[data-platform="facebook"]  { border-top-color: var(--facebook); }
+.db-card[data-platform="x"]         { border-top-color: var(--adp-black); }
+.db-card[data-platform="tiktok"]    { border-top-color: var(--tiktok); }
+.db-card[data-platform="whatsapp"]  { border-top-color: var(--whatsapp); }
+
+/* ── En-tête de carte ── */
+.db-card-header {
+    padding: 16px 18px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.db-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* badge plateforme */
+.db-badge-platform {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: 3px 10px;
+    border-radius: 99px;
+    color: var(--adp-white);
+    background: var(--adp-grey-400);
+}
+
+.db-card[data-platform="linkedin"]  .db-badge-platform { background: var(--linkedin); }
+.db-card[data-platform="instagram"] .db-badge-platform { background: var(--instagram); }
+.db-card[data-platform="facebook"]  .db-badge-platform { background: var(--facebook); }
+.db-card[data-platform="x"]         .db-badge-platform { background: var(--adp-black); }
+.db-card[data-platform="tiktok"]    .db-badge-platform { background: var(--tiktok); }
+.db-card[data-platform="whatsapp"]  .db-badge-platform { background: var(--whatsapp); }
+
+/* badge semaine */
+.db-badge-week {
+    font-size: .72rem;
+    color: var(--adp-grey-600);
+    background: var(--adp-grey-100);
+    border: 1px solid var(--adp-grey-200);
+    padding: 3px 10px;
+    border-radius: 99px;
+}
+
+/* badge statut */
+.db-badge-status {
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: 1px solid transparent;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.db-badge-status[data-status="todo"] {
+    background: #fff8e1;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+.db-badge-status[data-status="ready"] {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.db-badge-status[data-status="published"] {
+    background: #f0fdf4;
+    color: #16a34a;
+    border-color: #bbf7d0;
+}
+
+/* ════════════════════════════════════════
+   2c-iii : Zone texte de la carte
+   ════════════════════════════════════════ */
+
+.db-card-body {
+    padding: 0 18px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* titre du post (ex: "Thread — 7 tweets") */
+.db-card-type {
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--adp-grey-400);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* zone de texte principale */
+.db-card-text {
+    font-size: .88rem;
+    line-height: 1.7;
+    color: var(--adp-grey-600);
+    max-height: 220px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    scrollbar-width: thin;
+    scrollbar-color: var(--adp-grey-200) transparent;
+    padding-right: 4px;
+}
+
+.db-card-text::-webkit-scrollbar {
+    width: 4px;
+}
+
+.db-card-text::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.db-card-text::-webkit-scrollbar-thumb {
+    background: var(--adp-grey-200);
+    border-radius: 99px;
+}
+
+/* expand / collapse */
+.db-card-text.expanded {
+    max-height: none;
+}
+
+.db-card-expand {
+    font-size: .78rem;
+    color: var(--adp-accent-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* hashtags */
+.db-card-hashtags {
+    font-size: .8rem;
+    color: var(--adp-accent-dark);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ════════════════════════════════════════
+   2c-iv : Boutons d'action de la carte
+   ════════════════════════════════════════ */
+
+.db-card-footer {
+    padding: 12px 18px 16px;
+    border-top: 1px solid var(--adp-grey-200);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.db-btn-copy,
+.db-btn-open,
+.db-btn-publish {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    font-size: .82rem;
+    font-weight: 500;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+/* Copier */
+.db-btn-copy {
+    background: var(--adp-grey-100);
+    color: var(--adp-black);
+    border: 1px solid var(--adp-grey-200);
+    flex: 1;
+    justify-content: center;
+}
+
+.db-btn-copy:hover {
+    background: var(--adp-grey-200);
+}
+
+.db-btn-copy.copied {
+    background: #f0fdf4;
+    color: #16a34a;
+    border-color: #bbf7d0;
+}
+
+/* Ouvrir le réseau */
+.db-btn-open {
+    background: var(--adp-black);
+    color: var(--adp-white);
+    border: 1px solid var(--adp-black);
+    flex: 1;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.db-btn-open:hover {
+    background: var(--adp-grey-600);
+    border-color: var(--adp-grey-600);
+}
+
+/* Publier via Zernio */
+.db-btn-publish {
+    background: var(--adp-accent);
+    color: var(--adp-black);
+    border: 1px solid var(--adp-accent);
+    width: 100%;
+    justify-content: center;
+    font-weight: 600;
+    display: none; /* visible seulement si Zernio connecté */
+}
+
+.db-btn-publish:hover {
+    background: var(--adp-accent-dark);
+    border-color: var(--adp-accent-dark);
+    color: var(--adp-white);
+}
+
+.db-btn-publish.loading {
+    opacity: .6;
+    pointer-events: none;
+}
+
+.zernio-ready .db-btn-publish {
+    display: flex;
+}
+
+/* Bouton modifier */
+.db-btn-edit {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    background: var(--adp-grey-100);
+    border: 1px solid var(--adp-grey-200);
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+
+.db-btn-edit:hover {
+    background: var(--adp-grey-200);
+}
+
+/* ════════════════════════════════════════
+   2d : Modal Zernio + Toast
+   ════════════════════════════════════════ */
+
+/* ── Overlay ── */
+.db-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+.db-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Modal ── */
+.db-modal {
+    background: var(--adp-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 440px;
+    transform: translateY(12px);
+    transition: transform var(--transition);
+}
+
+.db-modal-overlay.open .db-modal {
+    transform: translateY(0);
+}
+
+.db-modal-header {
+    padding: 20px 24px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--adp-grey-200);
+}
+
+.db-modal-header h2 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.db-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--adp-grey-100);
+    color: var(--adp-grey-600);
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+}
+
+.db-modal-close:hover {
+    background: var(--adp-grey-200);
+}
+
+.db-modal-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.db-modal-label {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--adp-black);
+}
+
+.db-modal-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--adp-grey-200);
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+    color: var(--adp-black);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.db-modal-input:focus {
+    border-color: var(--adp-accent);
+}
+
+.db-modal-hint {
+    font-size: .78rem;
+    color: var(--adp-grey-400);
+    line-height: 1.5;
+}
+
+.db-modal-footer {
+    padding: 16px 24px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid var(--adp-grey-200);
+}
+
+.db-btn-primary {
+    padding: 8px 20px;
+    background: var(--adp-black);
+    color: var(--adp-white);
+    border-radius: var(--radius-sm);
+    font-size: .875rem;
+    font-weight: 600;
+    transition: background var(--transition);
+}
+
+.db-btn-primary:hover {
+    background: var(--adp-grey-600);
+}
+
+.db-btn-secondary {
+    padding: 8px 20px;
+    background: var(--adp-grey-100);
+    color: var(--adp-grey-600);
+    border: 1px solid var(--adp-grey-200);
+    border-radius: var(--radius-sm);
+    font-size: .875rem;
+    transition: background var(--transition);
+}
+
+.db-btn-secondary:hover {
+    background: var(--adp-grey-200);
+}
+
+/* ── Modal large (rédaction) ── */
+.db-modal-large {
+    max-width: 680px;
+}
+
+.db-modal-meta {
+    font-size: .78rem;
+    color: var(--adp-grey-400);
+    display: block;
+    margin-top: 2px;
+}
+
+.db-modal-label {
+    display: block;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--adp-black);
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+.db-modal-label:first-child {
+    margin-top: 0;
+}
+
+.db-modal-textarea {
+    width: 100%;
+    min-height: 260px;
+    padding: 10px 14px;
+    border: 1px solid var(--adp-grey-200);
+    border-radius: var(--radius-sm);
+    font-size: .88rem;
+    font-family: var(--font-body);
+    color: var(--adp-black);
+    line-height: 1.7;
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.db-modal-textarea:focus {
+    border-color: var(--adp-accent);
+}
+
+/* ── Toast ── */
+.db-toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--adp-black);
+    color: var(--adp-white);
+    padding: 10px 22px;
+    border-radius: 99px;
+    font-size: .875rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    z-index: 300;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 200ms ease;
+    white-space: nowrap;
+}
+
+.db-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.db-toast.success { background: #16a34a; }
+.db-toast.error   { background: #dc2626; }
+
+/* ════════════════════════════════════════
+   B1 : Navigation par jour
+   ════════════════════════════════════════ */
+
+.db-daynav {
+    background: var(--adp-white);
+    border-bottom: 1px solid var(--adp-grey-200);
+}
+
+.db-daynav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* boutons ← → */
+.db-day-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--adp-grey-100);
+    border: 1px solid var(--adp-grey-200);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+
+.db-day-arrow:hover {
+    background: var(--adp-black);
+    color: var(--adp-white);
+    border-color: var(--adp-black);
+}
+
+.db-day-arrow:disabled {
+    opacity: .3;
+    pointer-events: none;
+}
+
+/* affichage de la date */
+.db-day-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.db-day-label {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--adp-black);
+}
+
+.db-day-sub {
+    font-size: .78rem;
+    color: var(--adp-grey-400);
+}
+
+/* badge "Aujourd'hui" */
+.db-today-badge {
+    display: inline-block;
+    background: var(--adp-accent);
+    color: var(--adp-black);
+    font-size: .7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+/* mini indicateur de complétion des 6 posts du jour */
+.db-day-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.db-day-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--adp-grey-200);
+    border: 1px solid var(--adp-grey-200);
+    transition: background var(--transition);
+}
+
+.db-day-dot.filled {
+    background: var(--adp-accent);
+    border-color: var(--adp-accent);
+}
+
+.db-day-dot.published {
+    background: #16a34a;
+    border-color: #16a34a;
+}
+
+/* badge vide sur une carte */
+.db-card-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 18px;
+    color: var(--adp-grey-400);
+    font-size: .85rem;
+    text-align: center;
+    border: 2px dashed var(--adp-grey-200);
+    border-radius: var(--radius-md);
+    margin: 0 18px 16px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.db-card-empty:hover {
+    border-color: var(--adp-accent);
+    color: var(--adp-accent-dark);
+}
+
+.db-card-empty-icon {
+    font-size: 1.5rem;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .db-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .db-header-inner {
+        padding: 0 16px;
+    }
+
+    .db-daynav-inner,
+    .db-platforms-inner {
+        padding: 10px 16px;
+    }
+
+    .db-main {
+        padding: 20px 16px 48px;
+    }
+}

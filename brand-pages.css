@@ -1,0 +1,48 @@
+/* Theme overrides only. Layout and components come from adp-shared / adp-pole. */
+.brand-project{--adp-blue:#cf1230;--adp-blue-dark:#510b1b;--adp-blue-light:#ff7086;--adp-blue-rgb:207,18,48;--adp-surface:#fff5f6}
+.brand-rosbri{--adp-blue:#855409;--adp-blue-dark:#38260e;--adp-blue-light:#edc878;--adp-blue-rgb:133,84,9;--adp-surface:#fbf6ed}
+.brand-project .pole-hero{background:linear-gradient(135deg,var(--adp-blue-dark),#861129)}
+.brand-rosbri .pole-hero{background:linear-gradient(135deg,var(--adp-blue-dark),#634416)}
+.pole-brand-logo{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:8px 18px;margin-bottom:24px}
+.pole-brand-logo img{display:block;width:160px;height:104px;object-fit:contain}
+.pole-service-card__icon{background:rgba(var(--adp-blue-rgb),.1)}
+.pole-hero__subtitle{color:rgba(255,255,255,.85)}
+.pole-breadcrumb{color:rgba(255,255,255,.8)}
+.pole-breadcrumb a{color:rgba(255,255,255,.8)}
+.brand-project .text-gradient,.brand-rosbri .text-gradient{background:linear-gradient(135deg,var(--adp-blue),var(--adp-blue-dark));background-clip:text;-webkit-background-clip:text}
+@media(prefers-reduced-motion:reduce){.fade-in-up{opacity:1;transform:none;transition:none}.adp-cursor,.adp-cursor-follower{display:none}html{scroll-behavior:auto}}
+@media(max-width:480px){.pole-hero__title{overflow-wrap:anywhere}.pole-brand-logo img{width:140px;height:92px}}
+
+
+.pole-brand-logo{display:flex;width:max-content;max-width:100%}
+.pole-step__num{color:rgba(var(--adp-blue-rgb),.25)}.pole-step:not(:last-child)::after{color:rgba(var(--adp-blue-rgb),.5)}.pole-step:hover{border-color:rgba(var(--adp-blue-rgb),.3)}
+.adp-pole-item::before{background:var(--identity-color)}.adp-pole-item:hover{background:var(--identity-surface)}.adp-pole-item.adp-pole-card--lab{background:#fff6ee}.adp-pole-item.adp-pole-card--lab .adp-pole-card__body p{color:#4b5563}.adp-pole-item:hover .adp-pole-card__icon{background:white}
+@media(max-width:480px){.adp-newsletter__text{min-width:0;max-width:100%}.adp-newsletter__inner{flex-wrap:wrap}.adp-newsletter__form{min-width:0;max-width:100%;flex-wrap:wrap}.adp-newsletter__form input{min-width:0;width:100%}.adp-newsletter__form button{max-width:100%}}
+
+/* Unified identity system */
+.brand-brief{--adp-blue:#08763c;--adp-blue-dark:#063d25;--adp-blue-light:#7bdda8;--adp-blue-rgb:8,118,60;--adp-surface:#f1faf5}
+.brand-brief .pole-hero{background:linear-gradient(135deg,#063d25,#08763c)}
+a.adp-dropdown-item[href="/adp-brief/"],a.adp-pole-item[href="/adp-brief/"]{--identity-color:#08763c;--identity-surface:#f1faf5}
+.brand-project{--adp-blue:#cf1230;--adp-blue-dark:#510b1b;--adp-blue-light:#ff90a1;--adp-blue-rgb:207,18,48;--adp-surface:#fff5f6}
+.brand-project .pole-hero{background:linear-gradient(135deg,#510b1b,#cf1230)}
+a.adp-dropdown-item[href="/adp-project/"],a.adp-pole-item[href="/adp-project/"]{--identity-color:#cf1230;--identity-surface:#fff5f6}
+.brand-studio{--adp-blue:#926719;--adp-blue-dark:#47340f;--adp-blue-light:#ebcd89;--adp-blue-rgb:146,103,25;--adp-surface:#faf7ef}
+.brand-studio .pole-hero{background:linear-gradient(135deg,#47340f,#926719)}
+a.adp-dropdown-item[href="/adp-studio/"],a.adp-pole-item[href="/adp-studio/"]{--identity-color:#926719;--identity-surface:#faf7ef}
+.brand-tools{--adp-blue:#42494d;--adp-blue-dark:#202528;--adp-blue-light:#c3cbcf;--adp-blue-rgb:66,73,77;--adp-surface:#f3f5f5}
+.brand-tools .pole-hero{background:linear-gradient(135deg,#202528,#42494d)}
+a.adp-dropdown-item[href="/adp-tools/"],a.adp-pole-item[href="/adp-tools/"]{--identity-color:#42494d;--identity-surface:#f3f5f5}
+.brand-academy{--adp-blue:#8539c6;--adp-blue-dark:#3e1b61;--adp-blue-light:#d4a1ff;--adp-blue-rgb:133,57,198;--adp-surface:#f9f3ff}
+.brand-academy .pole-hero{background:linear-gradient(135deg,#3e1b61,#8539c6)}
+a.adp-dropdown-item[href="/adp-academy/"],a.adp-pole-item[href="/adp-academy/"]{--identity-color:#8539c6;--identity-surface:#f9f3ff}
+.brand-lab{--adp-blue:#bd4d00;--adp-blue-dark:#542500;--adp-blue-light:#ffbb7b;--adp-blue-rgb:189,77,0;--adp-surface:#fff6ee}
+.brand-lab .pole-hero{background:linear-gradient(135deg,#542500,#bd4d00)}
+a.adp-dropdown-item[href="/adp-lab/"],a.adp-pole-item[href="/adp-lab/"]{--identity-color:#bd4d00;--identity-surface:#fff6ee}
+.brand-rosbri{--adp-blue:#855409;--adp-blue-dark:#38260e;--adp-blue-light:#edc878;--adp-blue-rgb:133,84,9;--adp-surface:#fbf6ed}
+.brand-rosbri .pole-hero{background:linear-gradient(135deg,#38260e,#855409)}
+a.adp-dropdown-item[href="/rosbri-design/"],a.adp-pole-item[href="/rosbri-design/"]{--identity-color:#855409;--identity-surface:#fbf6ed}
+[class*="brand-"] .text-gradient{background:linear-gradient(135deg,var(--adp-blue),var(--adp-blue-dark));background-clip:text;-webkit-background-clip:text}
+.identity-menu-logo{width:64px;height:43px;object-fit:contain;background:white;border-radius:3px;flex-shrink:0}.adp-dropdown-menu{min-width:255px}.adp-dropdown-item{color:var(--identity-color,var(--adp-blue));min-height:54px}.adp-dropdown-item:hover{color:var(--identity-color);background:var(--identity-surface)}
+.adp-logo-img{object-fit:contain;width:145px;height:70px}.identity-brand-footer{width:180px;height:120px;object-fit:contain;background:white;border-radius:4px;padding:8px}.identity-footer-logo{width:60px;height:40px;object-fit:contain;background:white;border-radius:3px;margin-right:10px;flex-shrink:0}.adp-footer-links a:has(.identity-footer-logo){display:flex;align-items:center;min-height:48px}
+.adp-pole-item .adp-pole-card__icon{width:160px;height:107px;background:white;color:var(--identity-color);flex-shrink:0}.adp-pole-card__icon img{width:160px;height:107px;object-fit:contain}.adp-pole-item:hover{border-color:var(--identity-color)}.adp-pole-item .adp-pole-card__body h3,.adp-pole-item .adp-pole-card__body h3 span,.adp-pole-item .adp-pole-card__link{color:var(--identity-color)}
+@media(max-width:900px){.adp-nav-links.open{max-height:calc(100dvh - var(--adp-nav-height));overflow-y:auto}.adp-dropdown-menu{min-width:0}.adp-dropdown-item{min-height:54px}}

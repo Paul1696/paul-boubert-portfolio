@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADP — Tableau de bord Social Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- ── Header ── -->
+    <header class="db-header">
+        <div class="db-header-inner">
+            <div class="db-brand">
+                <img src="logo-adp.png" alt="ADP" class="db-logo">
+                <div>
+                    <span class="db-title">Tableau de bord</span>
+                    <span class="db-subtitle">Social Media — Mois 1</span>
+                </div>
+            </div>
+            <div class="db-header-actions">
+                <button class="db-btn-settings" id="btnSettings" title="Paramètres Zernio">
+                    ⚙️ Zernio
+                </button>
+                <span class="db-status-badge" id="zernioStatus">Non connecté</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Navigation par jour ── -->
+    <div class="db-daynav">
+        <div class="db-daynav-inner">
+            <button class="db-day-arrow" id="btnPrevDay">&#8592;</button>
+            <div class="db-day-center">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <span class="db-day-label" id="dayLabel">—</span>
+                    <span class="db-today-badge" id="todayBadge" style="display:none;">Aujourd'hui</span>
+                </div>
+                <span class="db-day-sub" id="daySubLabel">—</span>
+                <div class="db-day-dots" id="dayDots">
+                    <span class="db-day-dot" data-platform="linkedin"  title="LinkedIn"></span>
+                    <span class="db-day-dot" data-platform="instagram" title="Instagram"></span>
+                    <span class="db-day-dot" data-platform="facebook"  title="Facebook"></span>
+                    <span class="db-day-dot" data-platform="x"         title="X"></span>
+                    <span class="db-day-dot" data-platform="tiktok"    title="TikTok"></span>
+                    <span class="db-day-dot" data-platform="whatsapp"  title="WhatsApp"></span>
+                </div>
+            </div>
+            <button class="db-day-arrow" id="btnNextDay">&#8594;</button>
+        </div>
+    </div>
+
+    <!-- ── Onglets plateformes ── -->
+    <div class="db-platforms">
+        <div class="db-platforms-inner">
+            <button class="db-platform-tab active" data-platform="all">
+                <span class="db-tab-icon">🌐</span> Toutes
+            </button>
+            <button class="db-platform-tab" data-platform="linkedin">
+                <span class="db-tab-icon db-linkedin-icon">in</span> LinkedIn
+            </button>
+            <button class="db-platform-tab" data-platform="instagram">
+                <span class="db-tab-icon db-instagram-icon">📷</span> Instagram
+            </button>
+            <button class="db-platform-tab" data-platform="facebook">
+                <span class="db-tab-icon db-facebook-icon">f</span> Facebook
+            </button>
+            <button class="db-platform-tab" data-platform="x">
+                <span class="db-tab-icon db-x-icon">𝕏</span> X
+            </button>
+            <button class="db-platform-tab" data-platform="tiktok">
+                <span class="db-tab-icon">♪</span> TikTok
+            </button>
+            <button class="db-platform-tab" data-platform="whatsapp">
+                <span class="db-tab-icon db-wa-icon">✉</span> WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- ── Grille des posts ── -->
+    <main class="db-main">
+        <div class="db-grid" id="postsGrid">
+            <!-- Posts injectés par JS -->
+        </div>
+    </main>
+
+    <!-- ── Modal Rédaction ── -->
+    <div class="db-modal-overlay" id="editModal">
+        <div class="db-modal db-modal-large">
+            <div class="db-modal-header">
+                <div>
+                    <h2 id="editModalTitle">Rédiger le post</h2>
+                    <span class="db-modal-meta" id="editModalMeta"></span>
+                </div>
+                <button class="db-modal-close" id="btnCloseEditModal">✕</button>
+            </div>
+            <div class="db-modal-body">
+                <label class="db-modal-label">Sujet du jour</label>
+                <input type="text" class="db-modal-input" id="editTopic" placeholder="Ex : Présentation ADP Tools">
+
+                <label class="db-modal-label">Texte du post</label>
+                <textarea class="db-modal-textarea" id="editText" placeholder="Rédigez votre post ici..."></textarea>
+
+                <label class="db-modal-label">Hashtags</label>
+                <input type="text" class="db-modal-input" id="editHashtags" placeholder="#adp #douala #cameroun ...">
+            </div>
+            <div class="db-modal-footer">
+                <button class="db-btn-secondary" id="btnCancelEdit">Annuler</button>
+                <button class="db-btn-primary" id="btnSaveEdit">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Modal Zernio ── -->
+    <div class="db-modal-overlay" id="settingsModal">
+        <div class="db-modal">
+            <div class="db-modal-header">
+                <h2>Connexion Zernio</h2>
+                <button class="db-modal-close" id="btnCloseModal">✕</button>
+            </div>
+            <div class="db-modal-body">
+                <label class="db-modal-label">Clé API Zernio</label>
+                <input type="password" class="db-modal-input" id="zernioApiKey" placeholder="zernio_...">
+                <p class="db-modal-hint">Disponible dans votre dashboard Zernio → Settings → API Keys</p>
+            </div>
+            <div class="db-modal-footer">
+                <button class="db-btn-secondary" id="btnClearKey">Effacer</button>
+                <button class="db-btn-primary" id="btnSaveKey">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Toast notification ── -->
+    <div class="db-toast" id="toast"></div>
+
+    <script src="posts-data.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

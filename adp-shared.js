@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Fermer le menu au clic sur un lien
-        navLinks.querySelectorAll('.adp-nav-item').forEach(link => {
+        navLinks.querySelectorAll('a.adp-nav-item, a.adp-dropdown-item').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
                 toggle.setAttribute('aria-expanded', 'false');
