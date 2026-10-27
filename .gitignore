@@ -1,1 +1,62 @@
+# ==============================================================================
+# ADP WEB EXPERIENCE — .gitignore Racine
+# ==============================================================================
+
+# Vercel
 .vercel
+
+# --- SANCTUARISATION DU RÉPERTOIRE LEGACY ---
+# Le dossier 01_LEGACY possède son propre historique et dépôt Git indépendant.
+# Il ne doit en aucun cas être ré-indexé par le dépôt principal.
+01_LEGACY/
+
+# --- DÉPENDANCES ET GESTIONNAIRE DE PAQUETS ---
+node_modules/
+04_APPLICATION/node_modules/
+.pnp
+.pnp.js
+
+# --- SORTIES DE COMPILATION ET BUILDS ---
+.next/
+04_APPLICATION/.next/
+out/
+04_APPLICATION/out/
+build/
+04_APPLICATION/build/
+dist/
+04_APPLICATION/dist/
+
+# --- LOGS ET DÉBOGAGE ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# --- FICHIERS D'ENVIRONNEMENT ET SECRETS ---
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+04_APPLICATION/.env
+04_APPLICATION/.env*.local
+04_APPLICATION/.env.development
+04_APPLICATION/.env.test
+04_APPLICATION/.env.production
+*.pem
+*.key
+
+# Ne pas ignorer le gabarit documenté des variables
+!.env.example
+!04_APPLICATION/.env.example
+
+# --- CACHES ET OUTILS ---
+.turbo/
+.cache/
+.eslintcache
+
+# --- SYSTÈME D'EXPLOITATION ---
+.DS_Store
+Thumbs.db
+desktop.ini
