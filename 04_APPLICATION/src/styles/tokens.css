@@ -1,0 +1,143 @@
+/* ==========================================================================
+   ADP WEB EXPERIENCE — DESIGN SYSTEM INITIAL (ÉTAPE 03B)
+   Direction Artistique : Atelier Vivant + Matière en Mouvement
+   Thème clair minéral sophistiqué par défaut | Mode sombre d'atelier optionnel
+   ========================================================================== */
+
+:root {
+  /* --- PALETTE MINÉRALE CLAIRE (PAR DÉFAUT) --- */
+  --bg-primary: #F9F8F5;          /* Pierre calcaire naturelle de Bourgogne */
+  --bg-secondary: #F0EFEA;        /* Craie & ivoire chaud d'atelier */
+  --bg-surface: #FFFFFF;          /* Surface pure pour cartes et conteneurs */
+  --bg-surface-elevated: #FCFCFA; /* Surface surélevée */
+  --bg-surface-subtle: #E8E6DF;   /* Teinte neutre douce d'accentuation */
+
+  /* --- TEXTES & CONTRASTES --- */
+  --text-primary: #1A222D;        /* Ardoise d'encre dense (contraste WCAG AAA) */
+  --text-secondary: #4A5568;      /* Ardoise moyenne pour textes de soutien */
+  --text-muted: #718096;          /* Pierre fumée pour métadonnées */
+  --text-light: #F9F8F5;          /* Texte clair sur fonds sombres */
+
+  /* --- ACCENTS NOBLES D'ATELIER (MÉTAUX & MATIÈRES) --- */
+  --accent-brass: #C59B53;        /* Laiton brossé artisanal */
+  --accent-brass-hover: #D4AB63;  /* Laiton poli éclairé */
+  --accent-brass-light: rgba(197, 155, 83, 0.12); /* Voile de laiton */
+  --accent-bronze: #8A6731;       /* Bronze patiné à la flamme */
+  --accent-bronze-dark: #6B4E22;  /* Bronze d'ombre */
+  --accent-gold-foil: #E3B873;    /* Dorure mate d'estampage */
+
+  /* --- ÉTATS & VALIDATIONS --- */
+  --status-success: #2E7D52;      /* Vert lichen minéral */
+  --status-success-bg: rgba(46, 125, 82, 0.10);
+  --status-warning: #C27803;      /* Ambre d'alerte */
+  --status-warning-bg: rgba(194, 120, 3, 0.10);
+  --status-error: #B84A39;        /* Terre cuite / oxyde de fer */
+  --status-error-bg: rgba(184, 74, 57, 0.10);
+  --status-info: #316BB5;         /* Bleu cobalt d'architecte */
+  --status-info-bg: rgba(49, 107, 181, 0.10);
+
+  /* --- BORDURES & SÉPARATEURS --- */
+  --border-subtle: rgba(26, 34, 45, 0.07);
+  --border-default: rgba(26, 34, 45, 0.13);
+  --border-strong: rgba(26, 34, 45, 0.22);
+  --border-accent: rgba(197, 155, 83, 0.40);
+
+  /* --- RAYONS GÉOMÉTRIQUES ARCHITECTURAUX --- */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* --- OMBRAGES MINÉRAUX RÉALISTES --- */
+  --shadow-subtle: 0 1px 3px rgba(26, 34, 45, 0.04), 0 1px 2px rgba(26, 34, 45, 0.02);
+  --shadow-card: 0 4px 16px -2px rgba(26, 34, 45, 0.06), 0 2px 6px -1px rgba(26, 34, 45, 0.03);
+  --shadow-elevated: 0 12px 30px -4px rgba(26, 34, 45, 0.08), 0 4px 12px -2px rgba(26, 34, 45, 0.04);
+  --shadow-brass: 0 4px 20px -2px rgba(197, 155, 83, 0.25);
+
+  /* --- ÉCHELLE MODULAIRE D'ESPACEMENT --- */
+  --space-0-5: 0.125rem; /* 2px */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* --- TYPOGRAPHIE SYSTEM-STACK CONTEMPORAINE --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- TRANSITIONS FLUIDES --- */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* ==========================================================================
+   MODE SOMBRE OPTIONNEL : NUIT MINÉRALE D'ATELIER
+   Activable via data-theme="dark" sur le document (jamais imposé par défaut)
+   ========================================================================== */
+[data-theme="dark"],
+.dark {
+  --bg-primary: #0C1420;          /* Nuit profonde d'atelier */
+  --bg-secondary: #131E2E;        /* Ardoise nocturne */
+  --bg-surface: #19273B;          /* Surface de carte sombre */
+  --bg-surface-elevated: #1F2E44; /* Surface surélevée sombre */
+  --bg-surface-subtle: #24354D;   /* Conteneur secondaire */
+
+  --text-primary: #F0F3F7;        /* Blanc de céramique doux */
+  --text-secondary: #A6B4C5;      /* Gris minéral clair */
+  --text-muted: #728296;          /* Gris atténué */
+  --text-light: #F0F3F7;
+
+  --accent-brass: #D8B36E;        /* Laiton chaud éclairé à la torche */
+  --accent-brass-hover: #E7C687;
+  --accent-brass-light: rgba(216, 179, 110, 0.15);
+  --accent-bronze: #A98547;
+  --accent-bronze-dark: #7F5F2B;
+  --accent-gold-foil: #F2D296;
+
+  --status-success: #38A169;
+  --status-success-bg: rgba(56, 161, 105, 0.16);
+  --status-warning: #D69E2E;
+  --status-warning-bg: rgba(214, 158, 46, 0.16);
+  --status-error: #E53E3E;
+  --status-error-bg: rgba(229, 62, 62, 0.16);
+  --status-info: #4299E1;
+  --status-info-bg: rgba(66, 153, 225, 0.16);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.11);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(216, 179, 110, 0.45);
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 6px 20px -2px rgba(0, 0, 0, 0.5);
+  --shadow-elevated: 0 14px 35px -4px rgba(0, 0, 0, 0.65);
+  --shadow-brass: 0 4px 24px -2px rgba(216, 179, 110, 0.3);
+}
+
+/* ==========================================================================
+   RESPECT DE PREFERS-REDUCED-MOTION (ACCESSIBILITÉ CRITIQUE)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
