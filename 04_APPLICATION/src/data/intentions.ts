@@ -1,0 +1,90 @@
+import { Intention } from "@/types/possibility-machine";
+
+export const INTENTIONS: Intention[] = [
+  {
+    id: "intent-build",
+    number: "01",
+    title: "Concevoir un espace bâti",
+    shortTitle: "Construire & Concevoir",
+    description: "Plans architecturaux, modélisation BIM coordonnée, études bioclimatiques adaptées au climat tropical et visualisations photoréalistes pour concrétiser votre vision.",
+    accentColor: "#7DB9DC",
+    connectedUniverseSlugs: ["adp-project"],
+    suggestedAction: {
+      label: "Découvrir les réalisations architecturales ↗",
+      targetSection: "creations",
+    },
+  },
+  {
+    id: "intent-brand",
+    number: "02",
+    title: "Créer une identité mémorable",
+    shortTitle: "Communiquer & Marquer",
+    description: "Image de marque vectorielle de haute volée, typographies choisies, chartes d'entreprise exhaustives, supports imprimés et contenus éditoriaux d'autorité.",
+    accentColor: "#F3A66D",
+    connectedUniverseSlugs: ["adp-studio", "adp-brief"],
+    suggestedAction: {
+      label: "Explorer l'atelier de design graphique ↗",
+      targetSection: "univers",
+    },
+  },
+  {
+    id: "intent-custom",
+    number: "03",
+    title: "Personnaliser un objet ou une tenue",
+    shortTitle: "Personnaliser & Sublimer",
+    description: "Créations textiles exclusives cousues main dans des étoffes Wax nobles, ou lignes d'objets et accessoires corporate marqués sur-mesure aux couleurs de votre entité.",
+    accentColor: "#E68AB3",
+    connectedUniverseSlugs: ["adp-studio", "rosbri-wax-design"],
+    suggestedAction: {
+      label: "Voir la collection Rosbri Wax ↗",
+      targetSection: "univers",
+    },
+  },
+  {
+    id: "intent-learn",
+    number: "04",
+    title: "Apprendre et monter en compétences",
+    shortTitle: "Apprendre & Transmettre",
+    description: "Masterclasses professionnelles certifiantes sur Revit Architecture, méthodologie BIM internationale, bibliothèque de 802 modèles SketchUp et documentations techniques.",
+    accentColor: "#E8C56F",
+    connectedUniverseSlugs: ["adp-academy", "adp-brief"],
+    suggestedAction: {
+      label: "Consulter les programmes de formation ↗",
+      targetSection: "univers",
+    },
+  },
+  {
+    id: "intent-innovate",
+    number: "05",
+    title: "Expérimenter et innover",
+    shortTitle: "Innover & Expérimenter",
+    description: "Recherche appliquée sur les matériaux locaux biosourcés (BTC), simulation thermique de ventilation naturelle et automatisation par scripts sur-mesure.",
+    accentColor: "#B8A0F4",
+    connectedUniverseSlugs: ["adp-lab", "adp-tools"],
+    suggestedAction: {
+      label: "Découvrir le laboratoire de R&D ↗",
+      targetSection: "univers",
+    },
+  },
+  {
+    id: "intent-explore",
+    number: "06",
+    title: "Explorer toutes les possibilités",
+    shortTitle: "Explorer tout l'écosystème",
+    description: "Une traversée fluide des sept univers interconnectés des Ateliers de Paul. De l'esquisse sur carnet au chantier achevé, toute l'ingénierie créative réunie.",
+    accentColor: "#C59B53",
+    connectedUniverseSlugs: [
+      "adp-project",
+      "adp-studio",
+      "rosbri-wax-design",
+      "adp-brief",
+      "adp-lab",
+      "adp-academy",
+      "adp-tools",
+    ],
+    suggestedAction: {
+      label: "Parcourir la cartographie des 7 univers ↗",
+      targetSection: "univers",
+    },
+  },
+];

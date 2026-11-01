@@ -1,48 +1,86 @@
 /* ==========================================================================
-   ADP WEB EXPERIENCE — DESIGN SYSTEM INITIAL (ÉTAPE 03B)
-   Direction Artistique : Atelier Vivant + Matière en Mouvement
-   Thème clair minéral sophistiqué par défaut | Mode sombre d'atelier optionnel
+   ADP WEB EXPERIENCE — DESIGN SYSTEM DEFINITIF (ETAPE 05)
+   Direction Artistique : Atelier Vivant + Matiere en Mouvement
+   Theme principal mineral ivoire/pierre par defaut | Mode sombre nocturne optionnel
    ========================================================================== */
 
 :root {
-  /* --- PALETTE MINÉRALE CLAIRE (PAR DÉFAUT) --- */
+  /* --- PALETTE MINERALE CLAIRE (PAR DEFAUT) --- */
   --bg-primary: #F9F8F5;          /* Pierre calcaire naturelle de Bourgogne */
   --bg-secondary: #F0EFEA;        /* Craie & ivoire chaud d'atelier */
   --bg-surface: #FFFFFF;          /* Surface pure pour cartes et conteneurs */
-  --bg-surface-elevated: #FCFCFA; /* Surface surélevée */
+  --bg-surface-elevated: #FCFCFA; /* Surface surelevee */
   --bg-surface-subtle: #E8E6DF;   /* Teinte neutre douce d'accentuation */
+  --bg-overlay: rgba(26, 34, 45, 0.45); /* Ardoise semi-transparente pour modales */
 
-  /* --- TEXTES & CONTRASTES --- */
-  --text-primary: #1A222D;        /* Ardoise d'encre dense (contraste WCAG AAA) */
+  /* --- TEXTES & CONTRASTES (CONFORMES WCAG 2.1 AA/AAA) --- */
+  --text-primary: #1A222D;        /* Ardoise d'encre dense (ratio > 11:1 sur fond clair) */
   --text-secondary: #4A5568;      /* Ardoise moyenne pour textes de soutien */
-  --text-muted: #718096;          /* Pierre fumée pour métadonnées */
-  --text-light: #F9F8F5;          /* Texte clair sur fonds sombres */
+  --text-muted: #718096;          /* Pierre fumee pour metadonnees */
+  --text-light: #F9F8F5;          /* Blanc mineral sur fonds sombres */
 
-  /* --- ACCENTS NOBLES D'ATELIER (MÉTAUX & MATIÈRES) --- */
-  --accent-brass: #C59B53;        /* Laiton brossé artisanal */
-  --accent-brass-hover: #D4AB63;  /* Laiton poli éclairé */
+  /* --- ACCENTS NOBLES D'ATELIER (METAUX & MATIERES) --- */
+  --accent-brass: #C59B53;        /* Laiton brosse artisanal */
+  --accent-brass-hover: #D4AB63;  /* Laiton poli eclaire */
   --accent-brass-light: rgba(197, 155, 83, 0.12); /* Voile de laiton */
-  --accent-bronze: #8A6731;       /* Bronze patiné à la flamme */
+  --accent-brass-border: rgba(197, 155, 83, 0.35);
+  --accent-bronze: #8A6731;       /* Bronze patine a la flamme */
   --accent-bronze-dark: #6B4E22;  /* Bronze d'ombre */
   --accent-gold-foil: #E3B873;    /* Dorure mate d'estampage */
 
-  /* --- ÉTATS & VALIDATIONS --- */
-  --status-success: #2E7D52;      /* Vert lichen minéral */
+  /* --- ACCENTS DES SEPT UNIVERS OFFICIELS ADP --- */
+  --univ-project: #7DB9DC;        /* 01 ADP Project : Bleu ciel mineral / BIM */
+  --univ-project-glow: rgba(125, 185, 220, 0.28);
+  --univ-project-subtle: rgba(125, 185, 220, 0.10);
+
+  --univ-studio: #F3A66D;         /* 02 ADP Studio : Cuivre & laiton poli / Marque */
+  --univ-studio-glow: rgba(243, 166, 109, 0.28);
+  --univ-studio-subtle: rgba(243, 166, 109, 0.10);
+
+  --univ-rosbri: #E68AB3;         /* 03 Rosbri Wax Design : Rose poudre / Textile */
+  --univ-rosbri-glow: rgba(230, 138, 179, 0.28);
+  --univ-rosbri-subtle: rgba(230, 138, 179, 0.10);
+
+  --univ-brief: #B1CE9A;          /* 04 ADP Brief : Sauge papier velin / Edition */
+  --univ-brief-glow: rgba(177, 206, 154, 0.28);
+  --univ-brief-subtle: rgba(177, 206, 154, 0.10);
+
+  --univ-lab: #B8A0F4;            /* 05 ADP Lab : Lavande titane / R&D */
+  --univ-lab-glow: rgba(184, 160, 244, 0.28);
+  --univ-lab-subtle: rgba(184, 160, 244, 0.10);
+
+  --univ-academy: #E8C56F;        /* 06 ADP Academy : Or ambre craie / Savoirs */
+  --univ-academy-glow: rgba(232, 197, 111, 0.28);
+  --univ-academy-subtle: rgba(232, 197, 111, 0.10);
+
+  --univ-tools: #7BDED8;          /* 07 ADP Tools : Turquoise alu brosse / Logiciels */
+  --univ-tools-glow: rgba(123, 222, 216, 0.28);
+  --univ-tools-subtle: rgba(123, 222, 216, 0.10);
+
+  /* --- ETATS SYSTEME ET NOTIFICATIONS --- */
+  --status-success: #2E7D52;      /* Vert lichen mineral */
   --status-success-bg: rgba(46, 125, 82, 0.10);
+  --status-success-border: rgba(46, 125, 82, 0.25);
+  
   --status-warning: #C27803;      /* Ambre d'alerte */
   --status-warning-bg: rgba(194, 120, 3, 0.10);
-  --status-error: #B84A39;        /* Terre cuite / oxyde de fer */
+  --status-warning-border: rgba(194, 120, 3, 0.25);
+  
+  --status-error: #B84A39;        /* Terre cuite oxyde */
   --status-error-bg: rgba(184, 74, 57, 0.10);
-  --status-info: #316BB5;         /* Bleu cobalt d'architecte */
+  --status-error-border: rgba(184, 74, 57, 0.25);
+  
+  --status-info: #316BB5;         /* Bleu cobalt */
   --status-info-bg: rgba(49, 107, 181, 0.10);
+  --status-info-border: rgba(49, 107, 181, 0.25);
 
-  /* --- BORDURES & SÉPARATEURS --- */
+  /* --- BORDURES ARCHITECTURALES --- */
   --border-subtle: rgba(26, 34, 45, 0.07);
   --border-default: rgba(26, 34, 45, 0.13);
   --border-strong: rgba(26, 34, 45, 0.22);
   --border-accent: rgba(197, 155, 83, 0.40);
 
-  /* --- RAYONS GÉOMÉTRIQUES ARCHITECTURAUX --- */
+  /* --- RAYONS GEOMETRIQUES --- */
   --radius-xs: 3px;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -50,14 +88,22 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* --- OMBRAGES MINÉRAUX RÉALISTES --- */
+  /* --- OMBRAGES ET RELIEFS MINERAUX --- */
+  --shadow-xs: 0 1px 2px rgba(26, 34, 45, 0.04);
   --shadow-subtle: 0 1px 3px rgba(26, 34, 45, 0.04), 0 1px 2px rgba(26, 34, 45, 0.02);
   --shadow-card: 0 4px 16px -2px rgba(26, 34, 45, 0.06), 0 2px 6px -1px rgba(26, 34, 45, 0.03);
-  --shadow-elevated: 0 12px 30px -4px rgba(26, 34, 45, 0.08), 0 4px 12px -2px rgba(26, 34, 45, 0.04);
+  --shadow-card-hover: 0 12px 28px -4px rgba(26, 34, 45, 0.10), 0 4px 10px -2px rgba(26, 34, 45, 0.04);
+  --shadow-elevated: 0 16px 36px -4px rgba(26, 34, 45, 0.10), 0 6px 14px -2px rgba(26, 34, 45, 0.05);
   --shadow-brass: 0 4px 20px -2px rgba(197, 155, 83, 0.25);
+  --shadow-brass-hover: 0 6px 24px 0 rgba(197, 155, 83, 0.35);
 
-  /* --- ÉCHELLE MODULAIRE D'ESPACEMENT --- */
-  --space-0-5: 0.125rem; /* 2px */
+  /* --- EFFETS DE MATIERE ET VERRE MINERAL --- */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-subtle: rgba(249, 248, 245, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.80);
+  --glass-blur: blur(14px);
+
+  /* --- ECHELLE MODULAIRE D'ESPACEMENT --- */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -72,50 +118,71 @@
   --space-24: 6rem;     /* 96px */
 
   /* --- TYPOGRAPHIE SYSTEM-STACK CONTEMPORAINE --- */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Playfair Display", "Iowan Old Style", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* --- TRANSITIONS FLUIDES --- */
+  /* --- ECHELLE TYPOGRAPHIQUE FLUIDE --- */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: clamp(1.35rem, 2.5vw, 1.625rem); /* 22-26px */
+  --text-3xl: clamp(1.65rem, 3.5vw, 2.125rem); /* 26-34px */
+  --text-4xl: clamp(2.1rem, 4.5vw, 2.75rem);   /* 34-44px */
+  --text-5xl: clamp(2.6rem, 5.5vw, 3.75rem);   /* 42-60px */
+
+  /* --- TRANSITIONS ET DYNAMIQUES D'ATELIER --- */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 150ms;
   --duration-normal: 250ms;
   --duration-slow: 400ms;
+
+  /* Intention active par defaut */
+  --active-intent-color: var(--univ-project);
+  --active-intent-glow: var(--univ-project-glow);
+  --active-intent-subtle: var(--univ-project-subtle);
 }
 
 /* ==========================================================================
-   MODE SOMBRE OPTIONNEL : NUIT MINÉRALE D'ATELIER
-   Activable via data-theme="dark" sur le document (jamais imposé par défaut)
+   MODE SOMBRE OPTIONNEL : NUIT MINERALE D'ATELIER
    ========================================================================== */
 [data-theme="dark"],
 .dark {
   --bg-primary: #0C1420;          /* Nuit profonde d'atelier */
   --bg-secondary: #131E2E;        /* Ardoise nocturne */
   --bg-surface: #19273B;          /* Surface de carte sombre */
-  --bg-surface-elevated: #1F2E44; /* Surface surélevée sombre */
+  --bg-surface-elevated: #1F2E44; /* Surface surelevee sombre */
   --bg-surface-subtle: #24354D;   /* Conteneur secondaire */
+  --bg-overlay: rgba(5, 10, 16, 0.75);
 
-  --text-primary: #F0F3F7;        /* Blanc de céramique doux */
-  --text-secondary: #A6B4C5;      /* Gris minéral clair */
-  --text-muted: #728296;          /* Gris atténué */
+  --text-primary: #F0F3F7;        /* Blanc de ceramique doux */
+  --text-secondary: #A6B4C5;      /* Gris mineral clair */
+  --text-muted: #728296;          /* Gris attenue */
   --text-light: #F0F3F7;
 
-  --accent-brass: #D8B36E;        /* Laiton chaud éclairé à la torche */
+  --accent-brass: #D8B36E;        /* Laiton chaud eclaire a la torche */
   --accent-brass-hover: #E7C687;
   --accent-brass-light: rgba(216, 179, 110, 0.15);
+  --accent-brass-border: rgba(216, 179, 110, 0.40);
   --accent-bronze: #A98547;
   --accent-bronze-dark: #7F5F2B;
   --accent-gold-foil: #F2D296;
 
   --status-success: #38A169;
   --status-success-bg: rgba(56, 161, 105, 0.16);
+  --status-success-border: rgba(56, 161, 105, 0.30);
   --status-warning: #D69E2E;
   --status-warning-bg: rgba(214, 158, 46, 0.16);
+  --status-warning-border: rgba(214, 158, 46, 0.30);
   --status-error: #E53E3E;
   --status-error-bg: rgba(229, 62, 62, 0.16);
+  --status-error-border: rgba(229, 62, 62, 0.30);
   --status-info: #4299E1;
   --status-info-bg: rgba(66, 153, 225, 0.16);
+  --status-info-border: rgba(66, 153, 225, 0.30);
 
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-default: rgba(255, 255, 255, 0.11);
@@ -124,20 +191,64 @@
 
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-card: 0 6px 20px -2px rgba(0, 0, 0, 0.5);
-  --shadow-elevated: 0 14px 35px -4px rgba(0, 0, 0, 0.65);
+  --shadow-card-hover: 0 12px 30px -4px rgba(0, 0, 0, 0.65);
+  --shadow-elevated: 0 16px 40px -4px rgba(0, 0, 0, 0.75);
   --shadow-brass: 0 4px 24px -2px rgba(216, 179, 110, 0.3);
+
+  --glass-bg: rgba(25, 39, 59, 0.75);
+  --glass-bg-subtle: rgba(19, 30, 46, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.10);
 }
 
 /* ==========================================================================
-   RESPECT DE PREFERS-REDUCED-MOTION (ACCESSIBILITÉ CRITIQUE)
+   ANIMATIONS THE POSSIBILITY MACHINE
+   ========================================================================== */
+@keyframes coreRotatePrism {
+  0% { transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg); }
+  50% { transform: rotateX(25deg) rotateY(180deg) rotateZ(10deg); }
+  100% { transform: rotateX(15deg) rotateY(360deg) rotateZ(0deg); }
+}
+
+@keyframes orbitRingForward {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbitRingReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes corePulseHalo {
+  0%, 100% { opacity: 0.55; transform: scale(0.96); }
+  50% { opacity: 0.85; transform: scale(1.04); }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   RESPECT DE PREFERS-REDUCED-MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }

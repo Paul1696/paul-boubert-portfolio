@@ -1,0 +1,68 @@
+import { FeaturedProject } from "@/types/possibility-machine";
+
+export const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    id: "proj-web-tower",
+    title: "D-Web Holding Tower",
+    subtitle: "Architecture Tertiaire & Phare Digital",
+    category: "Nouvelle Construction / Bureaux",
+    universeSlug: "adp-project",
+    location: "Douala, Cameroun",
+    year: "2024",
+    specs: "Tour R+15 • Siège Social & Coworking",
+    accentColor: "#7DB9DC",
+    symbol: "◈",
+    excerpt:
+      "Tour de verre emblématique conçue au cœur de Douala pour l'efficience tertiaire et la modularité. Lignes verticales affirmées, plateaux modulables de nouvelle génération et gestion optimisée des apports solaires.",
+    badge: "Référence Certifiée Legacy",
+    isVerifiedLegacy: true,
+  },
+  {
+    id: "proj-tonye",
+    title: "Immeuble Tonye",
+    subtitle: "Habitat Collectif & Totem Urbain",
+    category: "Nouvelle Construction / Résidentiel",
+    universeSlug: "adp-project",
+    location: "Douala, Cameroun",
+    year: "2023",
+    specs: "R+5 • Appartements & Loft d'Exception",
+    accentColor: "#C59B53",
+    symbol: "▣",
+    excerpt:
+      "Immeuble urbain R+5 conçu pour allier densification intelligente et habitabilité généreuse. Intégration de balcons ombragés brise-soleil et finitions minérales adaptées au climat côtier.",
+    badge: "Référence Certifiée Legacy",
+    isVerifiedLegacy: true,
+  },
+  {
+    id: "proj-hotel-bertoua",
+    title: "Hôtel de Bertoua",
+    subtitle: "Design d'Intérieur & Aménagement Hôtelier",
+    category: "Hôtellerie / Aménagement",
+    universeSlug: "adp-project",
+    location: "Bertoua, Cameroun",
+    year: "2023",
+    specs: "Hôtel Contemporain • Chambres & Espaces Communs",
+    accentColor: "#8A6731",
+    symbol: "✦",
+    excerpt:
+      "Design d'intérieur et aménagement hôtelier au Cameroun. Chambres, espaces communs et coordination des travaux pour une expérience client optimale.",
+    badge: "Référence Certifiée Legacy",
+    isVerifiedLegacy: true,
+  },
+  {
+    id: "proj-residence-soa",
+    title: "Résidence Universitaire SOA",
+    subtitle: "Habitat Collectif Étudiant & Sobriété Constructive",
+    category: "Logement Étudiant / R+2",
+    universeSlug: "adp-project",
+    location: "Soa, Cameroun",
+    year: "2022",
+    specs: "R+2 • 100% Fonctionnel & Éco-Conçu",
+    accentColor: "#2E7D52",
+    symbol: "▲",
+    excerpt:
+      "Ensemble résidentiel collectif pour étudiants. Optimisation rigoureuse des surfaces de circulation, ventilation naturelle traversante et pérennité des matériaux locaux mis en œuvre.",
+    badge: "Référence Certifiée Legacy",
+    isVerifiedLegacy: true,
+  },
+];

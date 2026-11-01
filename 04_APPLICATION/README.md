@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ADP Web Experience — Application Socle Monolithe (Next.js 15)
 
-## Getting Started
+Plateforme d'ingénierie et de création numérique des **Ateliers de Paul** — *The Possibility Machine*.
 
-First, run the development server:
+---
+
+## 1. Stack Technique & Versions Vérifiées
+
+- **Framework :** Next.js 15.4.11 (App Router)
+- **Bibliothèque UI :** React 19.1.0 / React-DOM 19.1.0
+- **Langage :** TypeScript 5.9.3 (mode strict)
+- **Linter :** ESLint 9.21.0 (`eslint-config-next` 15.4.11, `@eslint/eslintrc` 3.3.7)
+- **Moteur SWC :** `@next/swc-wasm-nodejs` 15.4.8 (WebAssembly officiel)
+- **Environnement hôte certifié :** Node.js v24.16.0 (Windows x64), npm 11.13.0, pnpm 11.5.2
+
+---
+
+## 2. Commandes Disponibles
 
 ```bash
+# Lancement du serveur de développement local (par défaut port 3000 ou personnalisé)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev -- --port 3001
+
+# Vérification stricte des types TypeScript (zéro émission)
+npm run type-check
+
+# Analyse statique ESLint
+npm run lint
+
+# Compilation et génération des pages statiques (SSG / SSR)
+npm run build
+
+# Démarrage du serveur en mode production
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 3. Note d'Architecture : Moteur SWC sous Windows / Node 24
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Sous Windows avec Node.js 24+, les binaires C++ natifs MSVC compilés pour les versions LTS précédentes (`@next/swc-win32-x64-msvc`) peuvent subir des violations d'accès mémoire dues aux évolutions internes de N-API.
 
-## Learn More
+L'application utilise le moteur WebAssembly officiel `@next/swc-wasm-nodejs` configuré via :
+1. `wasm-env.js` : injection de la variable `NEXT_TEST_WASM_DIR` pour les scripts CLI ;
+2. `next.config.ts` : initialisation du chemin WASM lors du chargement de la configuration Next.js ;
+3. Script `postinstall` dans `package.json` garantissant la disponibilité automatique des liaisons WASM.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cette configuration assure une reproductibilité et une stabilité parfaites lors de toute nouvelle installation (`npm install`).

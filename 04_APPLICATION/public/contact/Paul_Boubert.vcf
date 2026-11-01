@@ -1,0 +1,32 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Boubert;Paul;;;
+FN:Paul Boubert
+ORG:Les Ateliers de Paul
+TITLE:Fondateur & Directeur général
+TEL;TYPE=WORK,VOICE:+237690715403
+TEL;TYPE=CELL:+237690087213
+EMAIL;TYPE=WORK,INTERNET:paul@ateliersdepaul.com
+URL:https://ateliersdepaul.com
+ADR;TYPE=WORK:;;;Douala;;;Cameroun
+NOTE:Collaborateur d’architecte · Génie civil\nWhatsApp : https://wa.me
+ /237690087213\nLinkedIn : https://www.linkedin.com/company/adp-les-atelier
+ s-de-paul/\nInstagram : https://www.instagram.com/adp_ateliers_de_paul?stk
+ n=cWUxdm4za3Bxc2p2&utm_source=qr\nFacebook : https://www.facebook.com/shar
+ e/1SjoyqvTDQ/?mibextid=wwXIfr
+item1.URL:https://wa.me/237690087213
+item1.X-ABLabel:WhatsApp
+item2.URL:https://www.linkedin.com/company/adp-les-ateliers-de-paul/
+item2.X-ABLabel:LinkedIn
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/company/adp-les-atel
+ iers-de-paul/
+item3.URL:https://www.instagram.com/adp_ateliers_de_paul?stkn=cWUxdm4za3Bxc
+ 2p2&utm_source=qr
+item3.X-ABLabel:Instagram
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/adp_ateliers_de_pa
+ ul?stkn=cWUxdm4za3Bxc2p2&utm_source=qr
+item4.URL:https://www.facebook.com/share/1SjoyqvTDQ/?mibextid=wwXIfr
+item4.X-ABLabel:Facebook
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/share/1SjoyqvTDQ/?mi
+ bextid=wwXIfr
+END:VCARD

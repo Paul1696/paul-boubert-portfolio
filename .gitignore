@@ -19,6 +19,8 @@ node_modules/
 # --- SORTIES DE COMPILATION ET BUILDS ---
 .next/
 04_APPLICATION/.next/
+.next_build/
+04_APPLICATION/.next_build/
 out/
 04_APPLICATION/out/
 build/
