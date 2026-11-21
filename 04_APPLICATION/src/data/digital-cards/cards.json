@@ -1,0 +1,80 @@
+[
+  {
+    "id": "card-tifo-geordan-01",
+    "publicId": "tifo-0001",
+    "companyName": "ETS TIFO",
+    "activity": "Habillement professionnel et promotionnel",
+    "slogan": "Votre partenaire de référence en confection & personnalisation textile",
+    "contactName": "Geordan FOKAM FOTSO",
+    "contactRole": "Responsable",
+    "phones": [
+      "+237 698 02 83 56",
+      "+237 678 34 22 28"
+    ],
+    "primaryPhone": "+237 698 02 83 56",
+    "whatsappPhone": "237698028356",
+    "address": "Carrefour Arno",
+    "city": "Douala",
+    "country": "Cameroun",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Carrefour+Arno%2C+Douala%2C+Cameroun",
+    "branding": {
+      "primaryColor": "#0D5C3A",
+      "accentYellow": "#F5B700",
+      "accentRed": "#D62828",
+      "backgroundColor": "#F8FAF8",
+      "textColor": "#0F241A",
+      "logoAlt": "Logo ETS TIFO — Habillement Professionnel",
+      "isTemporaryLogo": true
+    },
+    "description": "Spécialiste de la confection, broderie et sérigraphie d'habillements professionnels, tenues de travail et supports promotionnels textiles pour entreprises et particuliers à Douala et sur l'ensemble du territoire camerounais.",
+    "products": [
+      {
+        "id": "prod-tshirt",
+        "name": "T-shirts",
+        "category": "Textile promotionnel",
+        "description": "Col rond & V, 100% coton, grammage supérieur, sérigraphie & broderie haute tenue."
+      },
+      {
+        "id": "prod-polo",
+        "name": "Polos",
+        "category": "Élégance corporate",
+        "description": "Maille piquée de qualité, finitions soignées, broderie de logo sur cœur et manches."
+      },
+      {
+        "id": "prod-pull",
+        "name": "Pulls & Sweats",
+        "category": "Mi-saison & confort",
+        "description": "Pulls d'entreprise, sweats à capuche et gilets zippés personnalisés."
+      },
+      {
+        "id": "prod-echarpe",
+        "name": "Écharpes",
+        "category": "Accessoires événementiels",
+        "description": "Écharpes de cérémonie, foulards d'accueil et accessoires d'uniforme d'entreprise."
+      },
+      {
+        "id": "prod-casquette",
+        "name": "Casquettes",
+        "category": "Headwear & visibilité",
+        "description": "Casquettes 5 et 6 panneaux, visières renforcées, broderie 3D et flocage net."
+      },
+      {
+        "id": "prod-jogging",
+        "name": "Joggings & Sportswear",
+        "category": "Tenues sport & détente",
+        "description": "Ensembles jogging, bas et vestes pour associations, clubs et événements d'entreprise."
+      }
+    ],
+    "socials": {},
+    "status": "active",
+    "createdAt": "2026-11-21T18:00:00Z",
+    "updatedAt": "2026-11-21T18:00:00Z",
+    "version": 1,
+    "metadata": {
+      "clientReference": "CLI-ETS-TIFO",
+      "adpOrderReference": "CMD-CARD-2026-001",
+      "printBatValidated": true,
+      "printBatDate": "2026-11-21"
+    }
+  }
+]

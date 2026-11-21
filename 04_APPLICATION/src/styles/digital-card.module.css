@@ -1,0 +1,430 @@
+/* ==============================================================================
+   ADP DIGITAL CARDS — FEUILLE DE STYLE MOBILE FIRST & ÉLÉGANTE
+   Conforme aux directives ETS TIFO : Vert dominant, accents Jaune/Rouge, fond clair
+   ============================================================================== */
+
+.cardViewport {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f1f5f3;
+  padding: clamp(0.75rem, 2vw, 2rem) 1rem 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #10261c;
+  box-sizing: border-box;
+}
+
+.cardContainer {
+  width: 100%;
+  max-width: 460px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(13, 92, 58, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e3ede7;
+  display: flex;
+  flex-direction: column;
+}
+
+/* En-tête bannière architecturale & corporate */
+.cardBanner {
+  position: relative;
+  background: linear-gradient(135deg, #0a482d 0%, #0d5c3a 60%, #117349 100%);
+  padding: 2.25rem 1.5rem 2rem;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cardBannerPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.brandBadgeRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.15rem;
+}
+
+/* Monogramme / Logo authentique ETS TIFO */
+.companyLogoBox {
+  width: 82px;
+  height: 82px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border: 3px solid #f5b700;
+  position: relative;
+}
+
+.logoMonogram {
+  font-family: "Century", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #0d5c3a;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.logoSubtext {
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #d62828;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.companyName {
+  margin: 0;
+  font-family: "Century", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.activityBadge {
+  display: inline-block;
+  margin: 0.45rem auto 0;
+  padding: 0.25rem 0.85rem;
+  background: rgba(245, 183, 0, 0.2);
+  border: 1px solid rgba(245, 183, 0, 0.45);
+  border-radius: 999px;
+  color: #f5b700;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sloganText {
+  margin: 0.85rem 0 0;
+  font-size: 0.84rem;
+  color: #d1eadb;
+  line-height: 1.45;
+  font-style: italic;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Corps de la carte */
+.cardBody {
+  padding: 1.75rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Identité du contact */
+.contactBlock {
+  text-align: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #edf4ef;
+}
+
+.contactRole {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0d5c3a;
+  margin-bottom: 0.35rem;
+}
+
+.contactName {
+  margin: 0;
+  font-family: "Century", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #082417;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Bouton principal Enregistrer le contact (VCF) */
+.saveContactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  background: linear-gradient(135deg, #0d5c3a 0%, #0a482d 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(13, 92, 58, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.saveContactBtn:hover,
+.saveContactBtn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13, 92, 58, 0.38);
+}
+
+/* Grille d'actions rapides (Appel, WhatsApp, Partager) */
+.quickActionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.actionPillBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 0.5rem;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid #dce8e1;
+  background-color: #fafdfb;
+  color: #0d5c3a;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionPillBtn:hover {
+  background-color: #eef7f2;
+  border-color: #0d5c3a;
+  transform: translateY(-1px);
+}
+
+.whatsappBtn {
+  background-color: #f0faf4;
+  border-color: #25d366;
+  color: #128c7e;
+}
+
+.whatsappBtn:hover {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+/* Section Coordonnées & Téléphones */
+.sectionCard {
+  background-color: #f8faf8;
+  border: 1px solid #e7eee9;
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0d5c3a;
+}
+
+.phoneList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.phoneRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.85rem;
+  background: #ffffff;
+  border: 1px solid #e1ebe4;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #082417;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.phoneRow:hover {
+  border-color: #0d5c3a;
+}
+
+.phoneLabel {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Section Localisation & Google Maps */
+.locationText {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  color: #233b2e;
+  line-height: 1.45;
+}
+
+.mapsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #0d5c3a;
+  border-radius: 10px;
+  color: #0d5c3a;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.mapsBtn:hover {
+  background-color: #0d5c3a;
+  color: #ffffff;
+}
+
+/* Grille des produits */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.productCard {
+  background: #ffffff;
+  border: 1px solid #e3eee6;
+  border-radius: 12px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.productTag {
+  font-size: 0.62rem;
+  color: #0d5c3a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.productName {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #082417;
+}
+
+.productDesc {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  color: #556b5f;
+  line-height: 1.35;
+}
+
+/* Section QR Code définitif imprimable */
+.qrCodeSection {
+  background: linear-gradient(180deg, #f8faf8 0%, #eef5f0 100%);
+  border: 1px dashed #b7d6c3;
+  border-radius: 18px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.qrCodeFrame {
+  display: inline-block;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 14px;
+  border: 2px solid #0d5c3a;
+  box-shadow: 0 4px 12px rgba(13, 92, 58, 0.1);
+  margin: 0.75rem auto;
+}
+
+.qrCodeUrlBadge {
+  font-family: monospace;
+  font-size: 0.74rem;
+  color: #0d5c3a;
+  background: rgba(13, 92, 58, 0.08);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 0.4rem;
+  word-break: break-all;
+}
+
+.qrActions {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.qrDownloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #082417;
+  background: #ffffff;
+  border: 1px solid #cbdcd1;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.qrDownloadBtn:hover {
+  border-color: #0d5c3a;
+  color: #0d5c3a;
+}
+
+/* Pied de page & signature */
+.cardFooter {
+  padding: 1.25rem 1.5rem;
+  background-color: #f8faf8;
+  border-top: 1px solid #edf4ef;
+  text-align: center;
+}
+
+.poweredText {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.poweredLink {
+  color: #0d5c3a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.poweredLink:hover {
+  text-decoration: underline;
+}

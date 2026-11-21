@@ -1,0 +1,1801 @@
+/* ==========================================================================
+   Paul Boubert — Portfolio Professionnel Architectural Haut de Gamme
+   Design System ADP : Rigueur d'Atelier, Précision BIM & Typographie Contemporaine
+   ========================================================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  background-color: #FFFFFF;
+  color: #202B38;
+  /* Century classique installée localement ; fallback web si absente. */
+  font-family: "Century", Georgia, "Times New Roman", serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Identité Paul Boubert — portée exclusivement au portfolio personnel. */
+.pageWrapper,
+.pageWrapper h1,
+.pageWrapper h2,
+.pageWrapper h3,
+.pageWrapper h4,
+.pageWrapper h5,
+.pageWrapper h6 {
+  --paul-navy: #06264A;
+  --paul-royal: #1255A0;
+  --paul-cyan: #00B8EA;
+  --paul-ice: #EAF4FC;
+  --paul-ink: #202B38;
+}
+
+.pageWrapper button,
+.pageWrapper input,
+.pageWrapper select,
+.pageWrapper textarea,
+.pageWrapper .navItem,
+.pageWrapper .catPill,
+.pageWrapper .viewProjectLink {
+  font-family: var(--paul-ui-font, Arial, Helvetica, sans-serif);
+}
+
+.pageWrapper h1,
+.pageWrapper h2,
+.pageWrapper h3,
+.pageWrapper h4,
+.pageWrapper h5,
+.pageWrapper h6,
+.pageWrapper p,
+.pageWrapper .cardTitle,
+.pageWrapper .tabMainTitle {
+  font-family: "Century", Georgia, "Times New Roman", serif;
+}
+
+.pageWrapper .sidebar,
+.pageWrapper .mobileBar {
+  background: #06264A;
+}
+
+.pageWrapper .navItemActive,
+.pageWrapper .catPillActive {
+  background: #1255A0;
+  color: #FFFFFF;
+}
+
+.pageWrapper .activeIndicatorBar,
+.pageWrapper .heroKickerBadge,
+.pageWrapper .heroAccentLine {
+  background-color: #00B8EA;
+}
+
+.pageWrapper .heroTitle,
+.pageWrapper .sectionTitle,
+.pageWrapper .tabMainTitle,
+.pageWrapper .cardTitle {
+  color: #06264A;
+}
+
+/* Le titre principal de la bannière doit rester blanc malgré la hiérarchie globale des titres. */
+.pageWrapper .heroTitle {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+  text-shadow: 0 2px 12px rgba(0, 20, 40, 0.15);
+}
+
+.pageWrapper .tabCard,
+.pageWrapper .archCard,
+.pageWrapper .skillCluster,
+.pageWrapper .contactChannelCard {
+  border-color: #D6E7F5;
+}
+
+/* ==========================================================================
+   02 — NAVIGATION LATÉRALE COLLAPSIBLE & HAUT DE GAMME
+   ========================================================================== */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background: linear-gradient(180deg, #061528 0%, #091C34 50%, #040E1B 100%);
+  color: #F8FAFC;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 4px 0 24px rgba(4, 14, 27, 0.25);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), min-width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+}
+
+.mainContent { margin: 0 0 0 250px; padding: 0; min-height: 100vh; gap: 0; }
+.pageWrapper:has(.sidebarCollapsed) .mainContent { margin-left: 76px; }
+
+/* Mode replié sur ordinateur */
+.sidebarCollapsed {
+  width: 76px;
+  min-width: 76px;
+}
+
+.sidebarHeader {
+  padding: 1.75rem 1.25rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.monogramWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.monogramBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(14, 116, 144, 0.25) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+  flex-shrink: 0;
+}
+
+.monogramText {
+  font-family: "Cinzel", "Playfair Display", "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+/* Bouton de repli de la barre latérale sur PC */
+.collapseToggleBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.collapseToggleBtn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.sidebarIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+  transition: opacity 0.2s ease, max-height 0.2s ease;
+}
+
+.sidebarCollapsed .sidebarIdentity {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+}
+
+.authorName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.authorRole {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7DB9DC;
+  line-height: 1.35;
+}
+
+/* Navigation latérale */
+.sidebarNav {
+  flex: 1;
+  padding: 1.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  background: transparent;
+  color: #94A3B8;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #F8FAFC;
+  transform: translateX(2px);
+}
+
+.navItemActive {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(14, 116, 144, 0.05) 100%);
+  color: #38BDF8;
+  font-weight: 700;
+}
+
+/* Indicateur actif discret en trait cyan fin (Section 02.5) */
+.activeIndicatorBar {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background-color: #38BDF8;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.navItemIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navItemLabel {
+  transition: opacity 0.2s ease;
+}
+
+.sidebarCollapsed .navItemLabel {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.sidebarCollapsed .navItem {
+  justify-content: center;
+  padding: 0.75rem 0;
+}
+
+/* Pied de barre latérale */
+.sidebarFooter {
+  padding: 1rem 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebarCollapsed .sidebarFooter {
+  padding: 0.75rem 0;
+  align-items: center;
+}
+
+.sidebarMetaText {
+  font-size: 0.7rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.sidebarCollapsed .sidebarMetaText {
+  display: none;
+}
+
+.backHomeLink {
+  color: #7DB9DC;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease;
+}
+
+.backHomeLink:hover {
+  color: #38BDF8;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   03 — BANNIÈRE PRINCIPALE ARCHITECTURALE & IMMERSIVE
+   ========================================================================== */
+
+.heroBanner {
+  position: relative;
+  background: linear-gradient(135deg, #07172B 0%, #0C213D 45%, #102B4E 100%);
+  color: #FFFFFF;
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fond architectural réel à dégradé progressif (Section 03) */
+.heroPhotoBackdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  background-image: url("/assets/personal/paul-banner.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  opacity: 0.62;
+  mix-blend-mode: normal;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 30%, black 85%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 30%, black 85%);
+}
+
+.heroContentGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 1400px;
+}
+
+.heroTextCol {
+  max-width: 760px;
+}
+
+.heroKickerRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.heroKickerBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.heroKickerSub {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: #CBD5E1;
+  line-height: 1.55;
+  margin: 0 0 2rem 0;
+  max-width: 660px;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   ANIMATION ARCHITECTURALE DISTINCTIVE SVG (SECTION 03)
+   Construction progressive d'un bâtiment : axes, poteaux, dalles, enveloppe, volume
+   ========================================================================== */
+
+.heroConstructBox {
+  width: 260px;
+  height: 190px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 23, 43, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.buildingSvgAnimation {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Animations CSS des couches constructives */
+.animAxis {
+  stroke-dasharray: 4 4;
+  animation: pulseAxis 4s ease-in-out infinite;
+}
+
+.animFoundation {
+  animation: drawLine 2.5s ease-out forwards;
+}
+
+.animColumns {
+  animation: growColumns 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: bottom;
+}
+
+.animSlabs {
+  animation: fadeInSlabs 2.8s ease-out forwards;
+}
+
+.animEnvelope {
+  animation: drawVolume 3.5s ease-out infinite alternate;
+}
+
+@keyframes pulseAxis {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 200; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 0.85; }
+}
+
+@keyframes growColumns {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes fadeInSlabs {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.9; transform: translateY(0); }
+}
+
+@keyframes drawVolume {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.9; stroke: #38BDF8; }
+}
+
+/* ==========================================================================
+   04 — INDICATEURS ÉDITORIAUX ÉLÉGANTS (NON-DASHBOARD)
+   ========================================================================== */
+
+.editorialMetricsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metricItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.metricValue {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: -0.02em;
+}
+
+.metricLabelCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  letter-spacing: 0.02em;
+}
+
+.metricSubtitle {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  margin-top: 1px;
+}
+
+.metricDivider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   07 — BARRE D'EXPLORATION COHÉRENTE (RECHERCHE + FILTRES + TRI + VUES)
+   ========================================================================== */
+
+.explorerBar {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 1.25rem clamp(1.5rem, 4vw, 3.5rem);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+.explorerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1400px;
+}
+
+.searchAndFiltersLeft {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+/* Champ de recherche */
+.searchField {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  min-width: 240px;
+  max-width: 320px;
+  transition: all 0.15s ease;
+}
+
+.searchField:focus-within {
+  border-color: #0284C7;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  color: #0F172A;
+  width: 100%;
+}
+
+/* Filtres de catégorie (Pills sobres) */
+.categoryPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.catPill {
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid #E2E8F0;
+  background-color: #F8FAFC;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.catPill:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+  border-color: #94A3B8;
+}
+
+.catPillActive {
+  background-color: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+}
+
+/* Commandes droites (Tri + Mode d'affichage) */
+.controlsRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sortSelect {
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #CBD5E1;
+  background-color: #FFFFFF;
+  font-size: 0.8rem;
+  color: #334155;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.sortSelect:focus {
+  border-color: #0284C7;
+}
+
+/* Commutateur de mode d'affichage (Grille, Éditoriale, Liste) */
+.viewModeGroup {
+  display: flex;
+  align-items: center;
+  background-color: #F1F5F9;
+  border-radius: 8px;
+  padding: 3px;
+  border: 1px solid #E2E8F0;
+}
+
+.viewModeBtn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.viewModeBtn:hover {
+  color: #0F172A;
+}
+
+.viewModeBtnActive {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   05 — GALERIE DE PROJETS (3 MODES D'AFFICHAGE)
+   ========================================================================== */
+
+.galleryContainer {
+  padding: clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.galleryHeaderInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.projectCountNote {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* MODE 1 : GRILLE ARCHITECTURALE 3 COLONNES SUR PC */
+.gridMode {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .gridMode {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.archCard {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+
+.archCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12);
+  border-color: #CBD5E1;
+}
+
+.archCardMedia {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background-color: #0B1E36;
+  overflow: hidden;
+}
+
+.archCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.archCard:hover .archCardImg {
+  transform: scale(1.03);
+}
+
+/* Badges sur l'image */
+.mediaStatusBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  color: #F8FAFC;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mediaCategoryBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+  color: #38BDF8;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.archCardBody {
+  padding: 1.25rem 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardHeadRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cardYear {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+  font-weight: 600;
+}
+
+.cardSubtitle {
+  font-size: 0.84rem;
+  color: #475569;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Rôle exact et déontologie */
+.cardRoleMeta {
+  background-color: #F8FAFC;
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.72rem;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.roleLabel {
+  font-weight: 700;
+  color: #0284C7;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
+.roleValue {
+  line-height: 1.35;
+}
+
+/* Pied de carte avec lien d'action élégant */
+.cardFootRow {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.locationTag {
+  font-size: 0.75rem;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.viewProjectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0F172A;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #F1F5F9;
+  transition: all 0.15s ease;
+}
+
+.viewProjectLink:hover {
+  background-color: #0F172A;
+  color: #FFFFFF;
+}
+
+/* MODE 2 : GALERIE ÉDITORIALE ASYMÉTRIQUE */
+.editorialMode {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.editorialCardFeatured {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #CBD5E1;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+@media (min-width: 900px) {
+  .editorialCardFeatured {
+    grid-column: span 8;
+  }
+  .editorialCardRegular {
+    grid-column: span 4;
+  }
+}
+
+/* MODE 3 : LISTE DÉTAILLÉE */
+.listMode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.listRowCard {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 0.85rem 1.25rem;
+  display: grid;
+  grid-template-columns: 70px 1.4fr 1.2fr 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all 0.15s ease;
+}
+
+.listRowCard:hover {
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  transform: translateX(3px);
+}
+
+.listThumb {
+  width: 70px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #0B1E36;
+}
+
+.listThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listColTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.listMainTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.listSubTitle {
+  font-size: 0.78rem;
+  color: #64748B;
+}
+
+.listColRole {
+  font-size: 0.78rem;
+  color: #334155;
+}
+
+.listColMeta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   ONGLETS COMPLÉMENTAIRES (PROFIL, PARCOURS, COMPÉTENCES, CONTACT)
+   ========================================================================== */
+
+.tabSectionWrapper {
+  padding: clamp(2rem, 3.5vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  scroll-margin-top: 3.5rem;
+}
+
+.tabCard {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  margin-bottom: 2rem;
+}
+
+.tabHeaderBlock {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 1.5rem;
+}
+
+.tabMainTitle {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.tabLeadText {
+  font-size: 1rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Timeline Parcours */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid #E2E8F0;
+}
+
+.timelineItem {
+  position: relative;
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -2.6rem;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #0284C7;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 0 2px #E2E8F0;
+}
+
+.timelineDate {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284C7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.timelineRole {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 0.25rem 0;
+}
+
+.timelineCompany {
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.timelineDescription {
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Grille de compétences */
+.skillsClusterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skillCluster {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.clusterTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skillPillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skillPillItem {
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+/* Contact Actions */
+.contactChannelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.contactChannelCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 1.25rem;
+  border-radius: 14px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  text-decoration: none;
+  color: #0F172A;
+  text-align: center;
+  gap: 0.5rem;
+  transition: all 0.18s ease;
+}
+
+.contactChannelCard:hover {
+  transform: translateY(-3px);
+  border-color: #0284C7;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
+}
+
+.contactChannelIcon {
+  color: #0284C7;
+  margin-bottom: 0.25rem;
+}
+
+.contactChannelTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.contactChannelValue {
+  font-size: 0.78rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   NAVIGATION MOBILE
+   ========================================================================== */
+
+.mobileBar {
+  display: none;
+  background-color: #061528;
+  color: #FFFFFF;
+  padding: 0.85rem 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.mobileMenuToggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .pageWrapper {
+    flex-direction: column;
+  }
+
+  .mobileBar {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+
+  .mainContent,
+  .pageWrapper:has(.sidebarCollapsed) .mainContent { margin-left: 0; }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .sidebarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 90;
+  }
+
+  .heroContentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroConstructBox {
+    display: none;
+  }
+
+  .listRowCard {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .listThumb {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+/* Bannière Paul Boubert : composition panoramique en couches, sans colonne média. */
+.heroBanner {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 580px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: #08243f;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(4, 29, 54, 0.88) 0%, rgba(5, 35, 64, 0.82) 27%, rgba(6, 39, 72, 0.60) 49%, rgba(5, 35, 64, 0.16) 74%, rgba(5, 35, 64, 0.02) 100%);
+}
+
+.heroBirdFlock {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heroCyclist {
+  position: absolute;
+  z-index: 1;
+  bottom: -2%;
+  left: -16%;
+  width: clamp(130px, 17vw, 260px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background-image: url("/assets/personal/cyclist-overlay.png");
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.78;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: cyclistRide 18s linear infinite;
+}
+
+@keyframes cyclistRide {
+  from { left: -16%; }
+  to { left: 100%; }
+}
+
+.heroContentGrid {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-width: 1400px;
+  min-height: 580px;
+  margin: 0 auto;
+}
+
+.heroTextCol {
+  max-width: 730px;
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem) 5rem;
+}
+
+.heroKickerBadge {
+  display: inline-block;
+  padding: 0.22rem 0.62rem;
+  border: 0;
+  background: #38bdf8;
+  color: #08243f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 2rem 0 1rem;
+  color: #ffffff;
+  opacity: 1;
+  filter: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.heroRole {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  opacity: 1;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+}
+
+.heroSubtitle {
+  max-width: 650px;
+  margin: 0 0 2rem;
+  color: #e5f3f6;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.heroPrimaryButton,
+.heroSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.heroPrimaryButton { border: 1px solid #16c3ea; background: #16c3ea; color: #062b43; }
+.heroSecondaryButton { border: 1px solid rgba(255, 255, 255, 0.75); background: transparent; color: #fff; }
+.heroPrimaryButton:hover { background: #67daf2; }
+.heroSecondaryButton:hover { background: rgba(255, 255, 255, 0.12); }
+
+.heroProfessionalMetrics {
+  display: flex;
+  gap: 0;
+  max-width: 680px;
+  margin-top: 3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.heroProfessionalMetrics span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 150px;
+  padding: 0 1.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.heroProfessionalMetrics span:first-child { padding-left: 0; }
+.heroProfessionalMetrics span:last-child { border-right: 0; }
+.heroProfessionalMetrics strong { color: #fff; font-size: 1.6rem; }
+.heroProfessionalMetrics small { color: #d7e9ef; font-size: 0.7rem; }
+
+.heroScrollCue {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.2rem;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  color: #fff;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.heroScrollCue b { color: #38bdf8; font-size: 2rem; font-weight: 400; line-height: 0.7; }
+
+/* Portfolio : section en-tête et filtres réorganisés (Maquette de référence) */
+.portfolioIntro {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem) 1.25rem;
+  background: #ffffff;
+  scroll-margin-top: 3.5rem;
+}
+
+.portfolioHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.portfolioIntroMain {
+  max-width: 680px;
+  min-width: 0;
+}
+
+.portfolioEyebrow {
+  margin: 0 0 0.35rem;
+  color: #1d4f91;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.portfolioTitle {
+  margin: 0;
+  color: #08243f;
+  font-family: "Century", "Times New Roman", Georgia, serif;
+  font-size: clamp(2.1rem, 3.2vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.portfolioAccentLine {
+  display: block;
+  width: 38px;
+  height: 4px;
+  margin: 0.65rem 0 0.85rem;
+  border-radius: 2px;
+  background: #00a3e0;
+}
+
+.portfolioDescription {
+  margin: 0;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* Compteur de projets avec trait vertical cyan */
+.portfolioCountBlock {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+  padding-left: 1.5rem;
+}
+
+.portfolioCountDivider {
+  display: block;
+  width: 2px;
+  height: 54px;
+  background: #00a3e0;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.portfolioCountContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.portfolioCountNumber {
+  font-family: "Century", "Times New Roman", Georgia, serif;
+  font-size: clamp(2.4rem, 3.8vw, 3.1rem);
+  font-weight: 700;
+  color: #08243f;
+  line-height: 1;
+}
+
+.portfolioCountLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+
+/* Séparateurs horizontaux fins */
+.portfolioHeaderDivider {
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 1.6rem 0 1.25rem;
+}
+
+.portfolioCategoryDivider {
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+  margin-top: 1.15rem;
+}
+
+/* Ligne 1 : Collections et Filtre Annuel */
+.portfolioCollectionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0.85rem;
+}
+
+.portfolioCollectionButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.portfolioYearFilter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portfolioYearLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.portfolioYearFilter select {
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 0.52rem 1.35rem 0.52rem 1rem;
+  background: #ffffff;
+  color: #08243f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolioYearFilter select:hover,
+.portfolioYearFilter select:focus {
+  border-color: #00a3e0;
+  outline: none;
+}
+
+/* Ligne 2 : Catégories */
+.portfolioCategoryRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.portfolioResetLink {
+  border: 0;
+  background: transparent;
+  color: #1d4f91;
+  text-decoration: underline;
+  font-size: 0.78rem;
+  cursor: pointer;
+  margin-left: 0.35rem;
+}
+
+/* Boutons filtres (pills) */
+.portfolioFilter {
+  padding: 0.52rem 1.2rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #334155;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.portfolioFilter:hover {
+  border-color: #00a3e0;
+  color: #00a3e0;
+}
+
+.portfolioFilterActive {
+  border-color: #08243f;
+  background: #08243f;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.portfolioFilterActive:hover {
+  border-color: #08243f;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .portfolioHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .portfolioCountBlock {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolioCollectionRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .portfolioYearFilter {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .portfolioCategoryRow {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.4rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  .portfolioCategoryRow::-webkit-scrollbar {
+    display: none;
+  }
+}
+.portfolioIntro + .galleryContainer { max-width: none; margin: 0; padding: 1.7rem clamp(1.5rem, 4vw, 3.5rem) 2rem; background: #f8fafc; }
+.portfolioIntro + .galleryContainer .galleryHeaderInfo { margin-bottom: 1rem; }
+.portfolioIntro + .galleryContainer .gridMode { gap: 1.25rem; }
+.portfolioIntro + .galleryContainer .archCard { border-color: #dbe5ee; border-radius: 14px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); }
+.portfolioIntro + .galleryContainer .mediaStatusBadge { display: none; }
+.portfolioIntro + .galleryContainer .mediaCategoryBadge { bottom: 0.75rem; left: 0.75rem; }
+.portfolioIntro + .galleryContainer .cardRoleMeta { background: #f8fafc; }
+.portfolioIntro + .galleryContainer .archCard { min-height: 100%; }
+.portfolioIntro + .galleryContainer .archCardMedia { aspect-ratio: 5 / 3; overflow: hidden; }
+.portfolioIntro + .galleryContainer .archCardImg { transition: transform 240ms ease; }
+.portfolioIntro + .galleryContainer .archCard:hover .archCardImg { transform: scale(1.035); }
+.portfolioIntro + .galleryContainer .archCardBody { display: flex; flex: 1; flex-direction: column; padding: 1.15rem 1.25rem 1.1rem; }
+.cardMetaRow { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.55rem; color: #1d4f91; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.portfolioIntro + .galleryContainer .cardTitle { margin: 0; font-size: 1.28rem; line-height: 1.2; }
+.cardDescription { display: -webkit-box; min-height: 2.9em; margin: 0.55rem 0 0; overflow: hidden; color: #475569; font-size: 0.82rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.cardCreditLine { display: flex; justify-content: space-between; gap: 0.75rem; margin-top: 0.8rem; color: #64748b; font-size: 0.68rem; line-height: 1.35; }
+.cardCreditLine span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.portfolioIntro + .galleryContainer .cardFootRow { margin-top: auto; padding-top: 1rem; }
+.portfolioIntro + .galleryContainer .viewProjectLink { transition: color 220ms ease, gap 220ms ease; }
+.portfolioIntro + .galleryContainer .viewProjectLink:hover { gap: 0.45rem; color: #0284c7; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolioIntro + .galleryContainer .archCardImg,
+  .portfolioIntro + .galleryContainer .viewProjectLink { transition: none; }
+}
+
+
+/* Finition éditoriale des cartes : mouvement réduit à l’image et à la flèche. */
+.portfolioIntro + .galleryContainer .archCard {
+  transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+.portfolioIntro + .galleryContainer .archCard:hover {
+  transform: none;
+  border-color: #b8c9d9;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.09);
+}
+.portfolioIntro + .galleryContainer .archCardImg {
+  transform: scale(1);
+  transition: transform 300ms ease;
+}
+.portfolioIntro + .galleryContainer .archCard:hover .archCardImg {
+  transform: scale(1.025);
+}
+.portfolioIntro + .galleryContainer .cardHeadRow { margin-bottom: 0.35rem; }
+.portfolioIntro + .galleryContainer .cardTitle { color: #08243f; font-size: 1.2rem; line-height: 1.25; }
+.portfolioIntro + .galleryContainer .cardDescription { min-height: 2.9em; margin-top: 0.5rem; line-height: 1.45; }
+.portfolioIntro + .galleryContainer .cardRoleMeta { margin-top: 0.15rem; margin-bottom: 0.85rem; }
+.portfolioIntro + .galleryContainer .cardCreditLine { min-height: 1.35rem; align-items: center; }
+.portfolioIntro + .galleryContainer .viewProjectLink { gap: 0.45rem; transition: color 250ms ease, background-color 250ms ease; }
+.portfolioIntro + .galleryContainer .viewProjectLink svg { transition: transform 250ms ease; }
+.portfolioIntro + .galleryContainer .viewProjectLink:hover svg { transform: translateX(2px); }
+@media (prefers-reduced-motion: reduce) {
+  .portfolioIntro + .galleryContainer .archCard,
+  .portfolioIntro + .galleryContainer .archCardImg,
+  .portfolioIntro + .galleryContainer .viewProjectLink,
+  .portfolioIntro + .galleryContainer .viewProjectLink svg { transition: none; }
+}
+@media (max-width: 520px) {
+  .portfolioIntro + .galleryContainer .cardDescription { min-height: 0; -webkit-line-clamp: 3; }
+}
+
+@media (max-width: 900px) {
+  .heroBanner, .heroContentGrid { min-height: 560px; }
+  .heroOverlay { background: linear-gradient(90deg, rgba(4, 29, 54, 0.84), rgba(5, 35, 64, 0.57) 62%, rgba(5, 35, 64, 0.16)); }
+}
+
+@media (max-width: 600px) {
+  .heroBanner, .heroContentGrid { min-height: 700px; }
+  .heroVideo { object-position: 62% center; }
+  .heroTextCol { padding: 4.5rem 1.25rem 5rem; }
+  .heroTitle { font-size: 4rem; }
+  .heroProfessionalMetrics span { min-width: 0; padding: 0 0.55rem; }
+  .heroProfessionalMetrics strong { font-size: 1.2rem; }
+  .heroProfessionalMetrics small { font-size: 0.6rem; }
+  .heroCyclist { width: 145px; bottom: 0; left: -18%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVideo { visibility: hidden; }
+  .heroBanner { background: #08243f url("/assets/personal/paul-banner.png") center / cover no-repeat; }
+  .heroCyclist { left: 58%; animation: none; }
+}
