@@ -4,6 +4,8 @@ import { UNIVERSES } from "@/data/universes";
 import { ALL_PROJECTS } from "@/data/all-projects";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { AddPrestationButton } from "@/components/quote/AddPrestationButton";
+import { QUOTE_CATALOG } from "@/data/quote-catalog";
 import styles from "@/styles/possibility-machine.module.css";
 
 interface UniverseDetailViewProps {
@@ -182,6 +184,10 @@ export function UniverseDetailView({ universe }: UniverseDetailViewProps) {
                 <span aria-hidden="true">↗</span>
               </a>
 
+              <Link href="/devis" className={styles.btnSecondary}>
+                <span>📋 Cadrer mon devis</span>
+              </Link>
+
               <Link href="/portfolio" className={styles.btnSecondary}>
                 <span>Consulter les réalisations</span>
               </Link>
@@ -306,29 +312,52 @@ export function UniverseDetailView({ universe }: UniverseDetailViewProps) {
                 gap: "1.5rem",
               }}
             >
-              {universe.services.map((service, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    backgroundColor: "var(--bg-surface)",
-                    borderRadius: "var(--radius-md)",
-                    border: "1px solid var(--border-default)",
-                    padding: "1.75rem",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div style={{ fontSize: "2rem", marginBottom: "1rem" }} aria-hidden="true">
-                    {service.icon}
+              {universe.services.map((service, idx) => {
+                const matchingItem =
+                  QUOTE_CATALOG.find(
+                    (c) =>
+                      c.universeId === universe.slug &&
+                      (c.title.toLowerCase().includes(service.title.toLowerCase().slice(0, 10)) ||
+                        service.title.toLowerCase().includes(c.title.toLowerCase().slice(0, 10)))
+                  ) ||
+                  QUOTE_CATALOG.find((c) => c.universeId === universe.slug) ||
+                  QUOTE_CATALOG[0];
+
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      backgroundColor: "var(--bg-surface)",
+                      borderRadius: "var(--radius-md)",
+                      border: "1px solid var(--border-default)",
+                      padding: "1.75rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontSize: "2rem", marginBottom: "1rem" }} aria-hidden="true">
+                        {service.icon}
+                      </div>
+                      <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.5rem" }}>
+                        {service.title}
+                      </h3>
+                      <p style={{ fontSize: "0.92rem", color: "var(--text-secondary)", lineHeight: 1.65, margin: 0 }}>
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div style={{ marginTop: "1.25rem", paddingTop: "1rem", borderTop: "1px solid var(--bg-secondary)" }}>
+                      <AddPrestationButton
+                        catalogItemId={matchingItem.id}
+                        autoOpenDrawer={true}
+                        label="Sélectionner pour devis"
+                      />
+                    </div>
                   </div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.5rem" }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontSize: "0.92rem", color: "var(--text-secondary)", lineHeight: 1.65, margin: 0, flex: 1 }}>
-                    {service.description}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 

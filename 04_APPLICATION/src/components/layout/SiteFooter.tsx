@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import styles from "@/styles/possibility-machine.module.css";
@@ -6,12 +6,14 @@ import { Universe } from "@/types/possibility-machine";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MotionPreferences } from "@/components/ui/MotionPreferences";
 
+import { UNIVERSES } from "@/data/universes";
+
 interface SiteFooterProps {
-  universes: Universe[];
+  universes?: Universe[];
   onOpenContactModal?: () => void;
 }
 
-export function SiteFooter({ universes, onOpenContactModal }: SiteFooterProps) {
+export function SiteFooter({ universes = UNIVERSES, onOpenContactModal }: SiteFooterProps) {
   const handleContactClick = () => {
     if (onOpenContactModal) {
       onOpenContactModal();
@@ -85,6 +87,16 @@ export function SiteFooter({ universes, onOpenContactModal }: SiteFooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/actualites" className={styles.footerLink}>
+                  Actualités &amp; Recherches
+                </Link>
+              </li>
+              <li>
+                <Link href="/devis" className={styles.footerLink}>
+                  Cadrage &amp; Devis d&apos;Atelier
+                </Link>
+              </li>
+              <li>
                 <Link href="/paul" className={styles.footerLink}>
                   Carte Mobile Express Paul Boubert
                 </Link>
@@ -102,7 +114,7 @@ export function SiteFooter({ universes, onOpenContactModal }: SiteFooterProps) {
                   className={styles.footerLink}
                   style={{ color: "#25D366", fontWeight: 600 }}
                 >
-                  WhatsApp Atelier Direct ↗
+                  WhatsApp Atelier Direct →
                 </a>
               </li>
             </ul>

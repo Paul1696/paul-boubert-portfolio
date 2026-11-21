@@ -41,3 +41,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# quote logs (sensitive data protection)
+src/data/quotes-log.json
+quotes-log.json
+
+src/data/messages-log.json
+src/data/subscribers-log.json
+src/data/backups/

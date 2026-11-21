@@ -2,8 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ALL_PROJECTS } from "@/data/all-projects";
-import { UNIVERSES } from "@/data/universes";
+import { PROJECTS_MEDIA } from "@/data/media-manifest";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import styles from "@/styles/possibility-machine.module.css";
@@ -57,24 +58,42 @@ export default function PortfolioPage() {
 
           {/* En-tête de section */}
           <header style={{ maxWidth: "860px", marginBottom: "3rem" }}>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "4px 14px",
-                borderRadius: "var(--radius-full)",
-                backgroundColor: "rgba(197, 155, 83, 0.12)",
-                color: "var(--accent-brass)",
-                fontSize: "0.82rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                marginBottom: "1rem",
-              }}
-            >
-              <span>🏛️</span>
-              <span>Archives Certifiées d&apos;Atelier &amp; Chantiers</span>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "4px 14px",
+                  borderRadius: "var(--radius-full)",
+                  backgroundColor: "rgba(197, 155, 83, 0.12)",
+                  color: "var(--accent-brass)",
+                  fontSize: "0.82rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                <span>Fonds Documentaire Certifié • 37 Références</span>
+              </div>
+
+              <Link
+                href="/paul"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  padding: "4px 14px",
+                  borderRadius: "var(--radius-full)",
+                  backgroundColor: "rgba(2, 132, 199, 0.12)",
+                  color: "#0284C7",
+                  fontSize: "0.82rem",
+                  fontWeight: 700,
+                  textDecoration: "none",
+                }}
+              >
+                <span>★ Espace Paul Boubert (Architecte / BIM) →</span>
+              </Link>
             </div>
 
             <h1
@@ -86,42 +105,59 @@ export default function PortfolioPage() {
                 margin: 0,
               }}
             >
-              Portfolio Architectural &amp; Programmes Réalisés
+              Architecture &amp; Programmes Conçus
             </h1>
 
-            <p style={{ fontSize: "1.1rem", color: "var(--text-secondary)", marginTop: "1rem", lineHeight: 1.6 }}>
-              Découvrez la sélection de 37 références d&apos;architecture, modélisations BIM et aménagements spatiaux conduits au Cameroun par Les Ateliers de Paul et ses confrères partenaires.
+            <p
+              style={{
+                fontSize: "1.15rem",
+                color: "var(--text-secondary)",
+                marginTop: "1rem",
+                lineHeight: 1.6,
+              }}
+            >
+              Découvrez l&apos;intégralité des réalisations, projets d&apos;ingénierie et études architecturales menés au Cameroun et en Afrique centrale par Les Ateliers de Paul. Chaque fiche restitue le parti architectural, les performances bioclimatiques et la maquette BIM.
             </p>
           </header>
 
-          {/* Barre de filtres et recherche */}
+          {/* Filtres & Recherche */}
           <div
             style={{
-              backgroundColor: "var(--bg-surface)",
-              borderRadius: "var(--radius-md)",
-              border: "1px solid var(--border-default)",
-              padding: "1.25rem",
-              marginBottom: "2.5rem",
               display: "flex",
               flexDirection: "column",
               gap: "1.25rem",
+              marginBottom: "3rem",
+              padding: "1.5rem",
+              backgroundColor: "var(--bg-surface)",
+              borderRadius: "var(--radius-lg)",
+              border: "1px solid var(--border-default)",
+              boxShadow: "var(--shadow-card)",
             }}
           >
-            {/* Input de recherche */}
+            {/* Barre de recherche */}
             <div>
-              <label htmlFor="portfolio-search" className="sr-only">
-                Rechercher un projet, une ville ou un matériau
+              <label
+                htmlFor="portfolio-search"
+                style={{
+                  display: "block",
+                  fontSize: "0.85rem",
+                  fontWeight: 600,
+                  color: "var(--text-secondary)",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Rechercher une référence ou une ville
               </label>
               <input
                 id="portfolio-search"
-                type="search"
-                placeholder="Rechercher par projet, ville (Douala, Yaoundé, Bertoua...), typologie..."
+                type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Ex : Douala, D-Web Holding, Bertoua, Clinique, Villa..."
                 style={{
                   width: "100%",
-                  padding: "0.85rem 1.25rem",
-                  borderRadius: "var(--radius-sm)",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "var(--radius-md)",
                   border: "1px solid var(--border-default)",
                   backgroundColor: "var(--bg-secondary)",
                   color: "var(--text-primary)",
@@ -131,12 +167,13 @@ export default function PortfolioPage() {
               />
             </div>
 
-            {/* Boutons de catégories */}
+            {/* Boutons de typologies */}
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 gap: "0.5rem",
+                alignItems: "center",
               }}
             >
               {CATEGORIES.map((cat) => {
@@ -210,137 +247,223 @@ export default function PortfolioPage() {
                 gap: "1.75rem",
               }}
             >
-              {filteredProjects.map((project) => (
-                <article
-                  key={project.id}
-                  style={{
-                    backgroundColor: "var(--bg-surface)",
-                    borderRadius: "var(--radius-md)",
-                    border: "1px solid var(--border-default)",
-                    display: "flex",
-                    flexDirection: "column",
-                    boxShadow: "var(--shadow-sm)",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}
-                >
-                  {/* Bandeau d'en-tête de carte */}
-                  <div
+              {filteredProjects.map((project) => {
+                const coverUrl =
+                  PROJECTS_MEDIA[project.mediaFolder]?.cover?.url ||
+                  "/assets/placeholders/project-placeholder.svg";
+
+                return (
+                  <article
+                    key={project.id}
                     style={{
-                      height: "6px",
-                      backgroundColor: project.accentColor,
-                      width: "100%",
+                      backgroundColor: "var(--bg-surface)",
+                      borderRadius: "var(--radius-md)",
+                      border: "1px solid var(--border-default)",
+                      display: "flex",
+                      flexDirection: "column",
+                      boxShadow: "var(--shadow-card)",
+                      overflow: "hidden",
+                      position: "relative",
+                      transition: "transform 0.25s ease, box-shadow 0.25s ease",
                     }}
-                  />
-
-                  <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
-                      <span
-                        style={{
-                          fontSize: "0.75rem",
-                          fontWeight: 700,
-                          padding: "3px 10px",
-                          borderRadius: "4px",
-                          backgroundColor: `${project.accentColor}18`,
-                          color: project.accentColor,
-                        }}
-                      >
-                        {project.category}
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "1.25rem",
-                          color: project.accentColor,
-                        }}
-                        aria-hidden="true"
-                      >
-                        {project.symbol}
-                      </span>
-                    </div>
-
-                    <h2
-                      style={{
-                        fontSize: "1.3rem",
-                        fontWeight: 700,
-                        color: "var(--text-primary)",
-                        margin: "0 0 0.35rem 0",
-                      }}
-                    >
-                      {project.title}
-                    </h2>
-
-                    <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "0.75rem" }}>
-                      📍 {project.location} • 📅 {project.year}
-                      {project.surface && ` • 📐 ${project.surface}`}
-                    </div>
-
-                    <p
-                      style={{
-                        fontSize: "0.92rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: 1.6,
-                        margin: "0 0 1.25rem 0",
-                        flex: 1,
-                      }}
-                    >
-                      {project.excerpt}
-                    </p>
-
-                    {/* Badge certifié Legacy */}
+                  >
+                    {/* Bandeau d'accent */}
                     <div
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        paddingTop: "1rem",
-                        borderTop: "1px solid var(--border-subtle)",
-                        marginTop: "auto",
+                        height: "4px",
+                        backgroundColor: project.accentColor,
+                        width: "100%",
+                      }}
+                    />
+
+                    {/* VIGNETTE VISUELLE COUVERTURE */}
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
+                        aspectRatio: "16 / 10",
+                        backgroundColor: "var(--bg-secondary)",
+                        overflow: "hidden",
                       }}
                     >
-                      <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "0.35rem" }}>
-                        <span style={{ color: "var(--status-success)" }}>✓</span> Référence vérifiée
-                      </span>
+                      <Image
+                        src={coverUrl}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        unoptimized
+                        style={{
+                          objectFit: "cover",
+                          display: "block",
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "0.75rem",
+                          right: "0.75rem",
+                          backgroundColor: "rgba(26, 34, 45, 0.8)",
+                          color: "#FFFFFF",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                        }}
+                      >
+                        {project.year}
+                      </div>
+                    </div>
+
+                    <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                        <span
+                          style={{
+                            fontSize: "0.75rem",
+                            fontWeight: 700,
+                            padding: "3px 10px",
+                            borderRadius: "4px",
+                            backgroundColor: `${project.accentColor}18`,
+                            color: project.accentColor,
+                          }}
+                        >
+                          {project.category}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: "1.25rem",
+                            color: project.accentColor,
+                          }}
+                          aria-hidden="true"
+                        >
+                          {project.symbol}
+                        </span>
+                      </div>
+
+                      <h2
+                        style={{
+                          fontSize: "1.3rem",
+                          fontWeight: 700,
+                          color: "var(--text-primary)",
+                          margin: "0 0 0.35rem 0",
+                        }}
+                      >
+                        {project.title}
+                      </h2>
+
+                      <div
+                        style={{
+                          fontSize: "0.88rem",
+                          color: project.accentColor,
+                          fontWeight: 600,
+                          marginBottom: "0.75rem",
+                        }}
+                      >
+                        {project.subtitle}
+                      </div>
+
+                      <p
+                        style={{
+                          fontSize: "0.9rem",
+                          color: "var(--text-secondary)",
+                          lineHeight: 1.5,
+                          marginBottom: "1.25rem",
+                          flex: 1,
+                        }}
+                      >
+                        {project.excerpt.length > 140
+                          ? `${project.excerpt.slice(0, 140)}...`
+                          : project.excerpt}
+                      </p>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          fontSize: "0.8rem",
+                          color: "var(--text-muted)",
+                          borderTop: "1px solid var(--border-subtle)",
+                          paddingTop: "1rem",
+                          marginTop: "auto",
+                        }}
+                      >
+                        <span>📍 {project.location}</span>
+                        <span>{project.bimLOD || "BIM LOD 300"}</span>
+                      </div>
 
                       <Link
                         href={`/portfolio/${project.slug}`}
                         style={{
-                          fontSize: "0.85rem",
-                          fontWeight: 700,
-                          color: project.accentColor,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "0.5rem",
+                          marginTop: "1rem",
+                          padding: "0.65rem 1rem",
+                          backgroundColor: "var(--bg-secondary)",
+                          color: "var(--text-primary)",
+                          borderRadius: "var(--radius-sm)",
                           textDecoration: "none",
+                          fontSize: "0.85rem",
+                          fontWeight: 600,
+                          border: "1px solid var(--border-default)",
+                          transition: "all 0.15s ease",
                         }}
                       >
-                        Fiche technique →
+                        <span>Examiner la fiche projet</span>
+                        <span aria-hidden="true">→</span>
                       </Link>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           )}
 
-          {/* Rappel déontologique discret */}
-          <div
+          {/* Rappel d'accréditation et conformité ONAC */}
+          <footer
             style={{
               marginTop: "4rem",
-              padding: "1.5rem",
-              backgroundColor: "var(--bg-secondary)",
+              padding: "2rem",
+              backgroundColor: "var(--bg-surface)",
               borderRadius: "var(--radius-md)",
               border: "1px solid var(--border-default)",
-              fontSize: "0.88rem",
-              color: "var(--text-secondary)",
-              lineHeight: 1.6,
+              textAlign: "center",
             }}
           >
-            <strong>Note déontologique :</strong> L&apos;ensemble des projets d&apos;architecture réglementés (dépôts de permis de construire, maîtrise d&apos;œuvre complète) figurant dans nos archives ont été réalisés en collaboration étroite avec des architectes inscrits au Tableau de l&apos;Ordre National des Architectes du Cameroun (ONAC).{" "}
-            <Link href="/cadre-deontologique" style={{ color: "var(--accent-brass)", textDecoration: "underline" }}>
-              En savoir plus sur notre cadre déontologique
-            </Link>.
-          </div>
+            <div style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>⚖️</div>
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 0.5rem 0" }}>
+              Cadre Déontologique &amp; Intégrité Professionnelle
+            </h3>
+            <p
+              style={{
+                fontSize: "0.88rem",
+                color: "var(--text-secondary)",
+                maxWidth: "760px",
+                margin: "0 auto",
+                lineHeight: 1.6,
+              }}
+            >
+              Les interventions présentées ci-dessus ont été conduites en stricte conformité avec les règles de l&apos;Ordre National des Architectes du Cameroun (ONAC). Les missions réglementées de maîtrise d&apos;œuvre et de délivrance de permis de construire sont assurées avec des architectes agréés inscrits au Tableau de l&apos;Ordre.
+            </p>
+            <div style={{ marginTop: "1rem" }}>
+              <Link
+                href="/cadre-deontologique"
+                style={{
+                  fontSize: "0.85rem",
+                  fontWeight: 600,
+                  color: "var(--accent-brass)",
+                  textDecoration: "underline",
+                }}
+              >
+                Consulter notre charte et cadre déontologique complet →
+              </Link>
+            </div>
+          </footer>
         </div>
       </main>
 
-      <SiteFooter universes={UNIVERSES} />
+      <SiteFooter />
     </div>
   );
 }

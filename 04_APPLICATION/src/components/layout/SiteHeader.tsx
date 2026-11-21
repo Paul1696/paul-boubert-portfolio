@@ -5,6 +5,9 @@ import Link from "next/link";
 import styles from "@/styles/possibility-machine.module.css";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MotionPreferences } from "@/components/ui/MotionPreferences";
+import { QuoteBadgeButton } from "@/components/quote/QuoteBadgeButton";
+import { QuoteDrawer } from "@/components/quote/QuoteDrawer";
+import { INSTITUTIONAL_NAVIGATION } from "@/data/site-navigation";
 
 interface SiteHeaderProps {
   onOpenContactModal?: () => void;
@@ -49,17 +52,21 @@ export function SiteHeader({ onOpenContactModal }: SiteHeaderProps) {
             <Link href="/#intentions" className={styles.navLink}>
               Intentions
             </Link>
-            <Link href="/#univers" className={styles.navLink}>
-              7 Univers
-            </Link>
+            <Link href="/#univers" className={styles.navLink}>7 Univers</Link>
             <Link href="/portfolio" className={styles.navLink}>
               Portfolio
+            </Link>
+            <Link href="/actualites" className={styles.navLink}>
+              Actualités
+            </Link>
+            <Link href="/devis" className={styles.navLink}>
+              Devis d&apos;Atelier
             </Link>
             <Link href="/cadre-deontologique" className={styles.navLink}>
               Déontologie ONAC
             </Link>
             <Link href="/paul" className={styles.navLink}>
-              Contact Paul
+              Portfolio Paul
             </Link>
           </nav>
 
@@ -67,6 +74,7 @@ export function SiteHeader({ onOpenContactModal }: SiteHeaderProps) {
           <div className={styles.headerActions}>
             <ThemeToggle />
             <MotionPreferences />
+            <QuoteBadgeButton />
 
             <button
               type="button"
@@ -74,7 +82,7 @@ export function SiteHeader({ onOpenContactModal }: SiteHeaderProps) {
               onClick={handleContactClick}
             >
               <span>Contacter l&apos;atelier</span>
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">→</span>
             </button>
 
             {/* Bouton burger mobile */}
@@ -95,19 +103,28 @@ export function SiteHeader({ onOpenContactModal }: SiteHeaderProps) {
       {mobileMenuOpen && (
         <div className={styles.mobileNavDrawer} role="region" aria-label="Menu mobile">
           <Link href="/#intentions" className={styles.navLink} onClick={closeMobileMenu}>
-            ✦ Intentions de projet
+            ◈ Intentions de projet
           </Link>
-          <Link href="/#univers" className={styles.navLink} onClick={closeMobileMenu}>
-            ◈ Les Sept Univers
-          </Link>
+          <Link href="/#univers" className={styles.navLink} onClick={closeMobileMenu}>▲ Les Sept Univers</Link>
+          {INSTITUTIONAL_NAVIGATION.map((universe) => (
+            <Link key={universe.slug} href={universe.href} className={styles.navLink} onClick={closeMobileMenu}>
+              {universe.order.toString().padStart(2, "0")} {universe.name}
+            </Link>
+          ))}
           <Link href="/portfolio" className={styles.navLink} onClick={closeMobileMenu}>
-            ▣ Portfolio &amp; Archives (37)
+            ■ Portfolio &amp; Archives (37)
+          </Link>
+          <Link href="/actualites" className={styles.navLink} onClick={closeMobileMenu}>
+            ✎ Actualités &amp; Recherches
+          </Link>
+          <Link href="/devis" className={styles.navLink} onClick={closeMobileMenu}>
+            ▤ Cadrage &amp; Devis d&apos;Atelier
           </Link>
           <Link href="/cadre-deontologique" className={styles.navLink} onClick={closeMobileMenu}>
             ⚖ Cadre Déontologique ONAC
           </Link>
           <Link href="/paul" className={styles.navLink} onClick={closeMobileMenu}>
-            👤 Carte Mobile Express / Paul
+            ★ Portfolio Paul Boubert
           </Link>
           <button
             type="button"
@@ -122,6 +139,9 @@ export function SiteHeader({ onOpenContactModal }: SiteHeaderProps) {
           </button>
         </div>
       )}
+
+      {/* Panneau latéral rétractable du devis */}
+      <QuoteDrawer />
     </header>
   );
 }

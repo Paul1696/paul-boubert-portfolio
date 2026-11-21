@@ -14,7 +14,28 @@
     { "source": "/projects/:slug", "destination": "/portfolio/:slug", "permanent": true },
     { "source": "/projects", "destination": "/portfolio", "permanent": true }
   ],
+  "rewrites": [
+    {
+      "source": "/c/tifo-0001/vcf",
+      "destination": "/public/contact/geordan-fokam-fotso.vcf"
+    }
+  ],
   "headers": [
+    {
+      "source": "/public/contact/(.*).vcf",
+      "headers": [
+        { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/c/tifo-0001/vcf",
+      "headers": [
+        { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"Geordan_FOKAM_FOTSO_ETS_TIFO.vcf\"" },
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
     {
       "source": "/public/contact/Paul_Boubert.vcf",
       "headers": [
