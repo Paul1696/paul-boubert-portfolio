@@ -80,8 +80,42 @@ export const QUOTE_CATALOG: QuoteCatalogItem[] = [
   },
 
   // =========================================================================
-  // UNIVERS 02 : ADP STUDIO (Design · Image de marque · Édition)
+  // UNIVERS 02 : ADP STUDIO (Design · Image de marque · Édition · Print)
   // =========================================================================
+  {
+    id: "studio-cartes-digitales",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "var(--univ-studio, #F3A66D)",
+    universeSymbol: "◈",
+    title: "Cartes d'Affaires Connectées — ADP Digital Cards",
+    shortDescription: "Impression physique 400g avec QR code permanent certifié BAT reliant vers votre profil professionnel interactif et vCard.",
+    category: "Cartes & Identifiants Connectés",
+    defaultVariantId: "pack-complet",
+    pricingNotice: "Sur étude d'atelier",
+    variants: [
+      { id: "pack-complet", label: "Pack Clé en Main (Tirage 250 ex + Profil Numérique + vCard)", badge: "Recommandé" },
+      { id: "prestige-dorure", label: "Pack Prestige (500 ex + Soft-Touch + Vernis 3D / Dorure)", badge: "Prestige" },
+      { id: "grand-tirage", label: "Tirage Entreprise (1 000 ex multi-collaborateurs)", badge: "Flotte" },
+    ],
+  },
+  {
+    id: "studio-cartes-prestige",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "var(--univ-studio, #F3A66D)",
+    universeSymbol: "◈",
+    title: "Cartes de Visite Prestige & Finitions d'Atelier",
+    shortDescription: "Papiers d'art teints dans la masse, gaufrage en creux, marquage à chaud cuivre/or et tranches teintées.",
+    category: "Cartes d'Affaires",
+    defaultVariantId: "dorure",
+    pricingNotice: "Sur étude d'atelier",
+    variants: [
+      { id: "coton-450", label: "Papier pur coton 450g + Gaufrage letterpress", badge: "Artisanat" },
+      { id: "dorure", label: "Carton 600g + Marquage à chaud métallique", badge: "Prestige" },
+      { id: "tranche-coloree", label: "Contrecollé duplex + Teinte sur tranche coordonnée", badge: "Signature" },
+    ],
+  },
   {
     id: "studio-brand-identity",
     universeId: "adp-studio",
@@ -130,6 +164,41 @@ export const QUOTE_CATALOG: QuoteCatalogItem[] = [
     variants: [
       { id: "directionnelle", label: "Plaques directionnelles et repérage d'espaces", badge: "Signalétique" },
       { id: "espace", label: "Dispositif complet de signalétique intérieure et extérieure", badge: "Espace" },
+      { id: "totem", label: "Totem monumental extérieur ou lettrage 3D lumineux", badge: "Monumental" },
+    ],
+  },
+  {
+    id: "studio-polos-atelier",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "var(--univ-studio, #F3A66D)",
+    universeSymbol: "◈",
+    title: "Polos & Vêtements d'Image d'Entreprise Brodés",
+    shortDescription: "Textiles d'image professionnels en maille piquée 220g avec broderie de précision du logo.",
+    category: "Textile & Image Pro",
+    defaultVariantId: "serie-50",
+    pricingNotice: "Sur étude d'atelier",
+    variants: [
+      { id: "serie-25", label: "Série de 25 pièces avec broderie cœur", badge: "Début" },
+      { id: "serie-50", label: "Série de 50 pièces (Broderie cœur + dos)", badge: "Standard" },
+      { id: "serie-100", label: "Série de 100 pièces et dotation complète", badge: "Entreprise" },
+    ],
+  },
+  {
+    id: "studio-plans-vente",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "var(--univ-studio, #F3A66D)",
+    universeSymbol: "◈",
+    title: "Plans de Vente 2D & 3D Décorés pour Promoteurs",
+    shortDescription: "Valorisation graphique des plans d'architecte pour la commercialisation foncière.",
+    category: "Infographie Immobilière",
+    defaultVariantId: "lot-standard",
+    pricingNotice: "Sur étude d'atelier",
+    variants: [
+      { id: "lot-standard", label: "Plan 2D décoré avec mobilier et textures (au lot)", badge: "2D Décoré" },
+      { id: "axono-3d", label: "Axonométrie 3D écorchée plongeante", badge: "Axono 3D" },
+      { id: "pack-programme", label: "Pack programme complet (jusqu'à 15 typologies)", badge: "Pack Complet" },
     ],
   },
 
@@ -330,5 +399,246 @@ export const QUOTE_CATALOG: QuoteCatalogItem[] = [
       { id: "script-simple", label: "Script utilitaire pour traitement de données ou repérage", badge: "Utilitaire" },
       { id: "script-custom", label: "Script avancé avec paramètres adaptés aux besoins du projet", badge: "Avancé" },
     ],
+  },
+  // NOUVELLES RÉFÉRENCES ADP STUDIO 2026
+  {
+    id: "studio-badges-pvc",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Badges Membres & Cartes PVC Rigides",
+    shortDescription: "Cartes durables indéchirables pour résidences privées, clubs & accès corporate",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-brandbook",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Charte Graphique Complète & Brand Guidelines d'Atelier",
+    shortDescription: "Le document d'autorité fixant l'intégralité des règles visuelles de l'entreprise",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-branding-programme",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Pack Branding & Identité de Programme Immobilier",
+    shortDescription: "Valoriser vos opérations foncières et séduire acquéreurs et investisseurs",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-rapport-annuel",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Rapports Annuels & Dossiers d'Investissement",
+    shortDescription: "L'édition institutionnelle de prestige pour assemblées générales et bailleurs",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-papeterie-affaires",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Pack Papeterie d'Affaires Coordonnée",
+    shortDescription: "Têtes de lettre, chemises à rabat, enveloppes filigranées et blocs-notes",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-totems-lettrages",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Totems d'Accueil & Lettrages 3D en Relief",
+    shortDescription: "Enseignes volumétriques monumentales et signalétique extérieure d'autorité",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-habillages-muraux",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Habillages Muraux & Vitrophanie Décorative",
+    shortDescription: "Graphisme d'espace, vitrophanie d'intimité dépolie et fresques murales",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-tabliers-pro",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Tabliers d'Atelier & Tenues de Métier Stylisées",
+    shortDescription: "Confection artisanale robuste pour ateliers d'art, cafés, réceptions et hôtellerie",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-pack-commercialisation",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Dossier de Commercialisation Immobilier Clé en Main",
+    shortDescription: "La suite complète pour lancer la vente d'une opération neuve en toute sérénité",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-depliants-plaquettes-3volets",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Dépliants d'Architecture & Plaquettes 3 Volets",
+    shortDescription: "Supports d'édition 3 volets (6 pages) sur papier couché satiné avec rainage mécanique soigné.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-affiches-grand-format",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Affiches d'Exposition & Posters d'Architecture A2 / A1",
+    shortDescription: "Tirage grand format haute fidélité sur papier photo satiné 200g pour concours et galeries.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-panneaux-chantier-permis",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Panneaux de Chantier & Bâches Réglementaires",
+    shortDescription: "Affichage obligatoire de permis de construire et bâches promotionnelles extérieures durables.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-gilets-securite-brodes",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Gilets de Sécurité & Casquettes Corporate de Chantier",
+    shortDescription: "Gilets classe 2 certifiés EN ISO 20471 et casquettes brodées pour visites et équipes de maîtrise d'œuvre.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-video-visite-virtuelle-3d",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Animations Vidéo & Visites Virtuelles 3D de Projet",
+    shortDescription: "Clips cinématiques 4K et visites immersives 360° scénarisées pour promoteurs et investisseurs.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
+  },
+  {
+    id: "studio-dossier-plans-permis",
+    universeId: "adp-studio",
+    universeName: "ADP Studio",
+    universeColor: "#C59B53",
+    universeSymbol: "✦",
+    title: "Dossiers de Plans Permis de Construire & DAO",
+    shortDescription: "Mise au net technique DAO et mise en page normalisée des pièces graphiques réglementaires.",
+    category: "Design, Print & Commercialisation",
+    defaultVariantId: "standard",
+    variants: [
+      { id: "standard", label: "Configuration standard d'atelier" },
+      { id: "sur-mesure", label: "Option sur-mesure / Finition spécifique" }
+    ],
+    pricingNotice: "Sur étude d'atelier / Devis personnalisé"
   },
 ];

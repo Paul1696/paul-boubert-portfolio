@@ -9,5 +9,16 @@
     "assignedAt": "2026-11-21T18:00:00Z",
     "updatedAt": "2026-11-21T18:00:00Z",
     "isLocked": true
+  },
+  {
+    "publicId": "scbtp-0002",
+    "cardId": "card-scbtp-0002-1795500880321",
+    "companyName": "Société Camerounaise de BTP",
+    "contactName": "Ing. Jean-Paul Mbarga",
+    "permanentUrl": "https://ateliersdepaul.com/c/scbtp-0002",
+    "status": "active",
+    "assignedAt": "2026-11-24T06:14:40.321Z",
+    "updatedAt": "2026-11-24T06:14:46.421Z",
+    "isLocked": true
   }
 ]

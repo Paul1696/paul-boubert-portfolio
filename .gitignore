@@ -16,6 +16,11 @@ node_modules/
 .pnp
 .pnp.js
 
+# --- SAUVEGARDES ET LOGS SENSITIFS ---
+backups/
+04_APPLICATION/src/data/digital-cards/backups/
+*-log.json
+
 # --- SORTIES DE COMPILATION ET BUILDS ---
 .next/
 04_APPLICATION/.next/
@@ -62,3 +67,9 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# --- DONNÉES DYNAMIQUES ET LOGS CLIENTS ---
+04_APPLICATION/src/data/*-log.json
+*-log.json
+*.tmp
+*.tmp.*

@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ALL_PROJECTS } from "@/data/all-projects";
+import { ALL_PROJECTS, getProjectStatus, getProjectResponsibleEntity } from "@/data/all-projects";
 import { PROJECTS_MEDIA } from "@/data/media-manifest";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -22,10 +22,25 @@ export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [selectedAttribution, setSelectedAttribution] = useState("all");
+
   const filteredProjects = useMemo(() => {
     return ALL_PROJECTS.filter((p) => {
       const matchCategory =
         selectedCategory === "all" || p.typology === selectedCategory;
+
+      const resp = getProjectResponsibleEntity(p).toLowerCase();
+      let matchAttribution = true;
+      if (selectedAttribution === "adp") {
+        matchAttribution = resp.includes("ateliers") || p.universeSlug === "adp-project" || p.slug === "018-studio" || p.slug === "workbox";
+      } else if (selectedAttribution === "barlabarla") {
+        matchAttribution = resp.includes("barlabarla");
+      } else if (selectedAttribution === "collaboration") {
+        matchAttribution = resp.includes("collaboration");
+      } else if (selectedAttribution === "personnel") {
+        matchAttribution = resp.includes("personnel") || resp.includes("privé");
+      }
+
       const q = searchQuery.toLowerCase().trim();
       const matchSearch =
         !q ||
@@ -34,9 +49,9 @@ export default function PortfolioPage() {
         p.category.toLowerCase().includes(q) ||
         p.excerpt.toLowerCase().includes(q);
 
-      return matchCategory && matchSearch;
+      return matchCategory && matchAttribution && matchSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, selectedAttribution, searchQuery]);
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -110,13 +125,13 @@ export default function PortfolioPage() {
 
             <p
               style={{
-                fontSize: "1.15rem",
+                fontSize: "1.1rem",
                 color: "var(--text-secondary)",
                 marginTop: "1rem",
-                lineHeight: 1.6,
+                lineHeight: 1.65,
               }}
             >
-              Découvrez l&apos;intégralité des réalisations, projets d&apos;ingénierie et études architecturales menés au Cameroun et en Afrique centrale par Les Ateliers de Paul. Chaque fiche restitue le parti architectural, les performances bioclimatiques et la maquette BIM.
+              Le fonds documentaire d&apos;Atelier réunit les créations conçues directement par Les Ateliers de Paul ainsi que les références emblématiques issues du parcours professionnel de son fondateur Paul Boubert (notamment au sein du cabinet partenaire BARLABARLA Architectes et en collaborations d&apos;ingénierie). Chaque réalisation respecte rigoureusement son attribution légale, ses crédits d&apos;origine et le cadre déontologique de la Loi ONAC n° 90/039.
             </p>
           </header>
 
@@ -165,6 +180,41 @@ export default function PortfolioPage() {
                   outline: "none",
                 }}
               />
+            </div>
+
+            {/* Filtres de Gouvernance & Cadre d'Attribution */}
+            <div>
+              <span style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, color: "var(--accent-brass)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem" }}>
+                Cadre d&apos;Attribution &amp; Structure Responsable
+              </span>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
+                {[
+                  { id: "all", label: "Tous les contextes (37)" },
+                  { id: "adp", label: "📐 Projets d'Atelier ADP" },
+                  { id: "barlabarla", label: "🏛️ Cabinet Partenaire (BARLABARLA)" },
+                  { id: "collaboration", label: "🤝 Collaborations Professionnelles" },
+                  { id: "personnel", label: "✏️ Études Personnelles & Libres" },
+                ].map((att) => (
+                  <button
+                    key={att.id}
+                    type="button"
+                    onClick={() => setSelectedAttribution(att.id)}
+                    style={{
+                      padding: "5px 12px",
+                      borderRadius: "var(--radius-full)",
+                      fontSize: "0.8rem",
+                      fontWeight: selectedAttribution === att.id ? 700 : 500,
+                      backgroundColor: selectedAttribution === att.id ? "var(--accent-brass)" : "var(--bg-secondary)",
+                      color: selectedAttribution === att.id ? "#11161F" : "var(--text-secondary)",
+                      border: selectedAttribution === att.id ? "1px solid var(--accent-brass)" : "1px solid var(--border-default)",
+                      cursor: "pointer",
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    {att.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Boutons de typologies */}
@@ -286,6 +336,45 @@ export default function PortfolioPage() {
                         overflow: "hidden",
                       }}
                     >
+                      {/* Badge de contexte & statut */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: "0.75rem",
+                          left: "0.75rem",
+                          zIndex: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.3rem",
+                        }}
+                      >
+                        <span
+                          style={{
+                            padding: "2px 8px",
+                            backgroundColor: "rgba(17, 22, 31, 0.85)",
+                            backdropFilter: "blur(4px)",
+                            color: "var(--accent-brass)",
+                            borderRadius: "4px",
+                            fontSize: "0.7rem",
+                            fontWeight: 700,
+                          }}
+                        >
+                          {getProjectResponsibleEntity(project)}
+                        </span>
+                        <span
+                          style={{
+                            padding: "2px 8px",
+                            backgroundColor: "rgba(17, 22, 31, 0.85)",
+                            backdropFilter: "blur(4px)",
+                            color: getProjectStatus(project) === "Réalisé/livré" || getProjectStatus(project) === "Réalisé" ? "#4ECA8E" : "#CBD5E1",
+                            borderRadius: "4px",
+                            fontSize: "0.68rem",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {getProjectStatus(project)}
+                        </span>
+                      </div>
                       <Image
                         src={coverUrl}
                         alt={project.title}

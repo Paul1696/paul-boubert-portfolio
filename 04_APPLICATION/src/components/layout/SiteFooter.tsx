@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import styles from "@/styles/possibility-machine.module.css";
@@ -77,8 +77,8 @@ export function SiteFooter({ universes = UNIVERSES, onOpenContactModal }: SiteFo
             <h4 className={styles.footerColTitle}>Navigation &amp; Accès Rapides</h4>
             <ul className={styles.footerLinksList}>
               <li>
-                <Link href="/#intentions" className={styles.footerLink}>
-                  Explorer les Intentions
+                <Link href="/a-propos" className={styles.footerLink}>
+                  À propos de l&apos;Atelier
                 </Link>
               </li>
               <li>
@@ -92,13 +92,18 @@ export function SiteFooter({ universes = UNIVERSES, onOpenContactModal }: SiteFo
                 </Link>
               </li>
               <li>
+                <Link href="/c" className={styles.footerLink}>
+                  ADP Digital Cards (Cartes Pro)
+                </Link>
+              </li>
+              <li>
                 <Link href="/devis" className={styles.footerLink}>
                   Cadrage &amp; Devis d&apos;Atelier
                 </Link>
               </li>
               <li>
                 <Link href="/paul" className={styles.footerLink}>
-                  Carte Mobile Express Paul Boubert
+                  Portfolio Personnel Paul Boubert
                 </Link>
               </li>
               <li>
@@ -138,6 +143,12 @@ export function SiteFooter({ universes = UNIVERSES, onOpenContactModal }: SiteFo
               </Link>
               <Link href="/politique-confidentialite" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
                 Confidentialité
+              </Link>
+              <Link href="/design-system" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+                Design System
+              </Link>
+              <Link href="/admin" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+                Administration
               </Link>
             </div>
             <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>

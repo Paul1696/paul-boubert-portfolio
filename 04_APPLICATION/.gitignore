@@ -42,10 +42,20 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# quote logs (sensitive data protection)
+# logs & sensitive dynamic data
 src/data/quotes-log.json
 quotes-log.json
-
+src/data/orders-log.json
+orders-log.json
+src/data/briefs-log.json
+briefs-log.json
+src/data/academy-log.json
+academy-log.json
+src/data/activity-log.json
+activity-log.json
 src/data/messages-log.json
 src/data/subscribers-log.json
+*.tmp
+*.tmp.*
 src/data/backups/
+src/data/digital-cards/backups/

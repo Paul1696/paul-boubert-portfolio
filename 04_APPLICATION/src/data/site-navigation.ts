@@ -12,9 +12,13 @@ export const INSTITUTIONAL_NAVIGATION = UNIVERSES.map((universe, order) => ({
 
 export const INSTITUTIONAL_DESTINATIONS = [
   { label: "Accueil", href: "/" },
+  { label: "Les Sept Univers", href: "/#univers" },
   { label: "Réalisations", href: "/portfolio" },
   { label: "Actualités", href: "/actualites" },
   { label: "À propos", href: "/a-propos" },
+  { label: "Cartes Pro", href: "/c" },
   { label: "Devis d'Atelier", href: "/devis" },
+  { label: "Déontologie ONAC", href: "/cadre-deontologique" },
+  { label: "Portfolio Paul", href: "/paul" },
   { label: "Contact", href: "/contact" },
 ] as const;

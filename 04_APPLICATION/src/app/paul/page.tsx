@@ -84,22 +84,22 @@ const CATEGORY_FILTERS: CategoryFilter[] = [
 ];
 
 const FEATURED_PROJECT_IDS = [
-  "018-studio",
-  "studio-epure",
-  "bicec-usca",
-  "agence-bancaire-moderne",
-  "boj",
-  "restaurant-urbain",
-  "enem",
-  "halle-automobile",
-  "mbella",
-  "residence-verticale",
-  "showroom-kotto",
-  "showroom-elegance",
-  "web-tower",
-  "tour-de-verre",
-  "petrofor-base",
-  "pole-industriel",
+  "018-studio", "studio-epure",
+  "bahemeck", "interieur-signature",
+  "bicec-usca", "agence-bancaire-moderne",
+  "boj", "restaurant-urbain",
+  "enem", "halle-automobile",
+  "mbella", "residence-verticale",
+  "showroom-kotto", "showroom-elegance",
+  "web-tower", "tour-de-verre",
+  "petrofor-base", "pole-industriel",
+  "hunter", "residence-hunter",
+  "horizon", "villa-panorama",
+  "bicec-bafoussam", "agence-bancaire-regionale",
+  "harmony", "villa-californienne",
+  "oasis", "residence-tropicale",
+  "lipem", "residence-terracotta",
+  "perenco-offices", "bureaux-prestige",
 ];
 
 // Sous-titres architecturaux soignés
@@ -244,7 +244,7 @@ export default function PaulBoubertPortfolioPage() {
       if (featured.length === 0 && filteredProjects.length > 0) {
         return filteredProjects.slice(0, visibleCount);
       }
-      return featured.slice(0, 8);
+      return featured.slice(0, 16);
     }
     return filteredProjects.slice(0, visibleCount);
   }, [collectionMode, filteredProjects, visibleCount]);
@@ -403,7 +403,14 @@ export default function PaulBoubertPortfolioPage() {
                   <span className={styles.portfolioYearLabel}>Filtrer par année</span>
                   <select
                     value={selectedYear}
-                    onChange={(event) => { setSelectedYear(event.target.value); setVisibleCount(12); }}
+                    onChange={(event) => {
+                      const nextYear = event.target.value;
+                      setSelectedYear(nextYear);
+                      setVisibleCount(12);
+                      if (nextYear !== "all" && collectionMode === "featured") {
+                        setCollectionMode("all");
+                      }
+                    }}
                     aria-label="Filtrer par année"
                   >
                     <option value="all">Année : toutes</option>

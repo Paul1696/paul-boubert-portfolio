@@ -216,16 +216,22 @@ export default function PaulSidebar({
           })}
         </nav>
 
-        {/* Pied de barre latérale */}
+        {/* Pied de barre latérale avec ponts vers ADP */}
         <div className={styles.sidebarFooter}>
           <div className={styles.sidebarMetaText}>
             <span>Les Ateliers de Paul</span>
             <div style={{ color: "#475569" }}>Douala &amp; Yaoundé</div>
           </div>
-          <Link href="/" className={styles.backHomeLink}>
-            <ArrowRight size={13} />
-            <span>Site d&apos;Atelier ADP</span>
-          </Link>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginTop: "0.5rem" }}>
+            <Link href="/portfolio" className={styles.backHomeLink} style={{ color: "var(--accent-brass, #C59B53)" }}>
+              <ArrowRight size={13} />
+              <span>Réalisations ADP (/portfolio)</span>
+            </Link>
+            <Link href="/" className={styles.backHomeLink}>
+              <ArrowRight size={13} />
+              <span>Accueil ADP &amp; Les 7 Univers</span>
+            </Link>
+          </div>
         </div>
       </aside>
     </>

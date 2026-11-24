@@ -62,6 +62,19 @@ export const SERVICES_CATALOG: ServiceItem[] = [
 
   // --- UNIVERS 02 : ADP STUDIO ---
   {
+    id: "srv-studio-cards",
+    slug: "cartes-affaires-adp-digital-cards",
+    title: "Cartes d'Affaires Prestige & Connectées ADP Digital Cards",
+    universeSlug: "adp-studio",
+    universeName: "ADP Studio",
+    accentColor: "#C59B53",
+    shortDescription: "Impression d'exception sur papiers d'art épais, finitions de luxe (dorure, vernis 3D) et QR code permanent certifié BAT vers profil interactif.",
+    deliverables: ["Tirage physique certifié d'atelier", "Fichiers BAT vectoriels SVG et 300 DPI", "Profil web permanent et téléchargement vCard"],
+    typicalDuration: "5 à 8 jours ouvrés",
+    pricingModel: "Pack Clé en Main",
+    suggestedQuestions: ["Quel volume de tirage prévoyez-vous ?", "Souhaitez-vous intégrer le module numérique interactif ADP Digital Cards ?"]
+  },
+  {
     id: "srv-studio-brand",
     slug: "identite-visuelle-branding",
     title: "Identité Visuelle & Image de Marque",
@@ -75,12 +88,25 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     suggestedQuestions: ["S'agit-il d'un projet immobilier spécifique ou de l'image de marque globale d'une structure ?"]
   },
   {
+    id: "srv-studio-edition",
+    slug: "supports-edition-plaquettes-prestige",
+    title: "Édition Commerciale, Plaquettes & Livres de Marque",
+    universeSlug: "adp-studio",
+    universeName: "ADP Studio",
+    accentColor: "#C59B53",
+    shortDescription: "Mise en page éditoriale soignée pour la présentation de projets d'architecture, plaquettes de vente et rapports d'investissement.",
+    deliverables: ["Plaquette commerciale imprimée certifiée", "Fichiers PDF interactifs optimisés pour diffusion numérique"],
+    typicalDuration: "Sur étude d'atelier",
+    pricingModel: "Forfait d'Atelier",
+    suggestedQuestions: ["Quel est le format visé (A4, carré, dépliant) et la pagination estimée ?"]
+  },
+  {
     id: "srv-studio-sign",
     slug: "signaletique-habillage-mural",
     title: "Design de Signalétique Spatiale & Habillages Muraux",
     universeSlug: "adp-studio",
     universeName: "ADP Studio",
-    accentColor: "#F3A66D",
+    accentColor: "#7DB9DC",
     shortDescription: "Parcours usagers intérieur/extérieur, totems d'accueil, plaques de repérage et fresques graphiques intégrées à l'architecture.",
     deliverables: ["Plans d'implantation signalétique", "Fiches techniques de fabrication", "Recommandations matières d'atelier"],
     typicalDuration: "Sur étude d'atelier",

@@ -7,6 +7,13 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { AddPrestationButton } from "@/components/quote/AddPrestationButton";
 import { QUOTE_CATALOG } from "@/data/quote-catalog";
 import styles from "@/styles/possibility-machine.module.css";
+import { BriefUniversalIntake } from "@/components/brief/BriefUniversalIntake";
+import { ProjectPrestationsView } from "@/components/project/ProjectPrestationsView";
+import { LabResearchView } from "@/components/lab/LabResearchView";
+import { AcademyTrainingView } from "@/components/academy/AcademyTrainingView";
+import { ToolsCatalogView } from "@/components/tools/ToolsCatalogView";
+import { RosbriCatalogView } from "@/components/rosbri/RosbriCatalogView";
+
 
 interface UniverseDetailViewProps {
   universe: UniverseDetailData;
@@ -184,6 +191,36 @@ export function UniverseDetailView({ universe }: UniverseDetailViewProps) {
                 <span aria-hidden="true">↗</span>
               </a>
 
+              {universe.slug === "adp-brief" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>📋 Cadrer mon brief en ligne</span>
+                </a>
+              )}
+              {universe.slug === "adp-project" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>📐 Études d'Ingénierie &amp; 3D</span>
+                </a>
+              )}
+              {universe.slug === "adp-lab" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>🔬 Programmes R&amp;D &amp; Prototypes</span>
+                </a>
+              )}
+              {universe.slug === "adp-academy" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>🎓 Formations &amp; Masterclasses</span>
+                </a>
+              )}
+              {universe.slug === "adp-tools" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>🛠️ Télécharger les Gabarits &amp; Outils</span>
+                </a>
+              )}
+              {universe.slug === "rosbri-design" && (
+                <a href="#module-interactif" className={styles.btnPrimary} style={{ backgroundColor: "var(--accent-brass)", color: "#11161F" }}>
+                  <span>✂️ Collection Capsule Wax 2026</span>
+                </a>
+              )}
               <Link href="/devis" className={styles.btnSecondary}>
                 <span>📋 Cadrer mon devis</span>
               </Link>
@@ -359,6 +396,53 @@ export function UniverseDetailView({ universe }: UniverseDetailViewProps) {
                 );
               })}
             </div>
+          </section>
+
+          {/* SECTION FONCTIONNELLE SPÉCIFIQUE À L'UNIVERS */}
+          <section id="module-interactif" style={{ marginBottom: "5rem" }}>
+            {universe.slug === "adp-brief" && (
+              <div>
+                <div style={{ marginBottom: "2rem" }}>
+                  <span style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--accent-brass)" }}>
+                    Parcours Interactif
+                  </span>
+                  <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800, marginTop: "0.35rem", color: "var(--text-primary)" }}>
+                    Collecte &amp; Cadrage Évolutif de Votre Demande
+                  </h2>
+                </div>
+                <BriefUniversalIntake />
+              </div>
+            )}
+
+            {universe.slug === "adp-project" && (
+              <div>
+                <ProjectPrestationsView />
+              </div>
+            )}
+
+            {universe.slug === "adp-lab" && (
+              <div>
+                <LabResearchView />
+              </div>
+            )}
+
+            {universe.slug === "adp-academy" && (
+              <div>
+                <AcademyTrainingView />
+              </div>
+            )}
+
+            {universe.slug === "adp-tools" && (
+              <div>
+                <ToolsCatalogView />
+              </div>
+            )}
+
+            {universe.slug === "rosbri-design" && (
+              <div>
+                <RosbriCatalogView />
+              </div>
+            )}
           </section>
 
           {/* SECTION LIVRABLES */}

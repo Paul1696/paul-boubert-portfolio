@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Calendar, GitBranch, Layers, Mail, MapPin, Sparkles, User, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Calendar, MapPin, Sparkles, User } from "lucide-react";
 import { FULL_PORTFOLIO_REFERENCES } from "@/data/all-projects";
 import { PROJECTS_MEDIA } from "@/data/media-manifest";
+import PaulSidebar from "@/components/paul/PaulSidebar";
+import paulStyles from "@/styles/paul-portfolio.module.css";
 import styles from "./case-study.module.css";
 import ProjectGallery from "./ProjectGallery";
 
@@ -96,19 +98,9 @@ export default async function PersonalCaseStudy({ params }: PageProps) {
   const next = projectIndex < editorialSlugs.length - 1 ? FULL_PORTFOLIO_REFERENCES.find((item) => item.slug === editorialSlugs[projectIndex + 1]) : undefined;
 
   return (
-    <div className={styles.shell}>
-      <aside className={styles.sidebar} aria-label="Navigation du portfolio personnel">
-        <Link href="/paul" className={styles.brand}><span>PB</span><strong>Paul Boubert</strong><small>Architecte de formation<br />Projeteur BIM</small></Link>
-        <nav className={styles.sideNav}>
-          <Link href="/paul" className={styles.activeNav}><Layers size={17} />Portfolio</Link>
-          <Link href="/paul#profil"><User size={17} />Profil</Link>
-          <Link href="/paul#transversal"><Sparkles size={17} />Projets transversaux</Link>
-          <Link href="/paul#parcours"><GitBranch size={17} />Parcours</Link>
-          <Link href="/paul#competences"><Wrench size={17} />Compétences</Link>
-          <Link href="/paul#contact"><Mail size={17} />Contact</Link>
-        </nav>
-      </aside>
-      <main className={styles.page}>
+    <div className={paulStyles.pageWrapper}>
+      <PaulSidebar activeTab="portfolio" />
+      <main className={`${paulStyles.mainContent} ${styles.page}`}>
         <nav className={styles.topbar} aria-label="Fil d’Ariane">
           <Link href="/paul" className={styles.back}><ArrowLeft size={16} /> Tous les projets</Link>
           <span>Portfolio / {project.title}</span>

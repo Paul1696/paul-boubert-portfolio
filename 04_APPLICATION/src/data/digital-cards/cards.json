@@ -76,5 +76,50 @@
       "printBatValidated": true,
       "printBatDate": "2026-11-21"
     }
+  },
+  {
+    "id": "card-scbtp-0002-1795500880321",
+    "publicId": "scbtp-0002",
+    "companyName": "Société Camerounaise de BTP",
+    "activity": "Génie Civil & Bâtiment",
+    "slogan": "Construire durablement le Cameroun",
+    "contactName": "Ing. Jean-Paul Mbarga",
+    "contactRole": "Directeur Général Adjoint",
+    "phones": [
+      "+237 699 11 22 33",
+      "+237 233 42 10 00"
+    ],
+    "primaryPhone": "+237 699 11 22 33",
+    "whatsappPhone": "237699112233",
+    "email": "jp.mbarga@scbtp.cm",
+    "address": "Boulevard de la Liberté, Akwa",
+    "city": "Douala",
+    "country": "Cameroun",
+    "googleMapsUrl": "https://maps.google.com/?q=Akwa+Douala+Cameroun",
+    "branding": {
+      "primaryColor": "#0D5C3A",
+      "accentYellow": "#F5B700",
+      "accentRed": "#D62828",
+      "backgroundColor": "#F8FAF8",
+      "textColor": "#1C2D24"
+    },
+    "products": [
+      {
+        "id": "btp-gros-oeuvre",
+        "name": "Ouvrages d'Art & Gros Œuvre",
+        "category": "Génie Civil",
+        "description": "Infrastructures routières, ponts, voiries et terrassements certifiés."
+      },
+      {
+        "id": "btp-batiment",
+        "name": "Bâtiments Tertiaires & Résidentiels",
+        "category": "Construction",
+        "description": "Construction clé en main de sièges sociaux, immeubles R+ et villas haut standing."
+      }
+    ],
+    "status": "active",
+    "createdAt": "2026-11-24T06:14:40.321Z",
+    "updatedAt": "2026-11-24T15:33:18.896Z",
+    "version": 2
   }
 ]

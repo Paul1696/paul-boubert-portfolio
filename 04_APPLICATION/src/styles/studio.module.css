@@ -1,0 +1,774 @@
+/* ==============================================================================
+   ADP STUDIO — STYLES COMMERCIAUX & CATALOGUE INTERACTIF 2026
+   Direction Artistique : Or chaud (#C59B53), Cuivre satiné (#F3A66D), Fond sombre (#0E131A)
+   ============================================================================== */
+
+.studioWrapper {
+  min-height: 100vh;
+  background-color: #0E131A;
+  color: #EBE3DB;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.heroSection {
+  position: relative;
+  padding: 5rem 1.5rem 3.5rem;
+  background: radial-gradient(circle at 50% 20%, rgba(197, 155, 83, 0.12) 0%, rgba(14, 19, 26, 0.95) 75%);
+  border-bottom: 1px solid rgba(197, 155, 83, 0.2);
+  text-align: center;
+}
+
+.heroWatermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  letter-spacing: 0.1em;
+  user-select: none;
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.poleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(197, 155, 83, 0.15);
+  border: 1px solid rgba(197, 155, 83, 0.35);
+  border-radius: 9999px;
+  color: #C59B53;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.heroTitleGradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #C59B53 60%, #F3A66D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: #A3B1C2;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  background-color: #C59B53;
+  color: #11161F;
+  border: 1px solid #C59B53;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  background-color: #D6AB60;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 155, 83, 0.3);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  border: 1px solid #334050;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #C59B53;
+}
+
+/* --- STATS BAR --- */
+.statsBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1140px;
+  margin: -1.5rem auto 3rem;
+  padding: 1.25rem 2rem;
+  background-color: #161D26;
+  border: 1px solid rgba(197, 155, 83, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 3;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #C59B53;
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: #8E9AA8;
+  margin-top: 0.3rem;
+}
+
+/* --- FEATURED BANNER : ADP DIGITAL CARDS --- */
+.featuredDigitalCards {
+  max-width: 1140px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.digitalCardsCard {
+  background: linear-gradient(135deg, rgba(13, 92, 58, 0.2) 0%, rgba(22, 29, 38, 0.95) 60%);
+  border: 1px solid rgba(13, 92, 58, 0.4);
+  border-radius: 12px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 860px) {
+  .digitalCardsCard {
+    grid-template-columns: 1.4fr 1fr;
+    padding: 2.5rem 3rem;
+  }
+}
+
+.digitalCardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 3px 10px;
+  background-color: rgba(13, 92, 58, 0.35);
+  border: 1px solid #0D5C3A;
+  color: #4ECA8E;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.digitalCardTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+}
+
+.digitalCardText {
+  font-size: 0.9rem;
+  color: #A3B1C2;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.digitalCardPreviewBox {
+  background-color: #11161F;
+  border: 1px solid #222C38;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.digitalCardUrlTag {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #C59B53;
+  background-color: rgba(197, 155, 83, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+/* --- SECTION CATALOGUE INTERACTIF --- */
+.catalogSection {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.95rem;
+  color: #8E9AA8;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* FILTRES & RECHERCHE */
+.controlsBar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.searchAndSortRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: #C59B53;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8E9AA8;
+  pointer-events: none;
+}
+
+.sortSelect {
+  padding: 0.8rem 1rem;
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* FAMILY TABS */
+.familyTabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.familyTabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 6px;
+  color: #8E9AA8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.familyTabBtn:hover {
+  color: #FFFFFF;
+  border-color: #334050;
+}
+
+.familyTabBtnActive {
+  background-color: rgba(197, 155, 83, 0.15);
+  border-color: #C59B53;
+  color: #C59B53;
+}
+
+/* GRILLE DES PRODUITS */
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CARTE PRODUIT */
+.productCard {
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 155, 83, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.productCardHeader {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, #11161F 0%, #1A222D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #222C38;
+}
+
+.productBadgeStack {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.popularBadge {
+  background-color: #C59B53;
+  color: #11161F;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.newBadge {
+  background-color: #0D5C3A;
+  color: #4ECA8E;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.productCardBody {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.productCategoryLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #C59B53;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.productName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.productSubtitle {
+  font-size: 0.8rem;
+  color: #8E9AA8;
+  margin: 0 0 0.85rem;
+  line-height: 1.4;
+}
+
+.productHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.highlightItem {
+  font-size: 0.78rem;
+  color: #C2CEDA;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.4;
+}
+
+.highlightDot {
+  color: #C59B53;
+  font-weight: 800;
+}
+
+.productCardFooter {
+  padding-top: 1rem;
+  border-top: 1px solid #222C38;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.pricingNotice {
+  font-size: 0.75rem;
+  color: #8E9AA8;
+  font-style: italic;
+}
+
+.viewProductBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(197, 155, 83, 0.15);
+  border: 1px solid #C59B53;
+  color: #C59B53;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.viewProductBtn:hover {
+  background-color: #C59B53;
+  color: #11161F;
+}
+
+/* --- ATELIER DE FAÇONNAGE & FINITIONS --- */
+.workshopSection {
+  background-color: #11161F;
+  border-top: 1px solid #222C38;
+  border-bottom: 1px solid #222C38;
+  padding: 5rem 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.workshopContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.workshopGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.workshopCard {
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.workshopCard:hover {
+  border-color: #C59B53;
+}
+
+.workshopIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.workshopTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+}
+
+.workshopDesc {
+  font-size: 0.82rem;
+  color: #8E9AA8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- CALL TO ACTION DEVIS --- */
+.ctaBannerSection {
+  max-width: 1140px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #161D26 0%, #1F2834 100%);
+  border: 1px solid rgba(197, 155, 83, 0.4);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ctaTitle {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem;
+}
+
+.ctaText {
+  font-size: 0.95rem;
+  color: #A3B1C2;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* --- FICHE PRODUIT DÉTAILLÉE --- */
+.detailContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #8E9AA8;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: #8E9AA8;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #C59B53;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 960px) {
+  .detailGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detailMediaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainMediaBox {
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.specsBox {
+  background-color: #161D26;
+  border: 1px solid #222C38;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.specsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #C59B53;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.5rem;
+}
+
+.specKey {
+  color: #8E9AA8;
+}
+
+.specVal {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* CONFIGURATEUR INTERACTIF */
+.configuratorBox {
+  background-color: #161D26;
+  border: 1px solid rgba(197, 155, 83, 0.35);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.configGroup {
+  margin-bottom: 1.5rem;
+}
+
+.configGroupLabel {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #C59B53;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pillsGroup {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pillBtn {
+  padding: 0.5rem 0.9rem;
+  background-color: #11161F;
+  border: 1px solid #222C38;
+  border-radius: 6px;
+  color: #C2CEDA;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pillBtn:hover {
+  border-color: #334050;
+  color: #FFFFFF;
+}
+
+.pillBtnActive {
+  background-color: rgba(197, 155, 83, 0.2);
+  border-color: #C59B53;
+  color: #C59B53;
+}
+
+.configSummary {
+  background-color: #11161F;
+  border: 1px solid #222C38;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.82rem;
+  color: #8E9AA8;
+}
+
+.configSummaryTitle {
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}

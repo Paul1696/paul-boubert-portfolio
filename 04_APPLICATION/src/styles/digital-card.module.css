@@ -1,6 +1,7 @@
 /* ==============================================================================
-   ADP DIGITAL CARDS — FEUILLE DE STYLE MOBILE FIRST & ÉLÉGANTE
+   ADP DIGITAL CARDS — FEUILLE DE STYLE RESPONSIVE MULTI-ÉCRANS
    Conforme aux directives ETS TIFO : Vert dominant, accents Jaune/Rouge, fond clair
+   3 mises en page dédiées : Mobile (verticale), Tablette (2 colonnes compactes), Ordinateur (page large architecturée)
    ============================================================================== */
 
 .cardViewport {
@@ -10,22 +11,24 @@
   justify-content: center;
   align-items: flex-start;
   background-color: #f1f5f3;
-  padding: clamp(0.75rem, 2vw, 2rem) 1rem 3rem;
+  padding: clamp(0.75rem, 2.5vw, 2.5rem) 1rem 4rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #10261c;
   box-sizing: border-box;
 }
 
+/* Conteneur principal adaptatif */
 .cardContainer {
   width: 100%;
-  max-width: 460px;
+  max-width: 460px; /* Base Mobile */
   background-color: #ffffff;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(13, 92, 58, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 48px rgba(13, 92, 58, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
   border: 1px solid #e3ede7;
   display: flex;
   flex-direction: column;
+  transition: max-width 0.3s ease;
 }
 
 /* En-tête bannière architecturale & corporate */
@@ -38,10 +41,36 @@
   overflow: hidden;
 }
 
+/* Ruban tricolore Cameroun / Identité ETS TIFO */
+.tricolorRibbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  display: flex;
+  z-index: 5;
+}
+
+.ribbonGreen {
+  flex: 1;
+  background-color: #0d5c3a;
+}
+
+.ribbonYellow {
+  flex: 1;
+  background-color: #f5b700;
+}
+
+.ribbonRed {
+  flex: 1;
+  background-color: #d62828;
+}
+
 .cardBannerPattern {
   position: absolute;
   inset: 0;
-  opacity: 0.07;
+  opacity: 0.08;
   background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
   background-size: 16px 16px;
   pointer-events: none;
@@ -55,8 +84,8 @@
 
 /* Monogramme / Logo authentique ETS TIFO */
 .companyLogoBox {
-  width: 82px;
-  height: 82px;
+  width: 84px;
+  height: 84px;
   background-color: #ffffff;
   border-radius: 20px;
   display: flex;
@@ -70,7 +99,7 @@
 
 .logoMonogram {
   font-family: "Century", Georgia, serif;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: #0d5c3a;
   letter-spacing: -0.02em;
@@ -89,7 +118,7 @@
 .companyName {
   margin: 0;
   font-family: "Century", Georgia, serif;
-  font-size: 1.65rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 800;
   letter-spacing: 0.02em;
   color: #ffffff;
@@ -98,27 +127,25 @@
 
 .activityBadge {
   display: inline-block;
-  margin: 0.45rem auto 0;
-  padding: 0.25rem 0.85rem;
+  margin: 0.5rem auto 0;
+  padding: 0.3rem 0.95rem;
   background: rgba(245, 183, 0, 0.2);
   border: 1px solid rgba(245, 183, 0, 0.45);
   border-radius: 999px;
   color: #f5b700;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .sloganText {
-  margin: 0.85rem 0 0;
-  font-size: 0.84rem;
+  margin: 0.85rem auto 0;
+  font-size: 0.88rem;
   color: #d1eadb;
   line-height: 1.45;
   font-style: italic;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 420px;
 }
 
 /* Corps de la carte */
@@ -127,6 +154,28 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+}
+
+/* Grille multi-colonnes pour Desktop & Tablette */
+.responsiveGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 /* Identité du contact */
@@ -138,7 +187,7 @@
 
 .contactRole {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -149,7 +198,7 @@
 .contactName {
   margin: 0;
   font-family: "Century", Georgia, serif;
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 800;
   color: #082417;
   letter-spacing: -0.01em;
@@ -225,12 +274,12 @@
   color: #ffffff;
 }
 
-/* Section Coordonnées & Téléphones */
+/* Sections encadrées */
 .sectionCard {
   background-color: #f8faf8;
   border: 1px solid #e7eee9;
   border-radius: 16px;
-  padding: 1.15rem 1.25rem;
+  padding: 1.25rem 1.35rem;
 }
 
 .sectionHeader {
@@ -242,7 +291,7 @@
 
 .sectionTitle {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -259,19 +308,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.55rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   background: #ffffff;
   border: 1px solid #e1ebe4;
   border-radius: 10px;
   text-decoration: none;
   color: #082417;
   font-weight: 700;
-  font-size: 0.9rem;
-  transition: border-color 0.2s ease;
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .phoneRow:hover {
   border-color: #0d5c3a;
+  transform: translateX(2px);
 }
 
 .phoneLabel {
@@ -283,22 +333,22 @@
 /* Section Localisation & Google Maps */
 .locationText {
   margin: 0 0 0.85rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: #233b2e;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .mapsBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1.15rem;
   background-color: #ffffff;
   border: 1px solid #0d5c3a;
   border-radius: 10px;
   color: #0d5c3a;
   text-decoration: none;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
   transition: all 0.2s ease;
 }
@@ -308,43 +358,72 @@
   color: #ffffff;
 }
 
-/* Grille des produits */
+/* Grille des produits & réalisations */
 .productsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
 
 .productCard {
   background: #ffffff;
   border: 1px solid #e3eee6;
   border-radius: 12px;
-  padding: 0.85rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(13, 92, 58, 0.08);
+  border-color: #b9d8c6;
 }
 
 .productTag {
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   color: #0d5c3a;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .productName {
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #082417;
 }
 
 .productDesc {
-  margin: 0.35rem 0 0;
-  font-size: 0.72rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
   color: #556b5f;
-  line-height: 1.35;
+  line-height: 1.45;
+}
+
+/* Section Engagements & Garanties */
+.commitmentsCard {
+  background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%);
+  border: 1px solid #c7e3d2;
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+}
+
+.commitmentItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: #233b2e;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+
+.commitmentItem:last-child {
+  margin-bottom: 0;
 }
 
 /* Section QR Code définitif imprimable */
@@ -352,7 +431,7 @@
   background: linear-gradient(180deg, #f8faf8 0%, #eef5f0 100%);
   border: 1px dashed #b7d6c3;
   border-radius: 18px;
-  padding: 1.25rem;
+  padding: 1.35rem;
   text-align: center;
 }
 
@@ -368,14 +447,15 @@
 
 .qrCodeUrlBadge {
   font-family: monospace;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: #0d5c3a;
   background: rgba(13, 92, 58, 0.08);
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 6px;
   display: inline-block;
   margin-top: 0.4rem;
   word-break: break-all;
+  font-weight: 700;
 }
 
 .qrActions {
@@ -383,14 +463,15 @@
   justify-content: center;
   gap: 0.65rem;
   margin-top: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .qrDownloadBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.72rem;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #082417;
   background: #ffffff;
@@ -398,23 +479,25 @@
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .qrDownloadBtn:hover {
   border-color: #0d5c3a;
   color: #0d5c3a;
+  background-color: #f5fbf7;
 }
 
 /* Pied de page & signature */
 .cardFooter {
-  padding: 1.25rem 1.5rem;
+  padding: 1.35rem 1.5rem;
   background-color: #f8faf8;
   border-top: 1px solid #edf4ef;
   text-align: center;
 }
 
 .poweredText {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   color: #64748b;
   margin: 0;
 }
@@ -427,4 +510,123 @@
 
 .poweredLink:hover {
   text-decoration: underline;
+}
+
+/* ==============================================================================
+   RESPONSIVE : TABLETTE (641px à 1024px)
+   ============================================================================== */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cardContainer {
+    max-width: 760px;
+    border-radius: 28px;
+  }
+
+  .cardBanner {
+    padding: 2.75rem 2.5rem 2.25rem;
+  }
+
+  .cardBody {
+    padding: 2.25rem 2rem 2.5rem;
+  }
+
+  .responsiveGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================================================================
+   RESPONSIVE : ORDINATEUR / DESKTOP (> 1024px)
+   Ne s'affiche plus comme une carte mobile centrée, mais comme une page d'entreprise complète
+   ============================================================================== */
+@media (min-width: 1025px) {
+  .cardViewport {
+    padding: 2.5rem 2rem 5rem;
+  }
+
+  .cardContainer {
+    max-width: 1140px;
+    border-radius: 32px;
+  }
+
+  .cardBanner {
+    padding: 3.5rem 3.5rem 3rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: left;
+  }
+
+  .brandBadgeRow {
+    margin-bottom: 0;
+  }
+
+  .companyLogoBox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logoMonogram {
+    font-size: 1.85rem;
+  }
+
+  .companyName {
+    font-size: 2.6rem;
+  }
+
+  .sloganText {
+    margin: 0.65rem 0 0;
+    max-width: 600px;
+    font-size: 0.95rem;
+  }
+
+  .bannerRightBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .cardBody {
+    padding: 3rem 3.5rem 3.5rem;
+  }
+
+  .responsiveGrid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .leftColumn {
+    gap: 1.75rem;
+  }
+
+  .rightColumn {
+    gap: 2rem;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .productCard {
+    padding: 1.25rem;
+  }
+
+  .productName {
+    font-size: 1.05rem;
+  }
+
+  .productDesc {
+    font-size: 0.82rem;
+  }
 }

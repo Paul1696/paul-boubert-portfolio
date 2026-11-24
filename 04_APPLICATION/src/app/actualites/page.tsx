@@ -1,6 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
 import { getPublishedArticles } from "@/data/articles";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import ActualitesClientView from "./ActualitesClientView";
 
 export const metadata: Metadata = {
@@ -19,13 +21,16 @@ export default function ActualitesPage() {
   const articles = getPublishedArticles();
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "var(--color-bg, #F9F8F5)", paddingBottom: "5rem" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "var(--color-bg, #F9F8F5)" }}>
+      <SiteHeader />
+
       {/* Hero header */}
       <section
         style={{
-          padding: "5rem 1.5rem 3.5rem",
+          padding: "4rem 1.5rem 3rem",
           maxWidth: "1280px",
           margin: "0 auto",
+          width: "100%",
           borderBottom: "1px solid rgba(194, 155, 56, 0.2)",
         }}
       >
@@ -69,9 +74,11 @@ export default function ActualitesPage() {
       </section>
 
       {/* Client view with filters, search, and articles list */}
-      <main style={{ maxWidth: "1280px", margin: "0 auto", padding: "3rem 1.5rem" }}>
+      <main style={{ maxWidth: "1280px", margin: "0 auto", padding: "3rem 1.5rem", width: "100%", flex: 1 }}>
         <ActualitesClientView initialArticles={articles} />
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
