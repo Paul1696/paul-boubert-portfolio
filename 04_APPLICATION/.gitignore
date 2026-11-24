@@ -43,6 +43,8 @@ yarn-error.log*
 next-env.d.ts
 
 # logs & sensitive dynamic data
+src/data/*-log.json
+*-log.json
 src/data/quotes-log.json
 quotes-log.json
 src/data/orders-log.json
