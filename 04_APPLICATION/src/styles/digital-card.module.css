@@ -1,509 +1,968 @@
 /* ==============================================================================
-   ADP DIGITAL CARDS — FEUILLE DE STYLE RESPONSIVE MULTI-ÉCRANS
-   Conforme aux directives ETS TIFO : Vert dominant, accents Jaune/Rouge, fond clair
-   3 mises en page dédiées : Mobile (verticale), Tablette (2 colonnes compactes), Ordinateur (page large architecturée)
+   ADP DIGITAL CARDS — VITRINE ÉDITORIALE & COMMERCIALE HAUT DE GAMME
+   3 compositions dédiées : Mobile (<= 640px), Tablette (641-1024px), Desktop (>= 1025px)
    ============================================================================== */
 
 .cardViewport {
+  --card-primary: #0d5c3a;
+  --card-primary-dark: #073b24;
+  --card-primary-soft: rgba(13, 92, 58, 0.06);
+  --card-border-fine: rgba(13, 92, 58, 0.12);
+  --card-yellow: #f5b700;
+  --card-red: #d62828;
+  --card-ink: #0d1f17;
+  --card-ink-muted: #495e53;
+  --card-surface: #ffffff;
+  --card-ivory: #fafbf9;
+
   min-height: 100vh;
   min-height: 100dvh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #f1f5f3;
-  padding: clamp(0.75rem, 2.5vw, 2.5rem) 1rem 4rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #10261c;
+  background-color: #f4f5f1;
+  background-image: radial-gradient(circle at 15% 0%, rgba(13, 92, 58, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(245, 183, 0, 0.05) 0%, transparent 40%);
+  padding: clamp(0.6rem, 2.2vw, 2.5rem) clamp(0.6rem, 2vw, 2rem) 3.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--card-ink);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.cardViewport *,
+.cardViewport *::before,
+.cardViewport *::after {
   box-sizing: border-box;
 }
 
-/* Conteneur principal adaptatif */
+.cardViewport a:focus-visible,
+.cardViewport button:focus-visible {
+  outline: 2px solid var(--card-primary);
+  outline-offset: 3px;
+}
+
 .cardContainer {
   width: 100%;
-  max-width: 460px; /* Base Mobile */
-  background-color: #ffffff;
-  border-radius: 24px;
+  max-width: 480px;
+  background-color: var(--card-surface);
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(13, 92, 58, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e3ede7;
+  box-shadow: 0 22px 60px rgba(9, 44, 28, 0.08), 0 2px 10px rgba(9, 44, 28, 0.03);
+  border: 1px solid rgba(13, 92, 58, 0.1);
   display: flex;
   flex-direction: column;
-  transition: max-width 0.3s ease;
+  animation: cardFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* En-tête bannière architecturale & corporate */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. BANDEAU SUPÉRIEUR DE MARQUE */
 .cardBanner {
   position: relative;
-  background: linear-gradient(135deg, #0a482d 0%, #0d5c3a 60%, #117349 100%);
-  padding: 2.25rem 1.5rem 2rem;
+  background: linear-gradient(132deg, var(--card-primary-dark) 0%, var(--card-primary) 62%, #116b44 100%);
   color: #ffffff;
-  text-align: center;
+  padding: 1.35rem 1.15rem 1.25rem;
   overflow: hidden;
 }
 
-/* Ruban tricolore Cameroun / Identité ETS TIFO */
 .tricolorRibbon {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 5px;
+  height: 4px;
   display: flex;
-  z-index: 5;
+  z-index: 4;
 }
 
 .ribbonGreen {
-  flex: 1;
-  background-color: #0d5c3a;
+  flex: 7.2;
+  background-color: #158050;
 }
 
 .ribbonYellow {
-  flex: 1;
-  background-color: #f5b700;
+  flex: 1.8;
+  background-color: var(--card-yellow);
 }
 
 .ribbonRed {
   flex: 1;
-  background-color: #d62828;
+  background-color: var(--card-red);
 }
 
 .cardBannerPattern {
   position: absolute;
   inset: 0;
-  opacity: 0.08;
-  background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
-  background-size: 16px 16px;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #ffffff 0px,
+    #ffffff 1px,
+    transparent 1px,
+    transparent 9px
+  );
   pointer-events: none;
 }
 
-.brandBadgeRow {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.15rem;
+.cardBannerGlow {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 183, 0, 0.16) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-/* Monogramme / Logo authentique ETS TIFO */
+.bannerInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brandMarkCol {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .companyLogoBox {
-  width: 84px;
-  height: 84px;
-  background-color: #ffffff;
-  border-radius: 20px;
+  width: 62px;
+  height: 62px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1.5px solid rgba(245, 183, 0, 0.7);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  border: 3px solid #f5b700;
-  position: relative;
+  overflow: hidden;
+  padding: 0.35rem;
+}
+
+.authenticLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .logoMonogram {
-  font-family: "Century", Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #0d5c3a;
-  letter-spacing: -0.02em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--card-primary);
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
-.logoSubtext {
-  font-size: 0.58rem;
-  font-weight: 800;
-  color: #d62828;
-  letter-spacing: 0.14em;
+.logoMonogramRule {
+  width: 22px;
+  height: 2px;
+  margin-top: 5px;
+  background: linear-gradient(90deg, var(--card-yellow) 0%, var(--card-yellow) 68%, var(--card-red) 68%, var(--card-red) 100%);
+  border-radius: 2px;
+}
+
+.provisionalMarkNote {
+  font-size: 0.56rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.76);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.15;
+  max-width: 82px;
+}
+
+.bannerTitleCol {
+  flex: 1;
+  min-width: 0;
+}
+
+.activityKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-yellow);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.kickerDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--card-yellow);
+  flex-shrink: 0;
 }
 
 .companyName {
   margin: 0;
-  font-family: "Century", Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.38rem, 4.5vw, 2.55rem);
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
   color: #ffffff;
-  line-height: 1.15;
-}
-
-.activityBadge {
-  display: inline-block;
-  margin: 0.5rem auto 0;
-  padding: 0.3rem 0.95rem;
-  background: rgba(245, 183, 0, 0.2);
-  border: 1px solid rgba(245, 183, 0, 0.45);
-  border-radius: 999px;
-  color: #f5b700;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  line-height: 1.12;
+  overflow-wrap: break-word;
 }
 
 .sloganText {
-  margin: 0.85rem auto 0;
-  font-size: 0.88rem;
-  color: #d1eadb;
-  line-height: 1.45;
-  font-style: italic;
-  max-width: 420px;
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.42;
+  max-width: 58ch;
 }
 
-/* Corps de la carte */
-.cardBody {
-  padding: 1.75rem 1.5rem 2rem;
+.bannerMetaCol {
+  display: none;
+}
+
+/* 2. ZONE D'IDENTITÉ DU RESPONSABLE & ACTIONS D'ACCÈS IMMÉDIAT */
+.executiveBar {
+  background-color: var(--card-ivory);
+  border-bottom: 1px solid var(--card-border-fine);
+  padding: 1.2rem 1.15rem 1.3rem;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 0.95rem;
 }
 
-/* Grille multi-colonnes pour Desktop & Tablette */
-.responsiveGrid {
+.executiveIdentity {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  width: 100%;
+  gap: 0.18rem;
 }
 
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-/* Identité du contact */
-.contactBlock {
-  text-align: center;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #edf4ef;
-}
-
-.contactRole {
-  display: block;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+.contactRoleTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0d5c3a;
-  margin-bottom: 0.35rem;
+  color: var(--card-primary);
+}
+
+.roleAccentBar {
+  width: 16px;
+  height: 2px;
+  background-color: var(--card-yellow);
+  display: inline-block;
 }
 
 .contactName {
   margin: 0;
-  font-family: "Century", Georgia, serif;
-  font-size: 1.65rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.32rem, 4vw, 1.8rem);
   font-weight: 800;
-  color: #082417;
+  color: var(--card-ink);
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
-/* Bouton principal Enregistrer le contact (VCF) */
-.saveContactBtn {
+.executiveQuickMeta {
+  margin-top: 0.18rem;
+  font-size: 0.81rem;
+  color: var(--card-ink-muted);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  width: 100%;
-  padding: 0.95rem 1.25rem;
-  background: linear-gradient(135deg, #0d5c3a 0%, #0a482d 100%);
-  color: #ffffff;
-  border: none;
-  border-radius: 14px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  gap: 0.35rem 0.75rem;
+}
+
+.metaInlineLink {
+  color: var(--card-ink);
+  font-weight: 600;
   text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(13, 92, 58, 0.28);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-sizing: border-box;
+  border-bottom: 1px solid rgba(13, 92, 58, 0.25);
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
-.saveContactBtn:hover,
-.saveContactBtn:active {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(13, 92, 58, 0.38);
+.metaInlineLink:hover {
+  color: var(--card-primary);
+  border-color: var(--card-primary);
 }
 
-/* Grille d'actions rapides (Appel, WhatsApp, Partager) */
-.quickActionsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
-
-.actionPillBtn {
+.actionsCluster {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.85rem 0.5rem;
-  border-radius: 14px;
-  text-decoration: none;
-  border: 1px solid #dce8e1;
-  background-color: #fafdfb;
-  color: #0d5c3a;
-  font-size: 0.74rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  gap: 0.6rem;
+  width: 100%;
 }
 
-.actionPillBtn:hover {
-  background-color: #eef7f2;
-  border-color: #0d5c3a;
+.primaryWhatsappCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 52px;
+  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  background-color: var(--card-primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--card-primary);
+  box-shadow: 0 8px 20px rgba(13, 92, 58, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.primaryWhatsappCta:hover {
+  background-color: var(--card-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(13, 92, 58, 0.26);
+}
+
+.whatsappLiveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.24);
+  flex-shrink: 0;
+}
+
+.saveVcardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.78rem 1.1rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: var(--card-primary);
+  border: 1.5px solid var(--card-primary);
+  text-decoration: none;
+  font-size: 0.89rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.saveVcardCta:hover {
+  background-color: var(--card-primary-soft);
   transform: translateY(-1px);
 }
 
-.whatsappBtn {
-  background-color: #f0faf4;
-  border-color: #25d366;
-  color: #128c7e;
+.secondaryActionsRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
 }
 
-.whatsappBtn:hover {
-  background-color: #25d366;
-  color: #ffffff;
+.secondaryActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  padding: 0.6rem 0.65rem;
+  border-radius: 11px;
+  background-color: #ffffff;
+  color: var(--card-ink);
+  border: 1px solid rgba(13, 92, 58, 0.2);
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Sections encadrées */
-.sectionCard {
-  background-color: #f8faf8;
-  border: 1px solid #e7eee9;
-  border-radius: 16px;
-  padding: 1.25rem 1.35rem;
+.secondaryActionBtn:hover {
+  border-color: var(--card-primary);
+  color: var(--card-primary);
+  background-color: #f6faf7;
 }
 
-.sectionHeader {
+.desktopShareBtn {
+  display: none;
+}
+
+/* 3. CORPS ÉDITORIAL & GALERIE COMMERCIALE */
+.editorialWorkspace {
+  padding: 1.45rem 1.15rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+
+.mainEditorialColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+  min-width: 0;
+}
+
+.sideAnchorColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.65rem;
+  min-width: 0;
+}
+
+.editorialSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.sectionEyebrowRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--card-border-fine);
+  flex-wrap: wrap;
+}
+
+.sectionEyebrowLeft {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.85rem;
+}
+
+.sectionIndexMark {
+  width: 20px;
+  height: 2px;
+  background-color: var(--card-primary);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sectionIndexMark::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6px;
+  height: 2px;
+  background-color: var(--card-yellow);
 }
 
 .sectionTitle {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: #0d5c3a;
+  color: var(--card-primary);
 }
 
-.phoneList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+.sectionCountBadge {
+  font-size: 0.71rem;
+  color: var(--card-ink-muted);
+  font-weight: 600;
 }
 
-.phoneRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.95rem;
-  background: #ffffff;
-  border: 1px solid #e1ebe4;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #082417;
-  font-weight: 700;
-  font-size: 0.92rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+.aboutLead {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: #1d3328;
+  max-width: 68ch;
 }
 
-.phoneRow:hover {
-  border-color: #0d5c3a;
-  transform: translateX(2px);
+.highlightsStrip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  padding-top: 0.25rem;
 }
 
-.phoneLabel {
-  font-size: 0.68rem;
-  color: #64748b;
-  font-weight: 500;
+.highlightItem {
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(13, 92, 58, 0.25);
+  transition: border-color 0.2s ease;
 }
 
-/* Section Localisation & Google Maps */
-.locationText {
-  margin: 0 0 0.85rem;
-  font-size: 0.92rem;
-  color: #233b2e;
-  line-height: 1.5;
+.highlightItem:hover {
+  border-left-color: var(--card-yellow);
 }
 
-.mapsBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.15rem;
-  background-color: #ffffff;
-  border: 1px solid #0d5c3a;
-  border-radius: 10px;
-  color: #0d5c3a;
-  text-decoration: none;
+.highlightTitle {
+  margin: 0 0 0.18rem;
   font-size: 0.85rem;
   font-weight: 700;
-  transition: all 0.2s ease;
+  color: var(--card-ink);
 }
 
-.mapsBtn:hover {
-  background-color: #0d5c3a;
-  color: #ffffff;
+.highlightDesc {
+  margin: 0;
+  font-size: 0.79rem;
+  line-height: 1.5;
+  color: var(--card-ink-muted);
 }
 
-/* Grille des produits & réalisations */
-.productsGrid {
+/* 4. GALERIE COMMERCIALE ILLUSTRÉE */
+.productsShowcaseGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
+  grid-template-columns: 1fr;
+  gap: 1.05rem;
 }
 
-.productCard {
-  background: #ffffff;
-  border: 1px solid #e3eee6;
-  border-radius: 12px;
+.specialtyCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 92, 58, 0.13);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.24s ease;
+}
+
+.specialtyCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(13, 92, 58, 0.09);
+  border-color: rgba(13, 92, 58, 0.34);
+}
+
+.specialtyVisualStage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  background: linear-gradient(145deg, #f3f6f3 0%, #e9efe9 100%);
+  border-bottom: 1px solid rgba(13, 92, 58, 0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.specialtyPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.specialtyPhotoLoaded {
+  opacity: 1;
+}
+
+.specialtyCard:hover .specialtyPhotoLoaded {
+  transform: scale(1.03);
+}
+
+.photoSkeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #edf2ee 25%, #f7faf7 50%, #edf2ee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.placeholderIllustrationWrap {
+  width: 100%;
+  height: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.productCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(13, 92, 58, 0.08);
-  border-color: #b9d8c6;
-}
-
-.productTag {
-  font-size: 0.65rem;
-  color: #0d5c3a;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
-}
-
-.productName {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #082417;
-}
-
-.productDesc {
-  margin: 0.4rem 0 0;
-  font-size: 0.78rem;
-  color: #556b5f;
-  line-height: 1.45;
-}
-
-/* Section Engagements & Garanties */
-.commitmentsCard {
-  background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%);
-  border: 1px solid #c7e3d2;
-  border-radius: 16px;
-  padding: 1.25rem 1.35rem;
-}
-
-.commitmentItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.85rem;
-  color: #233b2e;
-  line-height: 1.45;
-  margin-bottom: 0.65rem;
-}
-
-.commitmentItem:last-child {
-  margin-bottom: 0;
-}
-
-/* Section QR Code définitif imprimable */
-.qrCodeSection {
-  background: linear-gradient(180deg, #f8faf8 0%, #eef5f0 100%);
-  border: 1px dashed #b7d6c3;
-  border-radius: 18px;
-  padding: 1.35rem;
-  text-align: center;
-}
-
-.qrCodeFrame {
-  display: inline-block;
-  background: #ffffff;
-  padding: 12px;
-  border-radius: 14px;
-  border: 2px solid #0d5c3a;
-  box-shadow: 0 4px 12px rgba(13, 92, 58, 0.1);
-  margin: 0.75rem auto;
-}
-
-.qrCodeUrlBadge {
-  font-family: monospace;
-  font-size: 0.75rem;
-  color: #0d5c3a;
-  background: rgba(13, 92, 58, 0.08);
-  padding: 0.3rem 0.75rem;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 0.4rem;
-  word-break: break-all;
-  font-weight: 700;
-}
-
-.qrActions {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  margin-top: 0.85rem;
-  flex-wrap: wrap;
+  position: relative;
+  color: var(--card-primary);
 }
 
-.qrDownloadBtn {
+.placeholderSvg {
+  width: 66px;
+  height: 66px;
+  opacity: 0.86;
+  transition: transform 0.25s ease;
+}
+
+.specialtyCard:hover .placeholderSvg {
+  transform: scale(1.05);
+}
+
+.placeholderHonestBadge {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #3f574b;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.18rem 0.48rem;
+  border-radius: 6px;
+  border: 1px solid rgba(13, 92, 58, 0.14);
+}
+
+.categoryFloatingPill {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--card-primary);
+  background-color: rgba(255, 255, 255, 0.94);
+  padding: 0.22rem 0.52rem;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 92, 58, 0.14);
+}
+
+.galleryCountPill {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: rgba(13, 31, 23, 0.72);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.specialtyContent {
+  padding: 0.95rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+}
+
+.specialtyTitle {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--card-ink);
+  line-height: 1.25;
+}
+
+.specialtyDesc {
+  margin: 0;
+  font-size: 0.81rem;
+  color: var(--card-ink-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.specialtySpecs {
+  margin: 0.18rem 0 0;
+  padding-top: 0.48rem;
+  border-top: 1px solid rgba(13, 92, 58, 0.08);
+  font-size: 0.72rem;
+  color: #355244;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.specialtyFooter {
+  margin-top: 0.42rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem 0.6rem;
+}
+
+.openGalleryBtn,
+.directOrderLink {
+  white-space: nowrap;
+}
+
+.openGalleryBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.95rem;
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #082417;
-  background: #ffffff;
-  border: 1px solid #cbdcd1;
+  gap: 0.35rem;
+  padding: 0.42rem 0.7rem;
   border-radius: 8px;
-  text-decoration: none;
+  border: 1px solid rgba(13, 92, 58, 0.22);
+  background-color: var(--card-ivory);
+  color: var(--card-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-.qrDownloadBtn:hover {
-  border-color: #0d5c3a;
-  color: #0d5c3a;
-  background-color: #f5fbf7;
+.openGalleryBtn:hover {
+  background-color: var(--card-primary);
+  border-color: var(--card-primary);
+  color: #ffffff;
 }
 
-/* Pied de page & signature */
-.cardFooter {
-  padding: 1.35rem 1.5rem;
-  background-color: #f8faf8;
-  border-top: 1px solid #edf4ef;
+.directOrderLink {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--card-ink-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.18s ease;
+}
+
+.directOrderLink:hover {
+  color: var(--card-primary);
+}
+
+/* 5. COORDONNÉES, LOCALISATION, QR CODE & PARTAGE */
+.contactDetailsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.phoneLinesStack {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--card-border-fine);
+}
+
+.phoneLineItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.75rem 0.15rem;
+  border-bottom: 1px solid var(--card-border-fine);
+  text-decoration: none;
+  color: var(--card-ink);
+  transition: color 0.18s ease, padding-left 0.18s ease;
+}
+
+.phoneLineItem:hover {
+  color: var(--card-primary);
+  padding-left: 0.4rem;
+}
+
+.phoneNumberText {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.phoneRoleTag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--card-ink-muted);
+  background-color: var(--card-ivory);
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 92, 58, 0.12);
+  flex-shrink: 0;
+}
+
+.locationPanel {
+  padding: 0.95rem 1.05rem;
+  border-radius: 14px;
+  background-color: var(--card-ivory);
+  border: 1px solid var(--card-border-fine);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.locationAddress {
+  margin: 0;
+  font-size: 0.89rem;
+  line-height: 1.55;
+  color: var(--card-ink);
+}
+
+.locationCitySub {
+  display: block;
+  font-size: 0.79rem;
+  color: var(--card-ink-muted);
+  margin-top: 0.15rem;
+}
+
+.mapsRouteBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.58rem 0.95rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: var(--card-primary);
+  border: 1px solid rgba(13, 92, 58, 0.28);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.mapsRouteBtn:hover {
+  background-color: var(--card-primary);
+  border-color: var(--card-primary);
+  color: #ffffff;
+}
+
+.qrShowcaseCard {
+  padding: 1.2rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fafbf9 0%, #f1f5f1 100%);
+  border: 1px solid rgba(13, 92, 58, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 0.7rem;
+}
+
+.qrFrame {
+  position: relative;
+  width: 164px;
+  height: 164px;
+  padding: 10px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--card-primary);
+  box-shadow: 0 8px 20px rgba(13, 92, 58, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.permanentUrlPill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--card-primary);
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 92, 58, 0.16);
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+.qrCaption {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.45;
+  color: var(--card-ink-muted);
+  max-width: 34ch;
+}
+
+.qrUtilityActions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.utilityShareFullBtn {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.58rem 0.9rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 92, 58, 0.25);
+  color: var(--card-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+}
+
+.utilityShareFullBtn:hover {
+  border-color: var(--card-primary);
+  color: var(--card-primary);
+}
+
+.qrExportBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 38px;
+  padding: 0.42rem 0.6rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 92, 58, 0.16);
+  color: var(--card-ink-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.qrExportBtn:hover {
+  border-color: var(--card-primary);
+  color: var(--card-primary);
+}
+
+/* 6. PIED DE PAGE DISCRET ADP STUDIO */
+.cardFooter {
+  padding: 1.05rem 1.15rem;
+  background-color: var(--card-ivory);
+  border-top: 1px solid var(--card-border-fine);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem 1rem;
+  font-size: 0.73rem;
+  color: var(--card-ink-muted);
 }
 
 .poweredText {
-  font-size: 0.74rem;
-  color: #64748b;
   margin: 0;
 }
 
 .poweredLink {
-  color: #0d5c3a;
+  color: var(--card-primary);
   font-weight: 700;
   text-decoration: none;
 }
@@ -512,121 +971,330 @@
   text-decoration: underline;
 }
 
-/* ==============================================================================
-   RESPONSIVE : TABLETTE (641px à 1024px)
-   ============================================================================== */
+.immutableRefTag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.69rem;
+  color: var(--card-ink-muted);
+}
+
+/* 7. MODALE DE GALERIE DÉTAILLÉE */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background-color: rgba(8, 26, 18, 0.68);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalDialog {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(13, 92, 58, 0.2);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  padding: 1.15rem 1.35rem;
+  border-bottom: 1px solid var(--card-border-fine);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modalCloseBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border-fine);
+  background-color: var(--card-ivory);
+  color: var(--card-ink);
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modalCloseBtn:hover {
+  border-color: var(--card-primary);
+  color: var(--card-primary);
+}
+
+.modalBody {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.modalVisualHero {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f3f6f3 0%, #e8efe9 100%);
+  border: 1px solid rgba(13, 92, 58, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modalThumbsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.6rem;
+}
+
+.modalThumbBtn {
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #f3f6f3;
+}
+
+.modalThumbBtnActive {
+  border-color: var(--card-primary);
+}
+
+.modalThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modalPlaceholderNotice {
+  margin: 0;
+  padding: 0.75rem 0.95rem;
+  border-radius: 10px;
+  background-color: var(--card-ivory);
+  border-left: 3px solid var(--card-yellow);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--card-ink-muted);
+}
+
+/* 8. RESPONSIVE TABLETTE (641px à 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .cardContainer {
-    max-width: 760px;
+    max-width: 820px;
+    border-radius: 26px;
+  }
+
+  .cardBanner {
+    padding: 2rem 2rem 1.85rem;
+  }
+
+  .companyLogoBox {
+    width: 80px;
+    height: 80px;
+  }
+
+  .executiveBar {
+    padding: 1.5rem 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .actionsCluster {
+    width: auto;
+    min-width: 320px;
+  }
+
+  .editorialWorkspace {
+    padding: 2rem;
+  }
+
+  .highlightsStrip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .productsShowcaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .sideAnchorColumn {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border-fine);
+  }
+}
+
+/* 9. RESPONSIVE ORDINATEUR / DESKTOP (>= 1025px) */
+@media (min-width: 1025px) {
+  .cardViewport {
+    padding: 2.25rem 2rem 4.5rem;
+  }
+
+  .cardContainer {
+    max-width: 1220px;
     border-radius: 28px;
   }
 
   .cardBanner {
-    padding: 2.75rem 2.5rem 2.25rem;
+    padding: 2.65rem 3.25rem 2.45rem;
   }
 
-  .cardBody {
-    padding: 2.25rem 2rem 2.5rem;
-  }
-
-  .responsiveGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .productsGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==============================================================================
-   RESPONSIVE : ORDINATEUR / DESKTOP (> 1024px)
-   Ne s'affiche plus comme une carte mobile centrée, mais comme une page d'entreprise complète
-   ============================================================================== */
-@media (min-width: 1025px) {
-  .cardViewport {
-    padding: 2.5rem 2rem 5rem;
-  }
-
-  .cardContainer {
-    max-width: 1140px;
-    border-radius: 32px;
-  }
-
-  .cardBanner {
-    padding: 3.5rem 3.5rem 3rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 2.5rem;
-    text-align: left;
-  }
-
-  .brandBadgeRow {
-    margin-bottom: 0;
-  }
-
-  .companyLogoBox {
-    width: 100px;
-    height: 100px;
-  }
-
-  .logoMonogram {
-    font-size: 1.85rem;
-  }
-
-  .companyName {
-    font-size: 2.6rem;
-  }
-
-  .sloganText {
-    margin: 0.65rem 0 0;
-    max-width: 600px;
-    font-size: 0.95rem;
-  }
-
-  .bannerRightBadge {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-  }
-
-  .cardBody {
-    padding: 3rem 3.5rem 3.5rem;
-  }
-
-  .responsiveGrid {
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  .leftColumn {
-    gap: 1.75rem;
-  }
-
-  .rightColumn {
+  .bannerInner {
     gap: 2rem;
   }
 
-  .productsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .companyLogoBox {
+    width: 92px;
+    height: 92px;
+    border-radius: 20px;
   }
 
-  .productCard {
-    padding: 1.25rem;
+  .logoMonogram {
+    font-size: 1.65rem;
   }
 
-  .productName {
-    font-size: 1.05rem;
+  .sloganText {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
   }
 
-  .productDesc {
-    font-size: 0.82rem;
+  .bannerMetaCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.45rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bannerLocationPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .bannerCatalogAnchor {
+    color: var(--card-yellow);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .bannerCatalogAnchor:hover {
+    text-decoration: underline;
+  }
+
+  .executiveBar {
+    padding: 1.5rem 3.25rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .actionsCluster {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .primaryWhatsappCta,
+  .saveVcardCta {
+    min-height: 46px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.88rem;
+  }
+
+  .secondaryActionsRow {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .secondaryActionBtn {
+    min-height: 46px;
+    padding: 0.65rem 1rem;
+  }
+
+  .desktopShareBtn {
+    display: inline-flex;
+  }
+
+  .editorialWorkspace {
+    padding: 2.65rem 3.25rem 3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.95fr) minmax(310px, 0.95fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .sideAnchorColumn {
+    padding-left: 2.25rem;
+    border-left: 1px solid var(--card-border-fine);
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .highlightsStrip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .productsShowcaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .cardFooter {
+    padding: 1.25rem 3.25rem;
+  }
+}
+
+@media (min-width: 1260px) {
+  .productsShowcaseGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardContainer,
+  .photoSkeleton,
+  .specialtyCard,
+  .specialtyPhoto,
+  .primaryWhatsappCta,
+  .saveVcardCta {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }

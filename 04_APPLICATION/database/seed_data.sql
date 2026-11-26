@@ -16,50 +16,98 @@ ON CONFLICT (username) DO UPDATE SET
     role = EXCLUDED.role,
     updated_at = NOW();
 
--- 2. Entreprise et Carte Numérique Permanente ETS TIFO (tifo-0001)
+-- 2. Entreprise et Carte Numérique Permanente ETS TIFO (tifo-0001) + SCBTP (scbtp-0002)
 INSERT INTO companies (id, name, slug, activity, slogan, primary_color, accent_yellow, accent_red, logo_url)
 VALUES (
     'c1111111-1111-1111-1111-111111111111',
     'ETS TIFO',
     'ets-tifo',
-    'Matériaux de construction, quincaillerie générale et équipements professionnels',
-    'La référence des bâtisseurs au Cameroun',
+    'Habillement professionnel et promotionnel',
+    'Votre partenaire de référence en confection & personnalisation textile',
     '#0D5C3A',
     '#F5B700',
     '#D62828',
-    '/images/cards/tifo/logo.png'
+    NULL
 )
 ON CONFLICT (slug) DO UPDATE SET
     activity = EXCLUDED.activity,
     slogan = EXCLUDED.slogan;
 
-INSERT INTO digital_cards (id, public_id, company_id, company_name, status, card_type)
+INSERT INTO digital_cards (id, public_id, company_id, company_name, status, card_type, version, description, theme_json, socials_json, metadata_json)
 VALUES (
     'd1111111-1111-1111-1111-111111111111',
     'tifo-0001',
     'c1111111-1111-1111-1111-111111111111',
     'ETS TIFO',
     'active',
-    'premium_nfc'
+    'premium_nfc',
+    1,
+    'Spécialiste de la confection, broderie et sérigraphie d''habillements professionnels, tenues de travail et supports promotionnels textiles pour entreprises et particuliers à Douala et sur l''ensemble du territoire camerounais.',
+    '{"primaryColor":"#0D5C3A","accentYellow":"#F5B700","accentRed":"#D62828","backgroundColor":"#F8FAF8","textColor":"#0F241A","logoAlt":"Logo ETS TIFO — Habillement Professionnel","isTemporaryLogo":true}'::jsonb,
+    '{}'::jsonb,
+    '{"clientReference":"CLI-ETS-TIFO","adpOrderReference":"CMD-CARD-2026-001","printBatValidated":true,"printBatDate":"2026-11-21"}'::jsonb
 )
-ON CONFLICT (public_id) DO UPDATE SET
-    status = EXCLUDED.status;
+ON CONFLICT (public_id) DO NOTHING;
 
-INSERT INTO digital_card_profiles (card_id, contact_name, contact_role, phone_primary, phone_secondary, whatsapp_phone, email, address, city, country, google_maps_url)
+INSERT INTO digital_card_profiles (card_id, contact_name, contact_role, phone_primary, phone_secondary, whatsapp_phone, email, address, city, country, google_maps_url, products_catalog_json)
 VALUES (
     'd1111111-1111-1111-1111-111111111111',
-    'Direction Commerciale',
-    'Service Commercial & Logistique',
-    '+237 699 00 00 00',
-    '+237 677 00 00 00',
-    '+237 699 00 00 00',
-    'contact@etstifo.cm',
-    'Zone Industrielle Bassa',
+    'Geordan FOKAM FOTSO',
+    'Responsable',
+    '+237 698 02 83 56',
+    '+237 678 34 22 28',
+    '237698028356',
+    NULL,
+    'Carrefour Arno',
     'Douala',
     'Cameroun',
-    'https://maps.google.com/?q=Douala+Bassa'
+    'https://www.google.com/maps/search/?api=1&query=Carrefour+Arno%2C+Douala%2C+Cameroun',
+    '[{"id":"prod-tshirt","name":"T-shirts","category":"Textile promotionnel","description":"Col rond & V, 100% coton, grammage supérieur, sérigraphie & broderie haute tenue."},{"id":"prod-polo","name":"Polos","category":"Élégance corporate","description":"Maille piquée de qualité, finitions soignées, broderie de logo sur cœur et manches."},{"id":"prod-pull","name":"Pulls & Sweats","category":"Mi-saison & confort","description":"Pulls d''entreprise, sweats à capuche et gilets zippés personnalisés."},{"id":"prod-echarpe","name":"Écharpes","category":"Accessoires événementiels","description":"Écharpes de cérémonie, foulards d''accueil et accessoires d''uniforme d''entreprise."},{"id":"prod-casquette","name":"Casquettes","category":"Headwear & visibilité","description":"Casquettes 5 et 6 panneaux, visières renforcées, broderie 3D et flocage net."},{"id":"prod-jogging","name":"Joggings & Sportswear","category":"Tenues sport & détente","description":"Ensembles jogging, bas et vestes pour associations, clubs et événements d''entreprise."}]'::jsonb
 )
-ON CONFLICT DO NOTHING;
+ON CONFLICT (card_id) DO NOTHING;
+
+INSERT INTO companies (id, name, slug, activity, slogan, primary_color, accent_yellow, accent_red)
+VALUES (
+    'c2222222-2222-2222-2222-222222222222',
+    'Société Camerounaise de BTP',
+    'scbtp',
+    'Génie Civil & Bâtiment',
+    'Construire durablement le Cameroun',
+    '#0D5C3A',
+    '#F5B700',
+    '#D62828'
+)
+ON CONFLICT (slug) DO NOTHING;
+
+INSERT INTO digital_cards (id, public_id, company_id, company_name, status, card_type, version, theme_json)
+VALUES (
+    'd2222222-2222-2222-2222-222222222222',
+    'scbtp-0002',
+    'c2222222-2222-2222-2222-222222222222',
+    'Société Camerounaise de BTP',
+    'active',
+    'standard',
+    2,
+    '{"primaryColor":"#0D5C3A","accentYellow":"#F5B700","accentRed":"#D62828","backgroundColor":"#F8FAF8","textColor":"#1C2D24"}'::jsonb
+)
+ON CONFLICT (public_id) DO NOTHING;
+
+INSERT INTO digital_card_profiles (card_id, contact_name, contact_role, phone_primary, phone_secondary, whatsapp_phone, email, address, city, country, google_maps_url, products_catalog_json)
+VALUES (
+    'd2222222-2222-2222-2222-222222222222',
+    'Ing. Jean-Paul Mbarga',
+    'Directeur Général Adjoint',
+    '+237 699 11 22 33',
+    '+237 233 42 10 00',
+    '237699112233',
+    'jp.mbarga@scbtp.cm',
+    'Boulevard de la Liberté, Akwa',
+    'Douala',
+    'Cameroun',
+    'https://maps.google.com/?q=Akwa+Douala+Cameroun',
+    '[{"id":"btp-gros-oeuvre","name":"Ouvrages d''Art & Gros Œuvre","category":"Génie Civil","description":"Infrastructures routières, ponts, voiries et terrassements certifiés."},{"id":"btp-batiment","name":"Bâtiments Tertiaires & Résidentiels","category":"Construction","description":"Construction clé en main de sièges sociaux, immeubles R+ et villas haut standing."}]'::jsonb
+)
+ON CONFLICT (card_id) DO NOTHING;
 
 -- 3. Règles Tarifaires Transversales (PAO et Yaoundé identifiés comme indicatifs)
 INSERT INTO pricing_rules (rule_category, rule_key, label, price_xaf, status, notes)

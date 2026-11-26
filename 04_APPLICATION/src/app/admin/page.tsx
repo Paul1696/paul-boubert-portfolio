@@ -100,6 +100,8 @@ export default function AdminDashboardPage() {
   } | null>(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isCreatingCard, setIsCreatingCard] = useState(false);
+  const [editingCard, setEditingCard] = useState<DigitalCardData | null>(null);
+  const [isSavingCardEdit, setIsSavingCardEdit] = useState(false);
   const [newCardForm, setNewCardForm] = useState({
     publicId: "",
     companyName: "",
@@ -466,6 +468,65 @@ export default function AdminDashboardPage() {
       setActionNotice({ text: "Erreur réseau lors de la création de la carte.", isError: true });
     } finally {
       setIsCreatingCard(false);
+    }
+  };
+
+  // Save edited digital card (logo, presentation, and detailed product gallery)
+  const handleSaveEditedCard = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingCard) return;
+    setIsSavingCardEdit(true);
+    setActionNotice(null);
+
+    try {
+      const cleanLogoUrl = editingCard.branding?.logoUrl?.trim() || undefined;
+      const payload = {
+        companyName: editingCard.companyName,
+        activity: editingCard.activity,
+        slogan: editingCard.slogan,
+        description: editingCard.description,
+        contactName: editingCard.contactName,
+        contactRole: editingCard.contactRole,
+        primaryPhone: editingCard.primaryPhone,
+        whatsappPhone: editingCard.whatsappPhone,
+        phones: editingCard.phones,
+        email: editingCard.email,
+        address: editingCard.address,
+        city: editingCard.city,
+        country: editingCard.country,
+        googleMapsUrl: editingCard.googleMapsUrl,
+        branding: {
+          ...editingCard.branding,
+          logoUrl: cleanLogoUrl,
+          isTemporaryLogo: !cleanLogoUrl,
+        },
+        products: (editingCard.products || []).map((p) => ({
+          ...p,
+          image: p.image?.trim() || undefined,
+          specs: p.specs?.trim() || undefined,
+          gallery: (p.gallery || []).filter((g) => g.url && g.url.trim().length > 0),
+        })),
+      };
+
+      const res = await fetch(`/api/admin/cards/${editingCard.publicId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setEditingCard(null);
+        setActionNotice({
+          text: `Vitrine & galerie de ${editingCard.publicId} enregistrées avec succès (URL permanente inchangée).`,
+        });
+        loadCards();
+      } else {
+        setActionNotice({ text: data.error || "Erreur lors de l'enregistrement.", isError: true });
+      }
+    } catch {
+      setActionNotice({ text: "Erreur réseau lors de la sauvegarde de la fiche.", isError: true });
+    } finally {
+      setIsSavingCardEdit(false);
     }
   };
 
@@ -1383,6 +1444,22 @@ export default function AdminDashboardPage() {
 
                         <td style={{ padding: "1rem", textAlign: "right" }}>
                           <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.5rem", flexWrap: "wrap" }}>
+                            <button
+                              type="button"
+                              onClick={() => setEditingCard(JSON.parse(JSON.stringify(card)))}
+                              style={{
+                                padding: "4px 10px",
+                                backgroundColor: "rgba(197, 155, 83, 0.16)",
+                                border: "1px solid #C59B53",
+                                color: "#C59B53",
+                                borderRadius: "4px",
+                                fontSize: "0.75rem",
+                                fontWeight: 700,
+                                cursor: "pointer",
+                              }}
+                            >
+                              ✏️ Galerie &amp; Fiche
+                            </button>
                             <a
                               href={`/api/cards/${card.publicId}/qr?format=svg&download=1`}
                               download={`adp-qr-${card.publicId}.svg`}
@@ -1730,6 +1807,293 @@ export default function AdminDashboardPage() {
                     }}
                   >
                     {isCreatingCard ? "Création en cours..." : "Enregistrer & Attribuer la Carte →"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* MODAL: EDIT CARD & PRODUCT GALLERY */}
+        {editingCard && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.82)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+              zIndex: 9999,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#161D26",
+                borderRadius: "12px",
+                border: "1px solid rgba(197, 155, 83, 0.45)",
+                maxWidth: "860px",
+                width: "100%",
+                maxHeight: "90vh",
+                overflowY: "auto",
+                padding: "2rem",
+                boxShadow: "0 24px 60px rgba(0,0,0,0.65)",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.25rem" }}>
+                <div>
+                  <h2 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#FFFFFF", margin: 0 }}>
+                    Édition de la Vitrine &amp; Galerie Produits — {editingCard.companyName}
+                  </h2>
+                  <p style={{ fontSize: "0.78rem", color: "#8E9AA8", margin: "0.25rem 0 0" }}>
+                    Identifiant permanent verrouillé : <code style={{ color: "#C59B53" }}>/c/{editingCard.publicId}</code> (seuls des visuels authentiques autorisés doivent être renseignés)
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setEditingCard(null)}
+                  style={{ background: "none", border: "none", color: "#8E9AA8", fontSize: "1.25rem", cursor: "pointer" }}
+                >
+                  ✕
+                </button>
+              </div>
+
+              <form onSubmit={handleSaveEditedCard} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                  <div>
+                    <label style={{ display: "block", fontSize: "0.76rem", fontWeight: 700, color: "#C59B53", marginBottom: "0.3rem" }}>
+                      URL du Logo Officiel (remplace le monogramme provisoire)
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="https://... ou /assets/... (laisser vide = monogramme provisoire)"
+                      value={editingCard.branding?.logoUrl || ""}
+                      onChange={(e) =>
+                        setEditingCard({
+                          ...editingCard,
+                          branding: { ...editingCard.branding, logoUrl: e.target.value },
+                        })
+                      }
+                      style={{
+                        width: "100%",
+                        padding: "0.6rem 0.8rem",
+                        backgroundColor: "#11161F",
+                        border: "1px solid #334050",
+                        borderRadius: "6px",
+                        color: "#FFFFFF",
+                        fontSize: "0.84rem",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontSize: "0.76rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.3rem" }}>
+                      Slogan / Signature
+                    </label>
+                    <input
+                      type="text"
+                      value={editingCard.slogan || ""}
+                      onChange={(e) => setEditingCard({ ...editingCard, slogan: e.target.value })}
+                      style={{
+                        width: "100%",
+                        padding: "0.6rem 0.8rem",
+                        backgroundColor: "#11161F",
+                        border: "1px solid #334050",
+                        borderRadius: "6px",
+                        color: "#FFFFFF",
+                        fontSize: "0.84rem",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontSize: "0.76rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.3rem" }}>
+                    Présentation courte de l&apos;entreprise
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={editingCard.description || ""}
+                    onChange={(e) => setEditingCard({ ...editingCard, description: e.target.value })}
+                    style={{
+                      width: "100%",
+                      padding: "0.6rem 0.8rem",
+                      backgroundColor: "#11161F",
+                      border: "1px solid #334050",
+                      borderRadius: "6px",
+                      color: "#FFFFFF",
+                      fontSize: "0.84rem",
+                      fontFamily: "inherit",
+                    }}
+                  />
+                </div>
+
+                <div style={{ borderTop: "1px solid #222C38", paddingTop: "1rem" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem" }}>
+                    <strong style={{ color: "#C59B53", fontSize: "0.9rem" }}>
+                      Galerie Commerciale &amp; Spécialités ({(editingCard.products || []).length})
+                    </strong>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setEditingCard({
+                          ...editingCard,
+                          products: [
+                            ...(editingCard.products || []),
+                            {
+                              id: `prod-${Date.now()}`,
+                              name: "Nouvelle spécialité",
+                              category: "Spécialité",
+                              description: "",
+                              specs: "",
+                              image: "",
+                              gallery: [],
+                            },
+                          ],
+                        })
+                      }
+                      style={{
+                        padding: "5px 10px",
+                        backgroundColor: "#222C38",
+                        border: "1px solid #C59B53",
+                        color: "#C59B53",
+                        borderRadius: "5px",
+                        fontSize: "0.76rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                      }}
+                    >
+                      + Ajouter une spécialité
+                    </button>
+                  </div>
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+                    {(editingCard.products || []).map((prod, pIdx) => (
+                      <div
+                        key={prod.id || pIdx}
+                        style={{
+                          backgroundColor: "#11161F",
+                          border: "1px solid #283444",
+                          borderRadius: "8px",
+                          padding: "0.95rem",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.65rem",
+                        }}
+                      >
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: "0.65rem", alignItems: "center" }}>
+                          <input
+                            type="text"
+                            placeholder="Titre (ex: Polos)"
+                            value={prod.name}
+                            onChange={(e) => {
+                              const next = [...editingCard.products];
+                              next[pIdx] = { ...next[pIdx], name: e.target.value };
+                              setEditingCard({ ...editingCard, products: next });
+                            }}
+                            style={{ padding: "0.5rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #334050", borderRadius: "5px", color: "#FFFFFF", fontSize: "0.82rem" }}
+                          />
+                          <input
+                            type="text"
+                            placeholder="Catégorie"
+                            value={prod.category}
+                            onChange={(e) => {
+                              const next = [...editingCard.products];
+                              next[pIdx] = { ...next[pIdx], category: e.target.value };
+                              setEditingCard({ ...editingCard, products: next });
+                            }}
+                            style={{ padding: "0.5rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #334050", borderRadius: "5px", color: "#C59B53", fontSize: "0.82rem" }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const next = editingCard.products.filter((_, i) => i !== pIdx);
+                              setEditingCard({ ...editingCard, products: next });
+                            }}
+                            style={{ padding: "0.45rem 0.65rem", backgroundColor: "transparent", border: "1px solid #E05A47", color: "#E05A47", borderRadius: "5px", fontSize: "0.75rem", cursor: "pointer" }}
+                          >
+                            Retirer
+                          </button>
+                        </div>
+
+                        <input
+                          type="text"
+                          placeholder="Description courte"
+                          value={prod.description || ""}
+                          onChange={(e) => {
+                            const next = [...editingCard.products];
+                            next[pIdx] = { ...next[pIdx], description: e.target.value };
+                            setEditingCard({ ...editingCard, products: next });
+                          }}
+                          style={{ padding: "0.5rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #334050", borderRadius: "5px", color: "#D1C7BD", fontSize: "0.8rem" }}
+                        />
+
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.65rem" }}>
+                          <input
+                            type="text"
+                            placeholder="Spécifications (grammage, finition...)"
+                            value={prod.specs || ""}
+                            onChange={(e) => {
+                              const next = [...editingCard.products];
+                              next[pIdx] = { ...next[pIdx], specs: e.target.value };
+                              setEditingCard({ ...editingCard, products: next });
+                            }}
+                            style={{ padding: "0.5rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #334050", borderRadius: "5px", color: "#8E9AA8", fontSize: "0.78rem" }}
+                          />
+                          <input
+                            type="text"
+                            placeholder="Photographie principale autorisée (URL — vide = placeholder identifié)"
+                            value={prod.image || ""}
+                            onChange={(e) => {
+                              const next = [...editingCard.products];
+                              next[pIdx] = { ...next[pIdx], image: e.target.value };
+                              setEditingCard({ ...editingCard, products: next });
+                            }}
+                            style={{ padding: "0.5rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #334050", borderRadius: "5px", color: "#7DB9DC", fontSize: "0.78rem" }}
+                          />
+                        </div>
+
+                        <input
+                          type="text"
+                          placeholder="Galerie détaillée : URLs de photos séparées par des virgules"
+                          value={(prod.gallery || []).map((g) => g.url).join(", ")}
+                          onChange={(e) => {
+                            const urls = e.target.value
+                              .split(",")
+                              .map((u) => u.trim())
+                              .filter(Boolean);
+                            const next = [...editingCard.products];
+                            next[pIdx] = {
+                              ...next[pIdx],
+                              gallery: urls.map((url, idx) => ({
+                                id: `${prod.id}-g-${idx}`,
+                                url,
+                                caption: `${prod.name} — Visuel ${idx + 1}`,
+                              })),
+                            };
+                            setEditingCard({ ...editingCard, products: next });
+                          }}
+                          style={{ padding: "0.45rem 0.65rem", backgroundColor: "#161D26", border: "1px solid #2A3646", borderRadius: "5px", color: "#8E9AA8", fontSize: "0.76rem" }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.85rem", marginTop: "0.5rem" }}>
+                  <button
+                    type="button"
+                    onClick={() => setEditingCard(null)}
+                    style={{ padding: "0.7rem 1.2rem", backgroundColor: "transparent", border: "1px solid #334050", color: "#8E9AA8", borderRadius: "6px", fontSize: "0.84rem", cursor: "pointer" }}
+                  >
+                    Annuler
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSavingCardEdit}
+                    style={{ padding: "0.7rem 1.45rem", backgroundColor: "#C59B53", color: "#11161F", border: "none", borderRadius: "6px", fontWeight: 700, fontSize: "0.84rem", cursor: isSavingCardEdit ? "wait" : "pointer" }}
+                  >
+                    {isSavingCardEdit ? "Enregistrement..." : "Enregistrer la Vitrine & Galerie →"}
                   </button>
                 </div>
               </form>

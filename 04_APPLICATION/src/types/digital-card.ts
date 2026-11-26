@@ -1,12 +1,27 @@
 export type CardStatus = "active" | "suspended" | "draft" | "archived";
 
+export interface CardProductGalleryImage {
+  id: string;
+  url: string;
+  caption?: string;
+}
+
 export interface CardProductItem {
   id: string;
   name: string;
   description?: string;
   category: string;
+  specs?: string;
   icon?: string;
   image?: string;
+  imageAlt?: string;
+  gallery?: CardProductGalleryImage[];
+}
+
+export interface CardHighlightItem {
+  id: string;
+  title: string;
+  description: string;
 }
 
 export interface CardSocialLinks {
@@ -45,6 +60,7 @@ export interface DigitalCardData {
     bannerUrl?: string;
   };
   products: CardProductItem[];
+  highlights?: CardHighlightItem[];
   socials?: CardSocialLinks;
   description?: string;
   status: CardStatus;
@@ -56,6 +72,7 @@ export interface DigitalCardData {
     adpOrderReference?: string;
     printBatValidated?: boolean;
     printBatDate?: string;
+    verifiedCertificationLabel?: string;
   };
 }
 

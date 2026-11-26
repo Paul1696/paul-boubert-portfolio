@@ -23,7 +23,7 @@
       "accentRed": "#D62828",
       "backgroundColor": "#F8FAF8",
       "textColor": "#0F241A",
-      "logoAlt": "Logo ETS TIFO — Habillement Professionnel",
+      "logoAlt": "Monogramme provisoire ETS TIFO",
       "isTemporaryLogo": true
     },
     "description": "Spécialiste de la confection, broderie et sérigraphie d'habillements professionnels, tenues de travail et supports promotionnels textiles pour entreprises et particuliers à Douala et sur l'ensemble du territoire camerounais.",
@@ -32,44 +32,73 @@
         "id": "prod-tshirt",
         "name": "T-shirts",
         "category": "Textile promotionnel",
-        "description": "Col rond & V, 100% coton, grammage supérieur, sérigraphie & broderie haute tenue."
+        "specs": "Coton peigné 180g – 200g · Col rond & col V · Sérigraphie HD & flocage",
+        "description": "Col rond & V, 100% coton, grammage supérieur, sérigraphie & broderie haute tenue.",
+        "gallery": []
       },
       {
         "id": "prod-polo",
         "name": "Polos",
         "category": "Élégance corporate",
-        "description": "Maille piquée de qualité, finitions soignées, broderie de logo sur cœur et manches."
+        "specs": "Maille piquée 220g · Coupe homme & dame · Broderie cœur, manches & dos",
+        "description": "Maille piquée de qualité, finitions soignées, broderie de logo sur cœur et manches.",
+        "gallery": []
       },
       {
         "id": "prod-pull",
         "name": "Pulls & Sweats",
         "category": "Mi-saison & confort",
-        "description": "Pulls d'entreprise, sweats à capuche et gilets zippés personnalisés."
+        "specs": "Molleton gratté dense · Col rond, capuche ou zippé · Marquage durable",
+        "description": "Pulls d'entreprise, sweats à capuche et gilets zippés personnalisés.",
+        "gallery": []
       },
       {
         "id": "prod-echarpe",
         "name": "Écharpes",
         "category": "Accessoires événementiels",
-        "description": "Écharpes de cérémonie, foulards d'accueil et accessoires d'uniforme d'entreprise."
+        "specs": "Tissage soigné & finitions frangées ou ourlées · Couleurs institutionnelles",
+        "description": "Écharpes de cérémonie, foulards d'accueil et accessoires d'uniforme d'entreprise.",
+        "gallery": []
       },
       {
         "id": "prod-casquette",
         "name": "Casquettes",
         "category": "Headwear & visibilité",
-        "description": "Casquettes 5 et 6 panneaux, visières renforcées, broderie 3D et flocage net."
+        "specs": "5 & 6 panneaux structurés · Visière courbée renforcée · Broderie relief 3D",
+        "description": "Casquettes 5 et 6 panneaux, visières renforcées, broderie 3D et flocage net.",
+        "gallery": []
       },
       {
         "id": "prod-jogging",
         "name": "Joggings & Sportswear",
         "category": "Tenues sport & détente",
-        "description": "Ensembles jogging, bas et vestes pour associations, clubs et événements d'entreprise."
+        "specs": "Ensembles veste + pantalon · Maille respirante · Numérotation & écussons",
+        "description": "Ensembles jogging, bas et vestes pour associations, clubs et événements d'entreprise.",
+        "gallery": []
+      }
+    ],
+    "highlights": [
+      {
+        "id": "hl-marquage",
+        "title": "Sérigraphie & Broderie Haute Tenue",
+        "description": "Encres professionnelles résistantes aux lavages intensifs et fils de broderie indélébiles."
+      },
+      {
+        "id": "hl-matieres",
+        "title": "Étoffes & Grammages Sélectionnés",
+        "description": "Cotons peignés 180g à 220g, mailles piquées robustes et molletons adaptés aux usages corporate."
+      },
+      {
+        "id": "hl-logistique",
+        "title": "Séries PME, Clubs & Institutions",
+        "description": "Confection sur commande à Douala (Carrefour Arno) et expédition suivie dans tout le Cameroun."
       }
     ],
     "socials": {},
     "status": "active",
     "createdAt": "2026-11-21T18:00:00Z",
-    "updatedAt": "2026-11-21T18:00:00Z",
-    "version": 1,
+    "updatedAt": "2026-11-25T13:55:00Z",
+    "version": 2,
     "metadata": {
       "clientReference": "CLI-ETS-TIFO",
       "adpOrderReference": "CMD-CARD-2026-001",

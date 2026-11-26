@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorizedAdminRequest } from "@/lib/admin-auth";
-import { getDatabaseStatus, getActivityLogs, testPostgresConnection } from "@/lib/db-adapter";
+import { getLiveDatabaseStatus, getActivityLogs } from "@/lib/db-adapter";
 
 export async function GET(request: NextRequest) {
   const isAuth = await isAuthorizedAdminRequest(request);
@@ -8,11 +8,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
 
-  const dbStatus = getDatabaseStatus();
-  const connectionTest = await testPostgresConnection();
-  dbStatus.connectionTest = connectionTest;
-
-  const recentLogs = getActivityLogs(20);
+  const dbStatus = await getLiveDatabaseStatus();
+  const recentLogs = await getActivityLogs(20);
 
   return NextResponse.json({
     success: true,
